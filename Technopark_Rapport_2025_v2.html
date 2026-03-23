@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Technopark — Rapport Annuel 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --navy:#1B2A4A;--navy-light:#2D4A7A;--coral:#D85A30;--coral-light:#F0997B;--coral-bg:#FAECE7;
+  --purple:#534AB7;--purple-light:#AFA9EC;--purple-bg:#EEEDFE;
+  --teal:#0F6E56;--teal-light:#5DCAA5;--teal-bg:#E1F5EE;
+  --amber:#BA7517;--amber-bg:#FAEEDA;--blue:#185FA5;--blue-bg:#E6F1FB;
+  --gray-50:#F8F7F5;--gray-100:#EEEDE8;--gray-200:#D3D1C7;
+  --gray-500:#888780;--gray-700:#444441;--gray-900:#1A1A18;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
+.page{width:210mm;min-height:297mm;margin:0 auto 20px;background:#fff;padding:20mm;page-break-after:always;position:relative;overflow:hidden}
+@media print{body{background:#fff}.page{margin:0;page-break-after:always}}
+.accent-bar{width:60px;height:4px;background:linear-gradient(90deg,var(--navy),var(--coral));margin-bottom:18px}
+.page-header{display:flex;justify-content:space-between;font-size:7.5pt;color:var(--gray-500);letter-spacing:.03em;border-bottom:1px solid var(--gray-100);padding-bottom:8px;margin-bottom:20px}
+.page-num{position:absolute;bottom:12mm;right:20mm;font-size:8pt;color:var(--gray-500);font-weight:500}
+h1{font-size:22pt;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:20px}
+h2{font-size:16pt;font-weight:600;color:var(--navy);border-bottom:2px solid var(--coral);padding-bottom:6px;margin:22px 0 14px}
+h3{font-size:12pt;font-weight:600;color:var(--navy-light);margin:16px 0 8px}
+p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var(--gray-900)}
+.caption{font-size:8pt;color:var(--gray-500);text-align:center;font-style:italic;margin-top:5px}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.kpi-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:10px;padding:16px 18px;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:10px 0 0 10px}
+.kpi-card.purple::before{background:var(--purple)}.kpi-card.coral::before{background:var(--coral)}
+.kpi-card.teal::before{background:var(--teal)}.kpi-card.blue::before{background:var(--blue)}
+.kpi-value{font-size:26pt;font-weight:700;line-height:1.1;color:var(--navy)}
+.kpi-card.purple .kpi-value{color:var(--purple)}.kpi-card.coral .kpi-value{color:var(--coral)}
+.kpi-card.teal .kpi-value{color:var(--teal)}.kpi-card.blue .kpi-value{color:var(--blue)}
+.kpi-desc{font-size:8.5pt;font-weight:500;color:var(--gray-700);margin:3px 0 2px}
+.kpi-label{font-size:7pt;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em}
+.chapter-tag{font-size:7pt;font-weight:600;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px}
+.chapter-title{font-size:18pt;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:10px}
+.hl-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:0 8px 8px 0;padding:13px 15px;margin:14px 0}
+.hl-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.hl-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.hl-box p{margin-bottom:0}
+.rank-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin:14px 0}
+.rank-card{border-radius:10px;padding:14px 15px;border:1px solid var(--gray-100)}
+.rank-card.purple{background:var(--purple-bg);border-color:var(--purple-light)}
+.rank-card.blue{background:var(--blue-bg);border-color:#9BBFE0}
+.rank-card.amber{background:var(--amber-bg);border-color:#E8C67A}
+.rank-card.teal{background:var(--teal-bg);border-color:var(--teal-light)}
+.rank-card.coral{background:var(--coral-bg);border-color:var(--coral-light)}
+.rank-value{font-size:22pt;font-weight:700;line-height:1}
+.rank-card.purple .rank-value{color:var(--purple)}.rank-card.blue .rank-value{color:var(--blue)}
+.rank-card.amber .rank-value{color:var(--amber)}.rank-card.teal .rank-value{color:var(--teal)}
+.rank-card.coral .rank-value{color:var(--coral)}
+.rank-name{font-size:7.5pt;font-weight:600;color:var(--gray-700);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+.rank-desc{font-size:7.5pt;color:var(--gray-500);line-height:1.4;margin-top:3px}
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:14px 0}
+.role-card{background:var(--navy);color:#fff;border-radius:10px;padding:15px}
+.role-icon{font-size:16pt;margin-bottom:6px}
+.role-title{font-size:9pt;font-weight:600;margin-bottom:5px}
+.role-body{font-size:7.5pt;line-height:1.5;opacity:.85}
+.kpi-dash{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0}
+.kpi-mini{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:8px;padding:9px 11px;text-align:center}
+.kpi-mini-val{font-size:13pt;font-weight:700;color:var(--navy);line-height:1.1}
+.kpi-mini-lbl{font-size:6pt;color:var(--gray-500);text-transform:uppercase;letter-spacing:.03em;margin-top:3px;line-height:1.4}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:14px 0}
+.fact-box{border-radius:10px;padding:17px;color:#fff}
+.fact-box.navy{background:var(--navy)}.fact-box.coral{background:var(--coral)}
+.fact-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.fact-box p{font-size:8pt;color:rgba(255,255,255,.88);text-align:left;line-height:1.5;margin-bottom:5px}
+.photo-frame{border-radius:8px;overflow:hidden;border:1px solid var(--gray-100);background:var(--gray-50);margin:10px 0}
+.photo-frame img{width:100%;height:auto;display:block;object-fit:cover}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:14px}
+.col-text-photo{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:start}
+.donut-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:12px 0}
+.donut-box{display:flex;flex-direction:column;align-items:center}
+.donut-label{font-size:9pt;font-weight:600;color:var(--navy);margin-top:6px;text-align:center}
+.chart-wrap{position:relative;margin:12px 0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:7px;font-size:7.5pt;color:var(--gray-700)}
+.ldot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.lsq{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:middle}
+.dtable{width:100%;border-collapse:collapse;font-size:8.5pt;margin:10px 0}
+.dtable th{background:var(--navy);color:#fff;padding:7px 10px;font-weight:600;font-size:7.5pt;text-align:left}
+.dtable td{padding:6px 10px;border-bottom:1px solid var(--gray-100);line-height:1.4}
+.dtable tr:nth-child(even) td{background:var(--gray-50)}
+.sat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}
+.sat-site{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:8px;padding:9px;text-align:center}
+.sat-site-name{font-size:6.5pt;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px}
+.sat-site-val{font-size:15pt;font-weight:700;color:var(--teal)}
+.sat-site-lbl{font-size:6pt;color:var(--gray-500);margin-top:2px}
+.badge{border-radius:20px;padding:5px 14px;font-size:8pt;font-weight:600;display:inline-block}
+.callout-row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.ref-table{width:100%;border-collapse:collapse;font-size:8pt;margin:6px 0}
+.ref-table td{padding:5px 8px;border-bottom:1px solid var(--gray-100)}
+.ref-table td:first-child{font-weight:600;color:var(--navy)}
+.ref-table td:last-child{color:var(--gray-500);font-size:7.5pt}
+.site-badge{display:inline-block;background:var(--navy);color:#fff;font-size:6pt;font-weight:600;padding:2px 7px;border-radius:10px;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — SOMMAIRE EXÉCUTIF -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Sommaire Exécutif</span></div>
+  <h1>Sommaire Exécutif</h1>
+  <div class="kpi-grid">
+    <div class="kpi-card purple"><div class="kpi-value">90%</div><div class="kpi-desc">Taux de succès</div><div class="kpi-label">des startups accompagnées</div></div>
+    <div class="kpi-card coral"><div class="kpi-value">1,2 Md</div><div class="kpi-desc">Chiffre d'affaires annuel cumulé</div><div class="kpi-label">en dirhams — 2025</div></div>
+    <div class="kpi-card teal"><div class="kpi-value">35%</div><div class="kpi-desc">Taux d'export</div><div class="kpi-label">vers les marchés internationaux</div></div>
+    <div class="kpi-card blue"><div class="kpi-value">1 700</div><div class="kpi-desc">Emplois qualifiés créés</div><div class="kpi-label">sur l'année 2025</div></div>
+  </div>
+  <p>L'année 2025 s'inscrit comme une étape de consolidation pour le Technopark, marquée par le renforcement et la structuration de parcours d'accompagnement de qualité, destinés à soutenir le développement de startups à fort potentiel sur l'ensemble du territoire national.</p>
+  <p>Dans un environnement entrepreneurial en constante évolution, le Technopark a poursuivi en 2025 la structuration d'une offre d'accompagnement progressive et cohérente, couvrant les différentes phases du parcours entrepreneurial. L'accent a été mis sur la montée en qualité des dispositifs déployés, leur articulation autour de parcours clairs et leur adaptation aux besoins réels des startups, notamment en matière de structuration organisationnelle, de financement et de renforcement de la traction marché et du positionnement économique.</p>
+  <p>Les actions menées au cours de l'année ont permis d'améliorer l'encadrement des startups à fort potentiel et de renforcer leur capacité à franchir des seuils clés de croissance. Cette approche a favorisé une meilleure préparation aux exigences du marché, tout en consolidant les modèles économiques, les capacités opérationnelles et l'aptitude à se projeter sur des marchés élargis, tant au niveau national qu'international.</p>
+  <p>Les résultats enregistrés en 2025 témoignent de l'impact économique du Technopark et de la pertinence de son modèle d'accompagnement, avec : un taux de succès des startups accompagnées de 90 %, une génération d'un chiffre d'affaires annuel cumulé de 1,2 milliard de dirhams, un taux d'export de 35 %, traduisant l'ouverture croissante vers les marchés internationaux, et la création de 1 700 emplois qualifiés sur l'année 2025, confirmant la contribution du Technopark à la création de valeur et à l'emploi à forte valeur ajoutée.</p>
+  <p>Parallèlement, l'année 2025 a été marquée par la poursuite de la consolidation du réseau Technopark, avec la montée en régime des sites régionaux et le renforcement de l'accompagnement de proximité. Cette dynamique a permis d'élargir l'accès aux dispositifs d'appui, de renforcer l'ancrage territorial du Technopark et de favoriser l'émergence de projets innovants dans les différentes régions.</p>
+  <p>À travers ces réalisations, le Technopark confirme son rôle de plateforme nationale d'accompagnement des startups à fort potentiel, en mettant l'accent sur la qualité des parcours proposés, la performance économique des startups accompagnées et la création de valeur durable.</p>
+  <p>Cette orientation vise à soutenir l'émergence de champions nationaux de l'innovation, capables de se développer de manière pérenne, de créer de l'emploi qualifié et de contribuer activement au dynamisme et au rayonnement de l'écosystème entrepreneurial marocain.</p>
+  <div class="page-num">1</div>
+</div>
+
+<!-- PAGE 2 — CONTEXTE NATIONAL -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Contexte national</span></div>
+  <div style="margin-bottom:24px">
+    <div class="chapter-tag">Contexte national de la transformation numérique au Maroc</div>
+    <div class="chapter-title">Maroc Digital 2030 : un tournant structurant pour l'écosystème national des startups</div>
+  </div>
+  <p>La stratégie Maroc Digital 2030 constitue aujourd'hui le cadre structurant de l'ambition numérique du Royaume. En 2025, le Maroc franchit une nouvelle étape dans sa transformation digitale : au-delà d'une simple logique de transition, le numérique s'affirme comme un levier stratégique de compétitivité économique, d'amélioration de la qualité des services publics et de création de valeur.</p>
+  <p>Cette dynamique traduit la volonté de positionner le digital comme un moteur de modernisation de l'économie, de développement de nouveaux modèles d'affaires et d'élargissement des opportunités d'investissement et d'emploi, tout en facilitant l'accès des citoyens aux services publics.</p>
+  <p>La stratégie Maroc Digital 2030 repose sur une architecture claire et opérationnelle, structurée autour de deux axes stratégiques majeurs et portée par un dispositif de gouvernance dédié à assurer une mise en œuvre efficace et coordonnée des priorités nationales :</p>
+  <div class="two-col" style="margin-top:18px">
+    <div class="hl-box blue"><h3 style="margin-top:0;color:var(--blue)">Digitalisation des services publics</h3><p>Moderniser et rendre plus accessibles les services de l'État, en déployant des solutions numériques orientées usager à l'échelle nationale.</p></div>
+    <div class="hl-box teal"><h3 style="margin-top:0;color:var(--teal)">Dynamisation de l'économie numérique</h3><p>Développer et stimuler le secteur digital afin de créer de la richesse, des emplois et des solutions numériques locales.</p></div>
+  </div>
+  <div class="page-num">2</div>
+</div>
+
+<!-- PAGE 3 — MAROC DIGITAL 2030 DÉTAIL -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Maroc Digital 2030</span></div>
+  <h2>Maroc Digital 2030</h2>
+  <h3>Digitalisation des services publics</h3>
+  <p>En 2025, une dynamique majeure a été enclenchée pour rendre l'administration plus accessible, plus efficace et plus orientée usager. Le Maroc a désormais plus de 600 services publics digitalisés, dont 300 destinés aux citoyens, 200 aux entreprises et 100 aux administrations publiques, consolidés progressivement au sein du portail national « e-services ».</p>
+  <p>Cette avancée a été accompagnée d'une refonte complète des parcours administratifs, passant de la simple dématérialisation à une réingénierie des démarches de bout en bout, afin de réduire les délais, améliorer l'ergonomie des services et renforcer la transparence. Cette transformation contribue à l'ambition nationale de hisser le Maroc dans le Top 50 du classement EGDI des Nations unies à l'horizon 2030.</p>
+  <h3>Dynamisation de l'économie numérique</h3>
+  <p>La stratégie Maroc Digital 2030 a renforcé la dynamisation de l'économie numérique à travers le lancement d'initiatives structurantes dédiées à l'entrepreneuriat technologique. L'offre Startup Venture Building (VB) constitue le dispositif central d'accompagnement, avec l'ambition de soutenir plus de 800 startups innovantes sur trois ans, grâce à une enveloppe de plus de 700 millions de dirhams.</p>
+  <div class="page-num">3</div>
+</div>
+
+<!-- PAGE 4 — STARTUP VC + INTRO CLASSEMENTS -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Maroc Digital 2030</span></div>
+  <p>Mis en œuvre avec plusieurs opérateurs nationaux et internationaux, dont Technopark, ce programme propose un ensemble d'instruments financiers couvrant les différentes phases de développement des startups, de l'idéation à l'amorçage.</p>
+  <p>En complément, l'initiative Startup VC vise à structurer l'industrie nationale du capital-risque et à renforcer les capacités d'investissement dans les startups marocaines. Un mécanisme catalytique porté par le Ministère de la Transition Numérique, le Fonds Mohammed VI pour l'Investissement, la CDG et Tamwilcom permet de soutenir les sociétés de gestion de fonds à travers des mécanismes de partage du risque ou de co-investissement. Une sélection de neuf sociétés de gestion de fonds VC a été opérée en 2025 afin de financer les startups marocaines sur les segments pre-seed, seed et séries A, avec un potentiel d'investissement global estimé à près de 2,5 milliards de dirhams.</p>
+  <p>Ce dispositif vise à attirer des capitaux nationaux et internationaux et à créer un continuum de financement, allant de l'idéation jusqu'aux phases de croissance, afin de favoriser l'émergence de startups à fort potentiel et de positionner le Maroc comme hub régional de l'innovation et du capital-risque en Afrique.</p>
+  <p>Ces initiatives s'inscrivent dans une ambition plus large de renforcement des compétences numériques, avec l'objectif de former 100 000 talents par an d'ici 2030, et de création d'emplois dans les métiers du digital, la stratégie visant 240 000 emplois directs à l'horizon 2030. Parallèlement, les pouvoirs publics travaillent à la mise en place d'une Startup Policy nationale destinée à améliorer le cadre réglementaire, faciliter l'accès des startups aux marchés et promouvoir les solutions digitales « Made in Morocco ».</p>
+  <div style="margin:18px 0 14px">
+    <div class="chapter-tag">Classements internationaux</div>
+    <div class="chapter-title" style="font-size:14pt">Positionnement du Maroc dans les classements internationaux : crédibilité, progrès et confiance</div>
+  </div>
+  <p>En 2025, les principaux classements internationaux offrent une lecture utile du positionnement du Maroc dans l'économie numérique mondiale. Ils mettent en évidence des avancées notables en matière d'innovation et de confiance numérique, tout en soulignant les efforts à poursuivre pour consolider la compétitivité et l'impact économique du digital. Ces indicateurs permettent ainsi d'apprécier la trajectoire du Royaume dans un contexte marqué par la mise en œuvre de la stratégie Maroc Digital 2030.</p>
+  <div class="page-num">4</div>
+</div>
+
+<!-- PAGE 5 — GII + STARTUP ECOSYSTEM -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Classements internationaux</span></div>
+  <h2>Classements internationaux</h2>
+  <div class="rank-grid">
+    <div class="rank-card purple"><div class="rank-value">57<sup style="font-size:12pt">e</sup></div><div class="rank-name">Global Innovation Index</div><div class="rank-desc">Meilleur classement historique — progression depuis la 66e place en 2024 — sur 139 pays</div></div>
+    <div class="rank-card blue"><div class="rank-value">88<sup style="font-size:12pt">e</sup></div><div class="rank-name">Startup Ecosystem Index</div><div class="rank-desc">+4 places vs 2024 — Top 10 africain — croissance annuelle de 23,1 %</div></div>
+  </div>
+  <h3>Innovation : une progression qui renforce la crédibilité du Maroc</h3>
+  <p>Le Global Innovation Index (GII) constitue l'un des indicateurs de référence pour évaluer la capacité d'un pays à générer, absorber et diffuser l'innovation au sein de son économie. En 2025, le Maroc se positionne à la 57ᵉ place mondiale sur 139 pays, enregistrant ainsi son meilleur classement historique et une progression notable par rapport à 2024 (66ᵉ place).</p>
+  <p>Cette évolution traduit une dynamique positive de l'écosystème national de l'innovation, portée notamment par le développement de l'entrepreneuriat technologique, le renforcement des capacités en recherche et innovation et la montée en puissance des initiatives publiques en faveur de la transformation numérique. Elle contribue également à renforcer la crédibilité du Maroc auprès des investisseurs et partenaires internationaux, en signalant la consolidation progressive d'un environnement favorable à la création de valeur technologique et à l'émergence d'entreprises innovantes.</p>
+  <h3>Écosystème startup : une dynamique de croissance en consolidation</h3>
+  <p>Les données relatives à l'écosystème startup complètent les classements internationaux en rendant plus tangible la dynamique entrepreneuriale. Selon le Global Startup Ecosystem Index 2025 de StartupBlink, le Maroc se classe 88ᵉ mondial, en progression de quatre places par rapport à 2024, et figure désormais dans le Top 10 africain. L'écosystème enregistre par ailleurs une croissance annuelle estimée à 23,1 %, l'une des plus élevées d'Afrique du Nord.</p>
+  <p>Cette dynamique est portée principalement par Casablanca, qui s'affirme comme le principal hub entrepreneurial du pays, tandis que Rabat et d'autres territoires commencent à émerger progressivement. Cette évolution confirme le dynamisme entrepreneurial du Maroc, tout en soulignant la nécessité de poursuivre les efforts de structuration, de financement et d'accompagnement afin de soutenir durablement cette trajectoire de croissance.</p>
+  <div class="page-num">5</div>
+</div>
+
+<!-- PAGE 6 — NRI + CYBERSÉCURITÉ -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Classements internationaux</span></div>
+  <div class="rank-grid">
+    <div class="rank-card amber"><div class="rank-value">73<sup style="font-size:12pt">e</sup></div><div class="rank-name">Network Readiness Index</div><div class="rank-desc">Score global : 45,93 — sur 133 pays</div></div>
+    <div class="rank-card teal"><div class="rank-value">Tier 1</div><div class="rank-name">Global Cybersecurity Index</div><div class="rank-desc">Pays parmi les plus avancés au monde en cybersécurité — Union internationale des télécommunications</div></div>
+  </div>
+  <h3>Maturité digitale : une progression mesurée et des leviers d'accélération</h3>
+  <p>Le Network Readiness Index (NRI) évalue la capacité des pays à exploiter pleinement les technologies numériques à travers quatre dimensions clés : les infrastructures technologiques, la gouvernance, les compétences de la population et l'impact économique et sociétal du numérique. En 2025, le Maroc se classe 73ᵉ sur 133 pays, avec un score global de 45,93.</p>
+  <p>Ce positionnement traduit des avancées progressives dans le développement des infrastructures numériques et l'adoption croissante des usages digitaux. Il met toutefois en évidence des marges de progression importantes, notamment en matière de gouvernance digitale et de transformation du numérique en levier de productivité et de création de valeur. L'enjeu pour les prochaines années sera ainsi d'accélérer la conversion de la maturité technologique en impact économique tangible.</p>
+  <h3>Global Cybersecurity Index : un levier de confiance pour l'économie numérique</h3>
+  <p>En matière de confiance numérique, le Maroc se distingue par un positionnement particulièrement favorable. Selon le Global Cybersecurity Index de l'Union internationale des télécommunications (UIT), le Royaume est classé Tier 1, une catégorie réservée aux pays considérés comme les plus avancés au monde en matière de cybersécurité.</p>
+  <p>Ce classement constitue un atout stratégique pour l'attractivité de l'écosystème numérique marocain, en renforçant la confiance des investisseurs, des entreprises et des partenaires internationaux. Il représente également un avantage compétitif pour les startups et entreprises technologiques, notamment dans les secteurs sensibles où la protection des données, la sécurité des infrastructures et la fiabilité des systèmes sont des prérequis essentiels.</p>
+  <div class="page-num">6</div>
+</div>
+
+<!-- PAGE 7 — EGDI + TECHNOPARK PIVOT -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Classements internationaux</span></div>
+  <div class="rank-grid">
+    <div class="rank-card coral"><div class="rank-value">90<sup style="font-size:12pt">e</sup></div><div class="rank-name">E-Government Development Index</div><div class="rank-desc">Progression depuis 106e (2020) et 101e (2022) — sur 193 pays</div></div>
+  </div>
+  <h3>Gouvernement numérique : une trajectoire d'amélioration des services publics digitaux</h3>
+  <p>L'E-Government Development Index (EGDI) des Nations Unies évalue la maturité des administrations dans la fourniture de services publics numériques à travers trois dimensions : les services en ligne, les infrastructures télécoms et le capital humain. Dans l'édition 2024, le Maroc se classe 90ᵉ sur 193 pays, poursuivant une trajectoire d'amélioration après la 101ᵉ place en 2022 et la 106ᵉ en 2020.</p>
+  <p>Cette progression reflète les efforts engagés pour moderniser l'administration et élargir l'accès aux services publics numériques. Elle souligne toutefois l'importance de poursuivre la transformation des services publics vers des plateformes plus intégrées, interopérables et centrées sur l'usager, afin de renforcer l'efficacité de l'action publique et l'expérience des citoyens et des entreprises.</p>
+  <h2>Le Technopark : un acteur pivot dans la mise en œuvre de la trajectoire numérique nationale</h2>
+  <p>Les indicateurs internationaux témoignent d'un Maroc engagé dans une transformation numérique progressive, portée par des avancées en matière d'innovation, de confiance numérique et de structuration de l'écosystème entrepreneurial, avec un enjeu clé : convertir cette dynamique en valeur économique durable.</p>
+  <p>Dans ce contexte, le Technopark intervient comme un acteur opérationnel en traduisant ces ambitions sur le terrain. À l'interface entre politiques publiques, entrepreneurs et partenaires de l'innovation, il accompagne les startups, soutient l'émergence de projets innovants et renforce les dynamiques territoriales, contribuant ainsi au développement de l'économie numérique marocaine.</p>
+  <div class="role-grid">
+    <div class="role-card"><div class="role-icon">🚀</div><div class="role-title">Accélérateur de l'innovation et de l'entrepreneuriat technologique</div><div class="role-body">Faire émerger et accompagner les startups innovantes, en leur offrant un environnement propice au développement : incubation, mentorat, accès aux financements et connexion aux marchés.</div></div>
+    <div class="role-card"><div class="role-icon">🔗</div><div class="role-title">Plateforme de structuration de l'écosystème numérique</div><div class="role-body">Hub de convergence entre entrepreneurs, investisseurs, institutions publiques et partenaires technologiques pour structurer l'écosystème startup marocain.</div></div>
+    <div class="role-card"><div class="role-icon">📍</div><div class="role-title">Ancrage territorial de l'innovation et des dynamiques entrepreneuriales</div><div class="role-body">Diffuser l'innovation au-delà des grands centres économiques pour une transformation numérique plus inclusive et équilibrée.</div></div>
+  </div>
+  <div class="page-num">7</div>
+</div>
+
+<!-- PAGE 8 — PERFORMANCE + KPIs -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Technopark acteur pivot</span></div>
+  <p>À travers son réseau de sites et ses programmes d'accompagnement, le Technopark agit comme un hub de convergence entre entrepreneurs, investisseurs, institutions publiques et partenaires technologiques. Il contribue ainsi à structurer l'écosystème startup marocain, à renforcer les synergies entre acteurs et à soutenir l'émergence de filières technologiques à fort potentiel.</p>
+  <p>Présent dans plusieurs régions du Royaume, le Technopark participe à la diffusion de l'innovation au-delà des grands centres économiques. En accompagnant les entrepreneurs dans différents territoires et en développant des programmes régionaux, il favorise une transformation numérique plus inclusive et équilibrée, en ligne avec les ambitions nationales de développement territorial.</p>
+  <h2>Technopark 2025 : performance et impact</h2>
+  <p>En 2025, la performance du Technopark s'apprécie à travers des indicateurs clés traduisant l'ampleur de son impact sur l'écosystème : plus de 500 entreprises innovantes accompagnées, un taux de pérennité supérieur à 90 % et plus d'un tiers des startups positionnées à l'international. Ces résultats confirment sa capacité à structurer des projets innovants et à les transformer en entreprises compétitives, créatrices de valeur et d'emplois.</p>
+  <p>Cet impact s'appuie sur un dispositif d'accompagnement intégré, aligné sur les standards internationaux, couvrant l'ensemble de la chaîne de valeur — de l'idéation à l'internationalisation — incluant incubation, accélération, accès au financement et aux marchés.</p>
+  <p>Ce continuum contribue à renforcer la compétitivité des startups marocaines et à consolider un écosystème dynamique, ouvert et connecté.</p>
+  <h3>Quelques indicateurs clés de succès en 2025</h3>
+  <div class="kpi-dash">
+    <div class="kpi-mini"><div class="kpi-mini-val">6</div><div class="kpi-mini-lbl">Sites opérationnels</div></div>
+    <div class="kpi-mini"><div class="kpi-mini-val">500+</div><div class="kpi-mini-lbl">Entreprises accompagnées</div></div>
+    <div class="kpi-mini"><div class="kpi-mini-val">90%</div><div class="kpi-mini-lbl">Taux de pérennité</div></div>
+    <div class="kpi-mini"><div class="kpi-mini-val">1,2 Md</div><div class="kpi-mini-lbl">CA annuel cumulé (MAD)</div></div>
+  </div>
+  <div class="kpi-dash">
+    <div class="kpi-mini"><div class="kpi-mini-val">1 770</div><div class="kpi-mini-lbl">Emplois créés</div></div>
+    <div class="kpi-mini"><div class="kpi-mini-val">185 M</div><div class="kpi-mini-lbl">Levées de fonds (MAD)</div></div>
+    <div class="kpi-mini"><div class="kpi-mini-val">95%</div><div class="kpi-mini-lbl">Taux de satisfaction</div></div>
+    <div class="kpi-mini"><div class="kpi-mini-val">35%</div><div class="kpi-mini-lbl">Entreprises exportatrices</div></div>
+  </div>
+  <div class="page-num">8</div>
+</div>
+
+<!-- PAGE 9 — FAITS MARQUANTS INTRO -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Faits marquants</span></div>
+  <div style="margin-bottom:20px"><div class="chapter-tag">Faits marquants</div><div class="chapter-title">Faits Marquants 2025</div></div>
+  <p>Sous l'impulsion du Ministère de la Transition Numérique et de la Réforme de l'Administration (MTNRA) et dans le cadre de la mise en œuvre de la stratégie Maroc Digital 2030, le Technopark a engagé une transformation stratégique visant à consolider son positionnement en tant qu'acteur central et structurant de l'écosystème entrepreneurial national.</p>
+  <p>Cette évolution se traduit par le renforcement d'un accompagnement à forte valeur ajoutée, articulé autour de programmes structurés et de dispositifs intégrés couvrant l'incubation, l'accélération et le venture building, avec pour objectif de stimuler la création, soutenir la montée en puissance et accélérer l'internationalisation des startups marocaines.</p>
+  <p>L'année 2025 marque à cet égard une étape décisive, portée notamment par le lancement de deux initiatives structurantes :</p>
+  <div class="fact-grid">
+    <div class="fact-box navy"><div class="fact-title">Morocco Accelerator Program</div><p>Lancé par le Technopark et Plug and Play, avec le soutien du MTNRA, ce programme vise à accompagner des startups à fort potentiel dans leur phase d'accélération et de passage à l'échelle.</p></div>
+    <div class="fact-box coral"><div class="fact-title">Startups Venture Building</div><p>Dans le cadre de l'initiative nationale portée par le MTNRA et Tamwilcom, le Technopark a été sélectionné comme structure de déploiement des dispositifs d'incubation à l'échelle nationale.</p></div>
+  </div>
+  <div class="page-num">9</div>
+</div>
+
+<!-- PAGE 10 — MOROCCO ACCELERATOR -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Faits marquants</span></div>
+  <h2>Morocco Accelerator : un programme d'accélération pour propulser les startups marocaines à l'échelle internationale</h2>
+  <div class="col-text-photo">
+    <div>
+      <p>En juin 2025, le Technopark a lancé le Morocco Accelerator Program, un dispositif structurant dédié à l'accélération des startups à fort potentiel et à leur passage à l'échelle. Déployé en partenariat avec l'Accélérateur américain « Plug and Play » et avec le soutien du Ministère de la Transition Numérique et de la Réforme de l'Administration, ce programme s'inscrit dans la dynamique de renforcement des mécanismes d'accélération et d'internationalisation des startups marocaines.</p>
+      <p>Ce partenariat, conclu pour une durée de deux ans, prévoit le déploiement de quatre cohortes successives avec l'objectif d'accompagner près de 70 startups marocaines, y compris celles portées par la diaspora. Le programme vise à soutenir leur croissance en activant des leviers clés de développement : accès au marché, préparation à l'investissement, renforcement des compétences entrepreneuriales et connexion aux réseaux internationaux d'innovation, de grands comptes et d'investisseurs.</p>
+    </div>
+    <div>
+      <div class="photo-frame"><img src="Pictures/convention.png" alt="Cérémonie de lancement Morocco Accelerator Program"></div>
+      <div class="caption">Cérémonie de lancement du Morocco Accelerator Program, juin 2025</div>
+      <div class="photo-frame" style="margin-top:10px"><img src="Pictures/plugandplay.png" alt="Signature du partenariat Technopark x Plug and Play"></div>
+      <div class="caption">Signature du partenariat stratégique Technopark × Plug and Play</div>
+    </div>
+  </div>
+  <p>Aligné avec la vision de la stratégie Maroc Digital 2030, le Morocco Accelerator contribue à structurer un nouveau palier d'accompagnement pour les startups, orienté vers l'accélération de la croissance, l'ouverture à l'international et la création d'impacts économiques mesurables, consolidant ainsi le positionnement du Maroc comme hub régional de l'innovation numérique.</p>
+  <div class="page-num">10</div>
+</div>
+
+<!-- PAGE 11 — STARTUP VENTURE BUILDING -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Faits marquants</span></div>
+  <h2>Startup Venture Building : le Technopark, opérateur national pour le déploiement des programmes d'incubation</h2>
+  <div class="col-text-photo">
+    <div>
+      <p>En décembre 2025, le Technopark a été sélectionné dans le cadre de l'initiative nationale Startup Venture Building (SVB), une déclinaison opérationnelle de la stratégie Maroc Digital 2030 dédiée au renforcement de l'écosystème des startups. Cette sélection positionne le Technopark comme opérateur pour le déploiement de programmes d'incubation à l'échelle nationale.</p>
+    </div>
+    <div>
+      <div class="photo-frame"><img src="Pictures/startupventurebuilding.png" alt="Lancement Startup Venture Building"></div>
+      <div class="caption">Lancement de l'initiative nationale Startup Venture Building, décembre 2025</div>
+    </div>
+  </div>
+  <p>Déployée sur une période de trois ans, l'initiative vise l'accompagnement de 240 startups en phase d'incubation à travers un dispositif structuré fondé sur des processus de sélection rigoureux, un suivi renforcé et un déploiement coordonné à l'échelle nationale. Dans ce cadre, le Technopark contribue à structurer des parcours d'incubation permettant aux porteurs de projets de transformer leurs idées en startups viables, capables de franchir les premières étapes de validation de marché.</p>
+  <p>Ce programme constitue également un levier majeur de territorialisation de l'accompagnement entrepreneurial, en élargissant l'accès aux dispositifs d'incubation au-delà des principaux pôles urbains, en s'appuyant sur le réseau national du Technopark, et en structurant un pipeline de startups innovantes mieux préparées à accéder au marché, aux compétences clés et aux premiers financements.</p>
+  <div class="page-num">11</div>
+</div>
+
+<!-- PAGE 12 — INDICATEURS GLOBAUX : ENTREPRISES -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Indicateurs globaux d'activité</span></div>
+  <div style="margin-bottom:14px"><div class="chapter-tag">Indicateurs globaux d'activité</div><div class="chapter-title" style="font-size:15pt">Cartographie des entreprises résidentes</div></div>
+  <h3>Évolution des entreprises et start-ups au Technopark [2021–2025]</h3>
+  <div class="chart-wrap" style="height:230px"><canvas id="chartEntreprises"></canvas></div>
+  <div class="legend"><span><span class="lsq" style="background:#534AB7"></span>Nb entreprises</span><span><span class="lsq" style="background:#D85A30"></span>Start-ups (early stage)</span></div>
+  <p>Le Technopark enregistre une progression continue du nombre d'entreprises hébergées, illustrant à la fois la dynamique de développement de son réseau et son attractivité croissante auprès des entrepreneurs technologiques. Cette évolution s'inscrit pleinement dans une dynamique de structuration et de maturation de l'écosystème startup marocain à laquelle le Technopark contribue pleinement.</p>
+  <div class="page-num">12</div>
+</div>
+
+<!-- PAGE 13 — ENTRÉES / SORTIES -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Indicateurs globaux d'activité</span></div>
+  <p>En accueillant un nombre croissant d'entreprises et en maintenant une proportion significative de startups en phase early stage (moins de deux ans d'activité), il contribue à alimenter le pipeline entrepreneurial national, en favorisant l'émergence de startups à fort potentiel et le développement continu de solutions innovantes dans des secteurs stratégiques.</p>
+  <h3>Évolution des entrées / sorties [2021–2025]</h3>
+  <div class="chart-wrap" style="height:210px"><canvas id="chartEntreesSorties"></canvas></div>
+  <div class="legend"><span><span class="lsq" style="background:#0F6E56"></span>Entrées</span><span><span class="lsq" style="background:#D3D1C7"></span>Sorties</span><span style="font-weight:600;color:#D85A30;margin-left:8px">Taux de rotation : 38%</span></div>
+  <p>L'évolution des entrées et sorties d'entreprises entre 2021 et 2025 reflète la dynamique du réseau Technopark, caractérisée par une attractivité soutenue et un renouvellement continu du portefeuille d'entreprises. Cette dynamique s'inscrit dans un modèle structuré, où la durée d'hébergement est limitée à cinq ans, favorisant un cycle vertueux de renouvellement et d'optimisation des capacités d'accueil. Elle se traduit également par un niveau d'occupation élevé, avec des taux atteignant 100 % sur les sites de Casablanca, Rabat et Tanger, et une moyenne d'environ 70 % sur les autres sites, témoignant de l'attractivité du dispositif à l'échelle nationale.</p>
+  <p>En 2025, le réseau enregistre 156 nouvelles entrées contre 134 sorties, confirmant une dynamique positive et un taux de rotation global de 38 %. Ce taux traduit un renouvellement moyen du portefeuille sur un cycle d'environ 3 ans, illustrant un modèle entrepreneurial actif où l'arrivée régulière de nouveaux projets vient enrichir le vivier d'innovation, tandis que les sorties correspondent, pour une part significative, à des trajectoires de maturation, d'extension ou de redéploiement des entreprises.</p>
+  <p>Plus qu'un simple indicateur de flux, ce taux de rotation illustre la capacité du Technopark à maintenir un équilibre entre renouvellement entrepreneurial et consolidation du portefeuille, tout en accompagnant efficacement la montée en puissance des entreprises résidentes.</p>
+  <div class="page-num">13</div>
+</div>
+
+<!-- PAGE 14 — RÉPARTITION DIGITALES/STARTUPS -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Structure du portefeuille</span></div>
+  <h2>Structure du portefeuille</h2>
+  <h3>Répartition entreprises digitales / startups</h3>
+  <div class="donut-pair">
+    <div class="donut-box">
+      <div style="position:relative;height:180px;width:180px"><canvas id="donutDigStartup"></canvas></div>
+      <div class="donut-label">Composition du portefeuille</div>
+      <div class="legend" style="margin-top:8px;justify-content:center"><span><span class="ldot" style="background:#534AB7"></span>Startups 65%</span><span><span class="ldot" style="background:#F0997B"></span>Entreprises digitales 35%</span></div>
+    </div>
+    <div style="padding-top:10px">
+      <p>La répartition entre entreprises digitales et startups reflète l'équilibre structurant du modèle Technopark. Si les entreprises digitales constituent la majorité du portefeuille, assurant stabilité économique, ancrage marché et création d'emplois, la présence significative de startups traduit la capacité du Technopark à alimenter en continu le vivier d'innovation et à accompagner l'émergence de nouvelles générations d'entrepreneurs technologiques.</p>
+    </div>
+  </div>
+  <p>Toute entreprise digitale est éligible à l'intégration au Technopark. Toutefois, la distinction entre startups et TPE digitales s'inscrit dans une logique stratégique visant à structurer deux parcours d'accompagnement complémentaires et différenciés. D'une part, un parcours dédié aux startups, résolument orienté vers l'innovation, la validation de marché, l'accélération et la scalabilité. D'autre part, un parcours destiné aux TPE digitales, axé sur la structuration, le développement commercial, la consolidation des modèles économiques et le renforcement des capacités opérationnelles.</p>
+  <p>Cette différenciation traduit une volonté affirmée du Technopark de promouvoir davantage l'innovation et la scalabilité, en concentrant des dispositifs à forte intensité d'accompagnement sur les projets à fort potentiel de croissance, tout en assurant un socle solide de développement pour les entreprises digitales. Elle permet ainsi d'orchestrer un continuum de croissance, où les startups peuvent évoluer vers des structures plus matures, contribuant à la consolidation d'un tissu technologique national innovant, compétitif et durable.</p>
+  <h3>Définitions retenues par le Technopark pour la qualification</h3>
+  <div class="page-num">14</div>
+</div>
+
+<!-- PAGE 15 — MATURITÉ + DÉFINITIONS -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Structure du portefeuille</span></div>
+  <div class="hl-box blue" style="margin-bottom:10px"><p><strong>📌 Entreprise digitale :</strong> Une entreprise ou PME digitale est une entreprise qui s'appuie sur les technologies numériques pour créer, délivrer ou commercialiser sa proposition de valeur, souvent à travers des plateformes, des données ou des services en ligne.</p></div>
+  <div class="hl-box teal"><p><strong>🚀 Startup :</strong> Jeune entreprise innovante à fort potentiel de croissance, en phase de recherche et de validation de son modèle économique, souvent portée par une technologie disruptive ou une solution à fort impact.</p></div>
+  <h3>Répartition par niveau de maturité</h3>
+  <div class="donut-pair">
+    <div class="donut-box">
+      <div style="position:relative;height:170px;width:170px"><canvas id="donutMaturite"></canvas></div>
+      <div class="donut-label">Stades de maturité des startups</div>
+      <div class="legend" style="margin-top:8px;justify-content:center"><span><span class="ldot" style="background:#534AB7"></span>Startup-Start 62%</span><span><span class="ldot" style="background:#5DCAA5"></span>Startup-Accel 38%</span></div>
+    </div>
+    <div style="padding-top:10px">
+      <p>Dans la continuité de cette structuration du portefeuille, l'analyse par stades de maturité des startups met en évidence la fonction de progression portée par le modèle Technopark.</p>
+      <p>En 2025, la maturité des entreprises résidentes reflète un réseau qui fonctionne comme un véritable parcours de développement entrepreneurial, capable d'accueillir un flux continu de nouvelles structures tout en accompagnant leur évolution vers des stades plus avancés.</p>
+    </div>
+  </div>
+  <p>Le portefeuille demeure majoritairement composé de startups en phase d'amorçage (Startup-Start) représentant 62%, tandis que 38% évoluent déjà en phase d'accélération (Startup-Accel), traduisant la progression d'une partie des entreprises vers des niveaux de structuration plus avancés.</p>
+  <p>Cette progression repose sur un dispositif d'accompagnement structuré et complet, traduisant le déploiement de la feuille de route stratégique du Technopark, articulée autour d'une offre intégrée couvrant plusieurs leviers clés : le financement, les opportunités de marché, les réseaux, les talents, la formation et l'innovation.</p>
+  <div class="page-num">15</div>
+</div>
+
+<!-- PAGE 16 — SECTEURS -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Secteurs stratégiques</span></div>
+  <h2>Secteurs stratégiques</h2>
+  <div class="chart-wrap" style="height:330px"><canvas id="chartSecteurs"></canvas></div>
+  <p>La diversité des secteurs d'activité représentés au sein du Technopark reflète la richesse de l'écosystème numérique marocain. Cette cartographie offre une lecture globale des domaines d'intervention des entreprises, de leur niveau de maturité ainsi que des leviers susceptibles de soutenir leur croissance.</p>
+  <p>Le Technopark veille ainsi à maintenir un mix équilibré d'entreprises en termes de secteurs, de taille et de maturité, favorisant la diversité des expertises et constituant un levier essentiel de performance et d'innovation au sein de l'écosystème.</p>
+  <p>En 2025, la structuration sectorielle et technologique du portefeuille se renforce, en cohérence avec les orientations stratégiques du Technopark. Les critères de sélection, centrés sur le potentiel d'innovation, favorisent l'intégration de startups positionnées sur des technologies de pointe telles que l'intelligence artificielle, le Big Data, l'IoT ou encore le cloud.</p>
+  <div class="page-num">16</div>
+</div>
+
+<!-- PAGE 17 — TECHNOLOGIES -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Répartition par technologie</span></div>
+  <h2>Répartition par technologie</h2>
+  <div class="callout-row">
+    <span class="badge" style="background:#FAECE7;border:1px solid #F0997B;color:#D85A30">IA : 119 → 203 (+70%)</span>
+    <span class="badge" style="background:#EEEDFE;border:1px solid #AFA9EC;color:#534AB7">Data : 54 → 226 (×4,2)</span>
+    <span class="badge" style="background:#E1F5EE;border:1px solid #5DCAA5;color:#0F6E56">Cloud : 94 → 232 (+147%)</span>
+  </div>
+  <div class="chart-wrap" style="height:300px"><canvas id="chartTech"></canvas></div>
+  <div class="legend"><span><span class="lsq" style="background:#AFA9EC"></span>2024</span><span><span class="lsq" style="background:#534AB7"></span>2025</span></div>
+  <p>Entre 2024 et 2025, l'écosystème Technopark connaît une reconfiguration technologique majeure avec un doublement du nombre de startups IA, passant de 119 à 203. Cette accélération est soutenue par l'expansion très marquée des technologies Data — de 54 à 226 projets — qui consolident le socle analytique nécessaire au développement de solutions IA fiables, scalables et fortement orientées vers l'exploitation de données.</p>
+  <p>L'évolution simultanée de ces deux segments — la Data comme brique d'infrastructure analytique et l'IA comme couche d'intelligence fonctionnelle — traduit une intégration de plus en plus systémique des technologies data-driven dans les modèles économiques des startups.</p>
+  <p>Cette dynamique confirme l'IA comme brique technologique au cœur des trajectoires d'innovation, et témoigne d'une montée en maturité des solutions développées.</p>
+  <div class="page-num">17</div>
+</div>
+
+<!-- PAGE 18 — SUITE TECH + CA -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Technologies et chiffre d'affaires</span></div>
+  <p>La forte accélération de la Data agit comme catalyseur technique, renforçant la capacité des entreprises à entraîner des modèles plus complexes, à fiabiliser leurs pipelines d'ingestion, et à développer des services plus personnalisés et prédictifs.</p>
+  <p>À l'international, la tendance est tout aussi marquée : 72 % des organisations utilisent désormais l'IA dans au moins une fonction, et 65 % recourent régulièrement à l'IA générative, indiquant une normalisation rapide des usages et une pression accrue sur les entreprises pour intégrer l'IA dans leurs chaînes de valeur.</p>
+  <p>Pour le Technopark, cette accélération conjointe Data–IA ouvre des perspectives structurantes : consolidation d'un socle de compétences technologiques avancées, favorisant l'émergence de startups à forte composante IA ; montée en gamme des solutions développées, intégrant analyse prédictive, automatisation intelligente et modèles adaptatifs ; alignement naturel avec les ambitions de Maroc Digital 2030, qui positionne l'IA comme levier de transformation économique et d'innovation durable.</p>
+  <h3>Répartition par tranche de CA — 2025</h3>
+  <div class="chart-wrap" style="height:190px"><canvas id="chartCA"></canvas></div>
+  <div class="legend">
+    <span><span class="ldot" style="background:#534AB7"></span>&lt;1M MAD (76%)</span>
+    <span><span class="ldot" style="background:#D85A30"></span>1M–3M MAD (7%)</span>
+    <span><span class="ldot" style="background:#0F6E56"></span>3M–5M MAD (6%)</span>
+    <span><span class="ldot" style="background:#BA7517"></span>5M–10M MAD (3%)</span>
+    <span><span class="ldot" style="background:#185FA5"></span>&gt;10M MAD (4%)</span>
+  </div>
+  <p>En 2025, les entreprises du Technopark génèrent un chiffre d'affaires annuel cumulé dépassant 1,2 milliard de dirhams, confirmant leur contribution croissante à la dynamique économique du secteur numérique.</p>
+  <p>La structure du portefeuille demeure largement composée de très petites entreprises, qui représentent environ 76% de la communauté, avec un chiffre d'affaires annuel généralement inférieur à 1 million de dirhams. (Entreprises ayant majoritairement moins de deux ans d'activité). Toutefois, les segments intermédiaires (1–5 MDH) demeurent représentatifs avec un ensemble d'entreprises en structuration avancée, consolidant progressivement leur modèle économique. Le maintien d'une proportion stable d'entreprises dépassant les 10 MDH de CA confirme l'existence d'un noyau d'acteurs matures, performants et capables de générer une valeur économique significative.</div>
+  <div class="page-num">18</div>
+</div>
+
+<!-- PAGE 19 — ENTREPRISES DE RÉFÉRENCE -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Entreprises de référence</span></div>
+  <p>Bien que minoritaire en volume, ce segment constitue un véritable moteur de croissance pour l'écosystème, incarné par plusieurs entreprises devenues des références sectorielles — notamment dans la fintech, les services IT, la logistique digitale ou les solutions cloud. Leur capacité à croître atteste de l'efficacité du modèle d'accompagnement du Technopark, qui facilite l'émergence de trajectoires entrepreneuriales robustes.</p>
+  <p>Cette configuration illustre un écosystème équilibré entre renouvellement et montée en maturité : d'un côté, un vivier dynamique d'entrepreneurs en phase early stage, soutenu par les dispositifs d'incubation et d'accélération ; de l'autre, des entreprises plus structurées qui franchissent des seuils économiques critiques et renforcent l'attractivité du Technopark auprès des investisseurs et partenaires stratégiques.</p>
+  <div class="two-col">
+    <div>
+      <h3>Technopark Casablanca</h3>
+      <table class="ref-table">
+        <tr><td>WafR</td><td></td><td>Fintech / RetailTech</td></tr>
+        <tr><td>AGENZ</td><td></td><td>PropTech / Data immobilier</td></tr>
+        <tr><td>WashMinute</td><td></td><td>CleanTech</td></tr>
+        <tr><td>Hsabati</td><td></td><td>Fintech</td></tr>
+        <tr><td>Alya Pay</td><td></td><td>Fintech</td></tr>
+        <tr><td>MLNetworks</td><td></td><td>Télécoms</td></tr>
+        <tr><td>CloudFret</td><td></td><td>Logistech</td></tr>
+        <tr><td>Skylark Services</td><td></td><td>Industrie X.0</td></tr>
+        <tr><td>Aishore</td><td></td><td>IA / HR Tech</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>CISM — Agadir</h3>
+      <table class="ref-table">
+        <tr><td>GREENERTECH</td><td></td><td>GreenTech / AgriTech</td></tr>
+        <tr><td>PCS AGRI</td><td></td><td>AgriTech / Data</td></tr>
+        <tr><td>BIBORNE MAROC</td><td></td><td>RetailTech</td></tr>
+      </table>
+      <h3>Technopark Agadir</h3>
+      <table class="ref-table">
+        <tr><td>ALKORA</td><td></td><td>SportTech</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="page-num">19</div>
+</div>
+
+<!-- PAGE 20 — RÉFÉRENCES + EFFECTIFS -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Entreprises de référence et effectifs</span></div>
+  <div class="two-col">
+    <div>
+      <h3>Technopark Rabat</h3>
+      <table class="ref-table">
+        <tr><td>ARWA SOLUTIONS</td><td></td><td>AgriTech / Data</td></tr>
+        <tr><td>Inovadex Consulting</td><td></td><td>Cybersécurité</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Technopark Tanger</h3>
+      <table class="ref-table">
+        <tr><td>OPEN SCHOOL PRIVÉ</td><td></td><td>EdTech</td></tr>
+        <tr><td>EMSYDEV</td><td></td><td>Data / IA</td></tr>
+        <tr><td>COGNERP NORTH AFRICA</td><td></td><td>Data / IA</td></tr>
+      </table>
+    </div>
+  </div>
+  <h3>Segmentation des entreprises par taille d'effectif</h3>
+  <div class="donut-pair">
+    <div class="donut-box">
+      <div style="position:relative;height:170px;width:170px"><canvas id="donutEffectif"></canvas></div>
+      <div class="legend" style="margin-top:8px;justify-content:center;flex-direction:column;gap:4px;align-items:flex-start">
+        <span><span class="ldot" style="background:#534AB7"></span>0–5 employés : 62%</span>
+        <span><span class="ldot" style="background:#D85A30"></span>6–10 employés : 22%</span>
+        <span><span class="ldot" style="background:#0F6E56"></span>11–20 employés : 7%</span>
+        <span><span class="ldot" style="background:#BA7517"></span>21–30 employés : 6%</span>
+        <span><span class="ldot" style="background:#185FA5"></span>31+ employés : 3%</span>
+      </div>
+    </div>
+    <div style="padding-top:10px">
+      <p>La communauté d'entreprises hébergées au Technopark regroupe un total de 3 662 emplois, dont 1 104 occupés par des femmes, soit près d'un tiers des effectifs. Cette répartition traduit une dynamique encourageante en matière d'intégration des talents féminins au sein de l'écosystème entrepreneurial technologique.</p>
+      <p>La répartition des entreprises par taille montre que 62 % des structures du Technopark comptent entre 1 et 5 employés, tandis que 22 % disposent de 6 à 10 collaborateurs, et environ 16% dépassent les 20 employés, confirmant un écosystème dominé par des jeunes entreprises technologiques en pleine structuration.</p>
+    </div>
+  </div>
+  <div class="page-num">20</div>
+</div>
+
+<!-- PAGE 21 — EMPLOIS -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Emplois et performance économique</span></div>
+  <h2>Emplois et performance économique</h2>
+  <p>Cette configuration illustre le rôle majeur du Technopark en tant que pourvoyeur d'emplois qualifiés, notamment dans les métiers du digital. En moyenne, une startup hébergée crée 3 à 5 emplois dès sa première année d'activité, portée par un environnement qui facilite l'accès aux compétences tech, l'accélération produit et la mise en marché. Cette forte concentration d'entreprises early-stage permet au Technopark d'alimenter en continu le marché marocain en profils spécialisés — développeurs, data engineers, experts IA, designers UX, administrateurs cloud et contribue à renforcer la compétitivité technologique nationale, en soutenant la croissance de startups capables d'élargir progressivement leurs équipes et d'ancrer durablement l'emploi numérique au Maroc.</p>
+  <p>Cette configuration reflète la vocation du Technopark à accompagner l'émergence et la montée en puissance de startups innovantes, tout en favorisant la création d'emplois qualifiés au sein de l'économie numérique.</p>
+  <h3>Nombre d'emplois créés en 2025</h3>
+  <div class="donut-pair">
+    <div class="donut-box">
+      <div style="position:relative;height:170px;width:170px"><canvas id="donutEmplois"></canvas></div>
+      <div class="legend" style="margin-top:8px;justify-content:center">
+        <span><span class="ldot" style="background:#0F6E56"></span>CDI 53%</span>
+        <span><span class="ldot" style="background:#185FA5"></span>CDD 19%</span>
+        <span><span class="ldot" style="background:#D3D1C7"></span>Stagiaires 28%</span>
+      </div>
+    </div>
+    <div style="padding-top:10px">
+      <p>Dans un contexte national marqué par des enjeux majeurs d'employabilité, notamment chez les jeunes diplômés, la création d'emplois qualifiés constitue un levier stratégique pour accompagner la transformation économique du Maroc. Les startups et entreprises digitales s'imposent, à cet égard, comme des acteurs clés, capables de générer de nouvelles opportunités professionnelles dans les métiers liés aux technologies et à l'économie numérique.</p>
+      <p>Dans ce cadre, l'écosystème Technopark contribue de manière tangible à la dynamique de création d'emplois. En 2025, les entreprises résidentes ont généré 1 766 opportunités d'emploi, auxquelles s'ajoutent 696 opportunités de stages et d'immersion professionnelle, renforçant ainsi l'insertion des jeunes talents dans les métiers du numérique.</p>
+    </div>
+  </div>
+  <div class="page-num">21</div>
+</div>
+
+<!-- PAGE 22 — ÉVOLUTION EMPLOIS + SATISFACTION INTRO -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Emplois et satisfaction</span></div>
+  <p>Cette performance s'inscrit dans une trajectoire de croissance soutenue. Entre 2023 et 2025, le nombre d'emplois créés est passé de 900 à 1 766, soit une progression de +96,2 % en deux ans. L'évolution observée se caractérise par une accélération marquée entre 2023 et 2024 (+55,6 %), suivie d'une phase de consolidation en 2025 (+26,1 %), traduisant une montée en maturité progressive de l'écosystème.</p>
+  <p>Cette dynamique repose notamment sur la structuration du portefeuille d'entreprises, le renforcement des programmes d'incubation et d'accélération, ainsi que sur la mobilisation accrue de financements, permettant aux startups de soutenir leur croissance par le recrutement de talents techniques et opérationnels.</p>
+  <h3>Création d'emplois [2023–2025]</h3>
+  <div class="chart-wrap" style="height:175px"><canvas id="chartEmploisEvol"></canvas></div>
+  <p>L'analyse de la structure de ces emplois met en évidence une dynamique à dominante pérenne. Les contrats à durée indéterminée représentent 52,7 % des postes, traduisant un niveau croissant de structuration des entreprises et leur capacité à stabiliser des talents qualifiés. Les contrats à durée déterminée (19,1 %) reflètent la nature évolutive et spécifique des activités numériques, accompagnant la montée en charge progressive des équipes. Enfin, la part des stages et autres formes d'intégration (28,2 %) confirme le rôle du Technopark en tant que pipeline de pré-recrutement, favorisant l'insertion professionnelle et la constitution d'un vivier continu de compétences.</p>
+  <h2>Satisfaction des entreprises résidentes</h2>
+  <p>Dans une logique d'amélioration continue de la qualité de ses services, le Technopark réalise chaque année une enquête de satisfaction auprès des startups et entreprises résidentes de son réseau. Cette démarche permet d'évaluer la qualité des prestations proposées — qu'il s'agisse de l'accompagnement, de l'hébergement ou des services de proximité — tout en recueillant les attentes et suggestions des entrepreneurs, afin d'adapter en permanence l'offre du Technopark aux besoins évolutifs des entreprises innovantes.</p>
+  <div class="page-num">22</div>
+</div>
+
+<!-- PAGE 23 — SATISFACTION STACKED + SITES -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Satisfaction</span></div>
+  <h3>Évolution du niveau de satisfaction globale des entreprises [2021–2025]</h3>
+  <div class="chart-wrap" style="height:200px"><canvas id="chartSat"></canvas></div>
+  <div class="legend"><span><span class="lsq" style="background:#0F6E56"></span>Satisfait</span><span><span class="lsq" style="background:#5DCAA5"></span>Très satisfait</span></div>
+  <p>L'enquête de satisfaction de l'année 2025 a enregistré un taux de participation de 96 %, témoignant d'un fort engagement de la communauté entrepreneuriale. Le taux de satisfaction global atteint 95 %, confirmant la pertinence des services déployés et les efforts constants des équipes du Technopark pour améliorer l'expérience des startups et renforcer la qualité de l'accompagnement proposé.</p>
+  <p>Les résultats enregistrés sont par ailleurs très homogènes à l'échelle des différents sites du réseau :</p>
+  <div class="sat-grid">
+    <div class="sat-site"><div class="sat-site-name">Casablanca</div><div class="sat-site-val">98%</div><div class="sat-site-lbl">satisfaction</div></div>
+    <div class="sat-site"><div class="sat-site-name">Rabat</div><div class="sat-site-val">100%</div><div class="sat-site-lbl">satisfaction</div></div>
+    <div class="sat-site"><div class="sat-site-name">Tanger</div><div class="sat-site-val">96%</div><div class="sat-site-lbl">satisfaction</div></div>
+    <div class="sat-site"><div class="sat-site-name">Agadir</div><div class="sat-site-val">92%</div><div class="sat-site-lbl">satisfaction</div></div>
+    <div class="sat-site"><div class="sat-site-name">Essaouira</div><div class="sat-site-val">100%</div><div class="sat-site-lbl">satisfaction</div></div>
+    <div class="sat-site"><div class="sat-site-name">CISM Souss-Massa</div><div class="sat-site-val">100%</div><div class="sat-site-lbl">satisfaction</div></div>
+  </div>
+  <div class="page-num">23</div>
+</div>
+
+<!-- PAGE 24 — TABLE SATISFACTION -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Satisfaction</span></div>
+  <h3>Taux de satisfaction des entreprises résidentes — 2023 / 2024 / 2025</h3>
+  <table class="dtable">
+    <thead><tr><th>Indicateur</th><th>2025</th><th>2024</th><th>2023</th></tr></thead>
+    <tbody>
+      <tr><td>Visibilité / Mise en avant — Satisfaction</td><td>85%</td><td>82%</td><td>84%</td></tr>
+      <tr><td>Accès au marché — Nb bénéficiaires</td><td>94</td><td>78</td><td>92</td></tr>
+      <tr><td>Accès au marché — Taux satisfaction</td><td>95%</td><td>97%</td><td>91%</td></tr>
+      <tr><td>Accès au financement — Nb bénéficiaires</td><td>83</td><td>76</td><td>99</td></tr>
+      <tr><td>Accès au financement — Taux satisfaction</td><td>93%</td><td>92%</td><td>86%</td></tr>
+      <tr><td>Impact sur la visibilité</td><td>73%</td><td>70%</td><td>71%</td></tr>
+      <tr><td>Impact sur le réseau</td><td>79%</td><td>76%</td><td>74%</td></tr>
+    </tbody>
+  </table>
+  <p>Depuis 2021, le Technopark a renforcé son dispositif de pilotage de l'accompagnement en mettant en place un système d'évaluation structuré, centré sur les principaux leviers de croissance des startups : l'accès au marché, l'accès au financement et la visibilité. Ce dispositif permet d'apprécier de manière régulière l'efficacité des actions déployées et leur impact concret sur le développement des entreprises accompagnées.</p>
+  <p>Les indicateurs traduisent la solidité du modèle d'accompagnement du Technopark. Ils confirment notamment la pertinence des actions menées pour faciliter l'intégration des startups dans les réseaux d'affaires, leur connexion aux opportunités de marché et leur accès aux sources de financement.</p>
+  <p>L'évolution des indicateurs entre 2023 et 2025 confirme la solidité et la progression des dispositifs d'accompagnement du Technopark. Les taux de satisfaction demeurent à un niveau élevé, notamment pour l'accès au marché (95 %) et l'accès au financement (93 %), témoignant de la pertinence des actions déployées.</p>
+  <p>Le nombre de startups bénéficiant des dispositifs d'accès au marché progresse en 2025, tandis que les indicateurs d'impact sur la visibilité et sur le réseau enregistrent une amélioration continue. Ces résultats traduisent la capacité croissante des startups accompagnées à accéder aux marchés, aux financements et aux réseaux stratégiques, renforçant ainsi leur potentiel de croissance et leur contribution à la dynamique de l'écosystème entrepreneurial.</p>
+  <div class="page-num">24</div>
+</div>
+
+<!-- PAGE 25 — RÉUSSITE -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Indicateurs de réussite</span></div>
+  <h2>Indicateurs de réussite des entreprises du Technopark [2021–2025]</h2>
+  <div class="chart-wrap" style="height:210px"><canvas id="chartReussite"></canvas></div>
+  <div class="legend"><span><span class="ldot" style="background:#534AB7"></span>Taux de réussite</span><span><span class="ldot" style="background:#0F6E56"></span>Taux de pérennité (5 ans)</span></div>
+  <h3>Taux de réussite</h3>
+  <p>Le taux de réussite mesure le pourcentage d'entreprises/startups qui maintiennent leur activité après deux ans d'incubation (POC confirmé + première commercialisation).</p>
+  <p>En 2025, le taux de réussite se maintient à un niveau élevé, atteignant 96 %, confirmant la robustesse du modèle d'accompagnement du Technopark.</p>
+  <p>Après une progression notable entre 2023 (88 %) et 2024 (98 %), l'année 2025 s'inscrit dans une phase de consolidation, traduisant l'ancrage durable de ce niveau de performance.</p>
+  <p>Ce niveau, significatif au regard des standards de l'amorçage, reflète la capacité du Technopark à sécuriser les étapes clés du cycle entrepreneurial, notamment la validation du produit, la première commercialisation et la pérennisation de l'activité au-delà des premières années.</p>
+  <p>En poursuivant le renforcement de ses programmes structurants et de ses dispositifs d'accès au marché et au financement, le Technopark consolide les conditions nécessaires au maintien de cette performance, tout en inscrivant son action dans une logique durable : transformer les idées en entreprises viables et pérennes.</p>
+  <div class="page-num">25</div>
+</div>
+
+<!-- PAGE 26 — PÉRENNITÉ -->
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Indicateurs de réussite</span></div>
+  <h3>Taux de pérennité</h3>
+  <p>Chaque année, le TECHNOPARK mesure le taux de pérennité des entreprises à 5 ans. Cet indicateur reflète le pourcentage d'entreprises ayant démontré une performance économique solide à la fin de leur parcours au TECHNOPARK. Cette performance est mesurée par quatre sous-indicateurs :</p>
+  <div class="hl-box">
+    <p>— L'évolution significative du Chiffre d'affaires (local et/ou à l'export)</p>
+    <p>— La taille de l'équipe permanente</p>
+    <p>— La qualité des références marché</p>
+    <p>— Les levées de fonds réalisées</p>
+  </div>
+  <p>Le taux de pérennité des entreprises incubées progresse de manière significative, passant de 88 % à 94 %. Cette évolution reflète le virage stratégique opéré par le Technopark ces dernières années, avec un accompagnement désormais orienté vers la croissance et la consolidation des entreprises. Au-delà de l'incubation, le Technopark a renforcé ses dispositifs d'accès au marché, de mise en relation avec les grands comptes et d'accès au financement, tout en déployant des programmes structurants d'accélération. Cette approche plus intégrée contribue à mieux préparer les startups aux phases critiques de développement et à renforcer leur capacité à s'inscrire durablement sur le marché.</p>
+  <div class="page-num">26</div>
+</div>
+
+<script>
+const P='#534AB7',PL='#AFA9EC',C='#D85A30',CL='#F0997B',T='#0F6E56',TL='#5DCAA5',
+      A='#BA7517',B='#185FA5',G2='#D3D1C7',G5='#888780';
+const ff="'Inter',sans-serif";
+const grd='#EEEDE8';
+const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{cornerRadius:6,padding:8,titleFont:{family:ff},bodyFont:{family:ff}}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:8,family:ff}}},y:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}}}};
+
+new Chart(document.getElementById('chartEntreprises'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Nb entreprises',data:[410,387,393,394,352],backgroundColor:P,borderRadius:5,barPercentage:.4},{label:'Start-ups',data:[141,145,135,128,138],backgroundColor:C,borderRadius:5,barPercentage:.4}]},options:{...base}});
+
+new Chart(document.getElementById('chartEntreesSorties'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Entrées',data:[172,143,147,145,156],backgroundColor:T,borderRadius:5,barPercentage:.4},{label:'Sorties',data:[134,122,125,128,127],backgroundColor:G2,borderRadius:5,barPercentage:.4}]},options:{...base}});
+
+new Chart(document.getElementById('donutDigStartup'),{type:'doughnut',data:{labels:['Startups','Entreprises digitales'],datasets:[{data:[65,35],backgroundColor:[P,CL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+
+new Chart(document.getElementById('donutMaturite'),{type:'doughnut',data:{labels:['Startup-Start','Startup-Accel'],datasets:[{data:[62,38],backgroundColor:[P,TL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+
+new Chart(document.getElementById('chartSecteurs'),{type:'bar',data:{labels:['Dév/Intégration','Marketing digital','EdTech','FinTech','Cybersécurité','GreenTech','AgriTech','E-commerce','Industrie X.0','E-logistique','HR Tech','Health Tech','PropTech','Robotique','E-tourisme','Gaming','Ind. culturelles','E-gov','SportTech'],datasets:[{data:[154,85,28,24,22,21,17,15,15,15,13,13,8,8,8,5,5,2,2],backgroundColor:(ctx)=>{const v=ctx.raw;return v>80?P:v>20?'#7F77DD':PL},borderRadius:4,barPercentage:.65}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
+
+new Chart(document.getElementById('chartTech'),{type:'bar',data:{labels:['Techno Web/Mobile','Cloud','Data','IA','ERP/CRM','IoT','Réseau & Télécom','RA/RV','Robotique','Impression 3D','Drone'],datasets:[{label:'2024',data:[94,94,54,119,69,51,29,43,11,13,9],backgroundColor:PL,borderRadius:3,barPercentage:.4},{label:'2025',data:[308,232,226,203,117,74,41,43,17,14,12],backgroundColor:P,borderRadius:3,barPercentage:.4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
+
+new Chart(document.getElementById('chartCA'),{type:'doughnut',data:{labels:['<1M MAD','1M-3M MAD','3M-5M MAD','5M-10M MAD','>10M MAD'],datasets:[{data:[76,7,6,3,4],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{display:false}}}});
+
+new Chart(document.getElementById('donutEffectif'),{type:'doughnut',data:{labels:['0-5','6-10','11-20','21-30','31+'],datasets:[{data:[62,22,7,6,3],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+
+new Chart(document.getElementById('donutEmplois'),{type:'doughnut',data:{labels:['CDI','CDD','Stagiaires'],datasets:[{data:[53,19,28],backgroundColor:[T,B,G2],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+
+new Chart(document.getElementById('chartEmploisEvol'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{data:[900,1400,1766],backgroundColor:[PL,P,C],borderRadius:6,barPercentage:.4}]},options:{...base}});
+
+new Chart(document.getElementById('chartSat'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Satisfait',data:[64,53,54,54,54],backgroundColor:T,borderRadius:{topLeft:0,topRight:0,bottomLeft:4,bottomRight:4},barPercentage:.5},{label:'Tres satisfait',data:[33,44,41,43,41],backgroundColor:TL,borderRadius:{topLeft:4,topRight:4,bottomLeft:0,bottomRight:0},barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{stacked:true,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
+
+new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Taux de reussite',data:[96,95,88,98,96],borderColor:P,pointBackgroundColor:P,pointRadius:5,borderWidth:2,tension:.3},{label:'Taux de perennite',data:[87,87,90,88,94],borderColor:T,pointBackgroundColor:T,pointRadius:5,borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{min:75,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
+</script>
+</body>
+</html>
