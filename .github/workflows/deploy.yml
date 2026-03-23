@@ -1,0 +1,54 @@
+name: CI/CD — Technopark Rapport 2025
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ─── CI: validate ───────────────────────────────────────────────
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check server starts
+        run: |
+          timeout 5 node server.js &
+          sleep 2
+          curl -sf http://localhost:3000 | grep -q "Technopark" && echo "Server OK" || (echo "Server failed" && exit 1)
+
+      - name: Check HTML exists
+        run: |
+          test -f Technopark_Rapport_2025_Book.html && echo "HTML found" || (echo "HTML missing" && exit 1)
+
+  # ─── CD: deploy to Railway (main branch only) ───────────────────
+  deploy:
+    name: Deploy to Railway
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: railway up --service technopark-rapport-2025 --detach
+
+      - name: Report URL
+        run: echo "Deployed to https://technopark-rapport-2025-production.up.railway.app"
