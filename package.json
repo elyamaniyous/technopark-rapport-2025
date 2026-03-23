@@ -1,0 +1,11 @@
+{
+  "name": "technopark-rapport-2025",
+  "version": "1.0.0",
+  "description": "Technopark Maroc — Rapport Annuel 2025",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
