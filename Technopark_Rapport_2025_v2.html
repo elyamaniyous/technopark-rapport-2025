@@ -6,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
 :root{
   --navy:#1B2A4A;--navy-light:#2D4A7A;--coral:#D85A30;--coral-light:#F0997B;--coral-bg:#FAECE7;
@@ -26,7 +27,7 @@ h1{font-size:22pt;font-weight:700;color:var(--navy);line-height:1.2;margin-botto
 h2{font-size:16pt;font-weight:600;color:var(--navy);border-bottom:2px solid var(--coral);padding-bottom:6px;margin:22px 0 14px}
 h3{font-size:12pt;font-weight:600;color:var(--navy-light);margin:16px 0 8px}
 p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var(--gray-900)}
-.caption{font-size:8pt;color:var(--gray-500);text-align:center;font-style:italic;margin-top:5px}
+.caption{font-size:8pt;color:var(--gray-500);text-align:center;font-style:italic;margin-top:5px;margin-bottom:14px}
 .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
 .kpi-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:10px;padding:16px 18px;position:relative;overflow:hidden}
 .kpi-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:10px 0 0 10px}
@@ -78,7 +79,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 .donut-box{display:flex;flex-direction:column;align-items:center}
 .donut-label{font-size:9pt;font-weight:600;color:var(--navy);margin-top:6px;text-align:center}
 .chart-wrap{position:relative;margin:12px 0}
-.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:7px;font-size:7.5pt;color:var(--gray-700)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:7px;margin-bottom:14px;font-size:7.5pt;color:var(--gray-700)}
 .ldot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
 .lsq{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:middle}
 .dtable{width:100%;border-collapse:collapse;font-size:8.5pt;margin:10px 0}
@@ -149,7 +150,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <p>En 2025, une dynamique majeure a été enclenchée pour rendre l'administration plus accessible, plus efficace et plus orientée usager. Le Maroc a désormais plus de 600 services publics digitalisés, dont 300 destinés aux citoyens, 200 aux entreprises et 100 aux administrations publiques, consolidés progressivement au sein du portail national « e-services ».</p>
   <p>Cette avancée a été accompagnée d'une refonte complète des parcours administratifs, passant de la simple dématérialisation à une réingénierie des démarches de bout en bout, afin de réduire les délais, améliorer l'ergonomie des services et renforcer la transparence. Cette transformation contribue à l'ambition nationale de hisser le Maroc dans le Top 50 du classement EGDI des Nations unies à l'horizon 2030.</p>
   <h3>Dynamisation de l'économie numérique</h3>
-  <p>La stratégie Maroc Digital 2030 a renforcé la dynamisation de l'économie numérique à travers le lancement d'initiatives structurantes dédiées à l'entrepreneuriat technologique. L'offre Startup Venture Building (VB) constitue le dispositif central d'accompagnement, avec l'ambition de soutenir plus de 800 startups innovantes sur trois ans, grâce à une enveloppe de plus de 700 millions de dirhams.</p>
+  <p>La stratégie Maroc Digital 2030 a renforcé la dynamisation de l'économie numérique à travers le lancement d'initiatives structurantes dédiées à l'entrepreneuriat technologique. L'offre Startup Venture Building (SVB) constitue le dispositif central d'accompagnement, avec l'ambition de soutenir plus de 800 startups innovantes sur trois ans, grâce à une enveloppe de plus de 700 millions de dirhams.</p>
   <div class="page-num">3</div>
 </div>
 
@@ -280,7 +281,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
       <div class="photo-frame"><img src="Pictures/convention.png" alt="Cérémonie de lancement Morocco Accelerator Program"></div>
       <div class="caption">Cérémonie de lancement du Morocco Accelerator Program, juin 2025</div>
       <div class="photo-frame" style="margin-top:10px"><img src="Pictures/plugandplay.png" alt="Signature du partenariat Technopark x Plug and Play"></div>
-      <div class="caption">Signature du partenariat stratégique Technopark × Plug and Play</div>
+      <div class="caption">Signature du partenariat stratégique Technopark Morocco × Plug and Play, juin 2025</div>
     </div>
   </div>
   <p>Aligné avec la vision de la stratégie Maroc Digital 2030, le Morocco Accelerator contribue à structurer un nouveau palier d'accompagnement pour les startups, orienté vers l'accélération de la croissance, l'ouverture à l'international et la création d'impacts économiques mesurables, consolidant ainsi le positionnement du Maroc comme hub régional de l'innovation numérique.</p>
@@ -386,6 +387,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <p>La diversité des secteurs d'activité représentés au sein du Technopark reflète la richesse de l'écosystème numérique marocain. Cette cartographie offre une lecture globale des domaines d'intervention des entreprises, de leur niveau de maturité ainsi que des leviers susceptibles de soutenir leur croissance.</p>
   <p>Le Technopark veille ainsi à maintenir un mix équilibré d'entreprises en termes de secteurs, de taille et de maturité, favorisant la diversité des expertises et constituant un levier essentiel de performance et d'innovation au sein de l'écosystème.</p>
   <p>En 2025, la structuration sectorielle et technologique du portefeuille se renforce, en cohérence avec les orientations stratégiques du Technopark. Les critères de sélection, centrés sur le potentiel d'innovation, favorisent l'intégration de startups positionnées sur des technologies de pointe telles que l'intelligence artificielle, le Big Data, l'IoT ou encore le cloud.</p>
+  <p>Cette orientation permet d'assurer un meilleur alignement entre les solutions développées et les besoins du marché, tout en renforçant l'efficacité des dispositifs d'accompagnement grâce à la mobilisation ciblée de mentors, d'expertises techniques et de ressources spécialisées.</p>
   <div class="page-num">16</div>
 </div>
 
@@ -413,7 +415,12 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Technologies et chiffre d'affaires</span></div>
   <p>La forte accélération de la Data agit comme catalyseur technique, renforçant la capacité des entreprises à entraîner des modèles plus complexes, à fiabiliser leurs pipelines d'ingestion, et à développer des services plus personnalisés et prédictifs.</p>
   <p>À l'international, la tendance est tout aussi marquée : 72 % des organisations utilisent désormais l'IA dans au moins une fonction, et 65 % recourent régulièrement à l'IA générative, indiquant une normalisation rapide des usages et une pression accrue sur les entreprises pour intégrer l'IA dans leurs chaînes de valeur.</p>
-  <p>Pour le Technopark, cette accélération conjointe Data–IA ouvre des perspectives structurantes : consolidation d'un socle de compétences technologiques avancées, favorisant l'émergence de startups à forte composante IA ; montée en gamme des solutions développées, intégrant analyse prédictive, automatisation intelligente et modèles adaptatifs ; alignement naturel avec les ambitions de Maroc Digital 2030, qui positionne l'IA comme levier de transformation économique et d'innovation durable.</p>
+  <p>Pour le Technopark, cette accélération conjointe Data–IA ouvre des perspectives structurantes :</p>
+  <ul style="font-size:10pt;line-height:1.7;margin:0 0 11px 20px;color:var(--gray-900)">
+    <li>Consolidation d'un socle de compétences technologiques avancées, favorisant l'émergence de startups à forte composante IA ;</li>
+    <li>Montée en gamme des solutions développées, intégrant analyse prédictive, automatisation intelligente et modèles adaptatifs ;</li>
+    <li>Alignement naturel avec les ambitions de Maroc Digital 2030, qui positionne l'IA comme levier de transformation économique et d'innovation durable.</li>
+  </ul>
   <h3>Répartition par tranche de CA — 2025</h3>
   <div class="chart-wrap" style="height:190px"><canvas id="chartCA"></canvas></div>
   <div class="legend">
@@ -424,7 +431,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
     <span><span class="ldot" style="background:#185FA5"></span>&gt;10M MAD (4%)</span>
   </div>
   <p>En 2025, les entreprises du Technopark génèrent un chiffre d'affaires annuel cumulé dépassant 1,2 milliard de dirhams, confirmant leur contribution croissante à la dynamique économique du secteur numérique.</p>
-  <p>La structure du portefeuille demeure largement composée de très petites entreprises, qui représentent environ 76% de la communauté, avec un chiffre d'affaires annuel généralement inférieur à 1 million de dirhams. (Entreprises ayant majoritairement moins de deux ans d'activité). Toutefois, les segments intermédiaires (1–5 MDH) demeurent représentatifs avec un ensemble d'entreprises en structuration avancée, consolidant progressivement leur modèle économique. Le maintien d'une proportion stable d'entreprises dépassant les 10 MDH de CA confirme l'existence d'un noyau d'acteurs matures, performants et capables de générer une valeur économique significative.</div>
+  <p>La structure du portefeuille demeure largement composée de très petites entreprises, qui représentent environ 76% de la communauté, avec un chiffre d'affaires annuel généralement inférieur à 1 million de dirhams. (Entreprises ayant majoritairement moins de deux ans d'activité). Toutefois, les segments intermédiaires (1–5 MDH) demeurent représentatifs avec un ensemble d'entreprises en structuration avancée, consolidant progressivement leur modèle économique. Le maintien d'une proportion stable d'entreprises dépassant les 10 MDH de CA confirme l'existence d'un noyau d'acteurs matures, performants et capables de générer une valeur économique significative.</p>
   <div class="page-num">18</div>
 </div>
 
@@ -622,35 +629,39 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 </div>
 
 <script>
+Chart.register(ChartDataLabels);
 const P='#534AB7',PL='#AFA9EC',C='#D85A30',CL='#F0997B',T='#0F6E56',TL='#5DCAA5',
       A='#BA7517',B='#185FA5',G2='#D3D1C7',G5='#888780';
 const ff="'Inter',sans-serif";
 const grd='#EEEDE8';
-const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{cornerRadius:6,padding:8,titleFont:{family:ff},bodyFont:{family:ff}}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:8,family:ff}}},y:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}}}};
+const dlBar={display:true,anchor:'end',align:'end',color:G5,font:{size:7.5,family:ff,weight:'600'},offset:-2};
+const dlNone={display:false};
+const dlDonut={display:true,color:'#fff',font:{size:8,family:ff,weight:'700'},formatter:(v)=>v+'%'};
+const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:dlBar,tooltip:{cornerRadius:6,padding:8,titleFont:{family:ff},bodyFont:{family:ff}}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:8,family:ff}}},y:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}}}};
 
 new Chart(document.getElementById('chartEntreprises'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Nb entreprises',data:[410,387,393,394,352],backgroundColor:P,borderRadius:5,barPercentage:.4},{label:'Start-ups',data:[141,145,135,128,138],backgroundColor:C,borderRadius:5,barPercentage:.4}]},options:{...base}});
 
 new Chart(document.getElementById('chartEntreesSorties'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Entrées',data:[172,143,147,145,156],backgroundColor:T,borderRadius:5,barPercentage:.4},{label:'Sorties',data:[134,122,125,128,127],backgroundColor:G2,borderRadius:5,barPercentage:.4}]},options:{...base}});
 
-new Chart(document.getElementById('donutDigStartup'),{type:'doughnut',data:{labels:['Startups','Entreprises digitales'],datasets:[{data:[65,35],backgroundColor:[P,CL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('donutDigStartup'),{type:'doughnut',data:{labels:['Startups','Entreprises digitales'],datasets:[{data:[65,35],backgroundColor:[P,CL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('donutMaturite'),{type:'doughnut',data:{labels:['Startup-Start','Startup-Accel'],datasets:[{data:[62,38],backgroundColor:[P,TL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('donutMaturite'),{type:'doughnut',data:{labels:['Startup-Start','Startup-Accel'],datasets:[{data:[62,38],backgroundColor:[P,TL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('chartSecteurs'),{type:'bar',data:{labels:['Dév/Intégration','Marketing digital','EdTech','FinTech','Cybersécurité','GreenTech','AgriTech','E-commerce','Industrie X.0','E-logistique','HR Tech','Health Tech','PropTech','Robotique','E-tourisme','Gaming','Ind. culturelles','E-gov','SportTech'],datasets:[{data:[154,85,28,24,22,21,17,15,15,15,13,13,8,8,8,5,5,2,2],backgroundColor:(ctx)=>{const v=ctx.raw;return v>80?P:v>20?'#7F77DD':PL},borderRadius:4,barPercentage:.65}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
+new Chart(document.getElementById('chartSecteurs'),{type:'bar',data:{labels:['Dév/Intégration','Marketing digital','EdTech','FinTech','Cybersécurité','GreenTech','AgriTech','E-commerce','Industrie X.0','E-logistique','HR Tech','Health Tech','PropTech','Robotique','E-tourisme','Gaming','Ind. culturelles','E-gov','SportTech'],datasets:[{data:[154,85,28,24,22,21,17,15,15,15,13,13,8,8,8,5,5,2,2],backgroundColor:(ctx)=>{const v=ctx.raw;return v>80?P:v>20?'#7F77DD':PL},borderRadius:4,barPercentage:.65}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:G5,font:{size:7,family:ff,weight:'600'},offset:2}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
 
-new Chart(document.getElementById('chartTech'),{type:'bar',data:{labels:['Techno Web/Mobile','Cloud','Data','IA','ERP/CRM','IoT','Réseau & Télécom','RA/RV','Robotique','Impression 3D','Drone'],datasets:[{label:'2024',data:[94,94,54,119,69,51,29,43,11,13,9],backgroundColor:PL,borderRadius:3,barPercentage:.4},{label:'2025',data:[308,232,226,203,117,74,41,43,17,14,12],backgroundColor:P,borderRadius:3,barPercentage:.4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
+new Chart(document.getElementById('chartTech'),{type:'bar',data:{labels:['Techno Web/Mobile','Cloud','Data','IA','ERP/CRM','IoT','Réseau & Télécom','RA/RV','Robotique','Impression 3D','Drone'],datasets:[{label:'2024',data:[94,53,54,119,69,51,29,17,11,13,9],backgroundColor:PL,borderRadius:3,barPercentage:.4},{label:'2025',data:[308,232,226,203,117,74,41,43,17,14,12],backgroundColor:P,borderRadius:3,barPercentage:.4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:G5,font:{size:7,family:ff,weight:'600'},offset:2}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
 
-new Chart(document.getElementById('chartCA'),{type:'doughnut',data:{labels:['<1M MAD','1M-3M MAD','3M-5M MAD','5M-10M MAD','>10M MAD'],datasets:[{data:[76,7,6,3,4],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('chartCA'),{type:'doughnut',data:{labels:['<1M MAD','1M-3M MAD','3M-5M MAD','5M-10M MAD','>10M MAD'],datasets:[{data:[76,7,6,3,4],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('donutEffectif'),{type:'doughnut',data:{labels:['0-5','6-10','11-20','21-30','31+'],datasets:[{data:[62,22,7,6,3],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('donutEffectif'),{type:'doughnut',data:{labels:['0-5','6-10','11-20','21-30','31+'],datasets:[{data:[62,22,7,6,3],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('donutEmplois'),{type:'doughnut',data:{labels:['CDI','CDD','Stagiaires'],datasets:[{data:[53,19,28],backgroundColor:[T,B,G2],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('donutEmplois'),{type:'doughnut',data:{labels:['CDI','CDD','Stagiaires'],datasets:[{data:[53,19,28],backgroundColor:[T,B,G2],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('chartEmploisEvol'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{data:[900,1400,1766],backgroundColor:[PL,P,C],borderRadius:6,barPercentage:.4}]},options:{...base}});
+new Chart(document.getElementById('chartEmploisEvol'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{data:[900,1400,1766],backgroundColor:[PL,P,C],borderRadius:6,barPercentage:.4}]},options:{...base,plugins:{...base.plugins,datalabels:{display:true,anchor:'end',align:'end',color:'var(--gray-700)',font:{size:9,family:ff,weight:'700'},offset:-2}}}});
 
-new Chart(document.getElementById('chartSat'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Satisfait',data:[64,53,54,54,54],backgroundColor:T,borderRadius:{topLeft:0,topRight:0,bottomLeft:4,bottomRight:4},barPercentage:.5},{label:'Tres satisfait',data:[33,44,41,43,41],backgroundColor:TL,borderRadius:{topLeft:4,topRight:4,bottomLeft:0,bottomRight:0},barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{stacked:true,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
+new Chart(document.getElementById('chartSat'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Satisfait',data:[64,53,54,54,54],backgroundColor:T,borderRadius:{topLeft:0,topRight:0,bottomLeft:4,bottomRight:4},barPercentage:.5},{label:'Tres satisfait',data:[33,44,41,43,41],backgroundColor:TL,borderRadius:{topLeft:4,topRight:4,bottomLeft:0,bottomRight:0},barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,color:'#fff',font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%'}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{stacked:true,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
 
-new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Taux de reussite',data:[96,95,88,98,96],borderColor:P,pointBackgroundColor:P,pointRadius:5,borderWidth:2,tension:.3},{label:'Taux de perennite',data:[87,87,90,88,94],borderColor:T,pointBackgroundColor:T,pointRadius:5,borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{min:75,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
+new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Taux de reussite',data:[96,95,88,98,96],borderColor:P,pointBackgroundColor:P,pointRadius:5,borderWidth:2,tension:.3},{label:'Taux de perennite',data:[87,87,90,88,94],borderColor:T,pointBackgroundColor:T,pointRadius:5,borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'top',color:(ctx)=>ctx.datasetIndex===0?P:T,font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%',offset:2}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{min:75,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
 </script>
 </body>
 </html>
