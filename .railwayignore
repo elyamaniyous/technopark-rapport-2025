@@ -1,0 +1,6 @@
+Pictures/
+.playwright-mcp/
+.git/
+*.docx
+new_pages_part4_5.html
+*.png.bak
