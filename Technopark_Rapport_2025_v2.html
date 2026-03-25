@@ -22,7 +22,19 @@ body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
   size: A4 portrait;
   margin: 0;
 }
-.page{width:210mm;height:297mm;max-height:297mm;margin:0 auto 0;padding:8mm 10mm 5mm 10mm;background:#fff;position:relative;overflow:hidden;box-sizing:border-box;page-break-after:always;page-break-inside:avoid}
+.page {
+  width: 210mm;
+  height: 297mm;
+  max-height: 297mm;
+  margin: 0 auto;
+  padding: 8mm 10mm 5mm 10mm;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  page-break-after: always;
+  page-break-inside: avoid;
+}
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -56,6 +68,8 @@ body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
     page-break-inside: avoid !important;
   }
   .page + .page { margin-top: 0 !important; }
+  canvas { max-width: 100% !important; }
+  .print-only { display: block !important; }
 }
 @media screen {
   .page {
@@ -168,139 +182,139 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <h1 style="font-size:18pt;margin-bottom:24px">Table des matières</h1>
 
   <!-- Partie I -->
-  <div style="margin-bottom:6px">
-    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px">Sommaire &amp; Contexte</div>
+  <div style="margin-bottom:8px">
+    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:10px">Sommaire &amp; Contexte</div>
     <table style="width:100%;border-collapse:collapse;font-size:9pt">
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Sommaire Exécutif</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Sommaire Exécutif</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600;width:40px">1</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Contexte national — Maroc Digital 2030</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Contexte national — Maroc Digital 2030</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">2</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Classements internationaux</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Classements internationaux</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">5</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Le Technopark acteur pivot de l'innovation nationale</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Le Technopark acteur pivot de l'innovation nationale</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">7</td>
       </tr>
     </table>
   </div>
 
   <!-- Partie II -->
-  <div style="margin:18px 0 6px">
-    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px">Partie II — Faits marquants &amp; Indicateurs globaux</div>
+  <div style="margin:20px 0 8px">
+    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:10px">Partie II — Faits marquants &amp; Indicateurs globaux</div>
     <table style="width:100%;border-collapse:collapse;font-size:9pt">
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Faits Marquants 2025</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Faits Marquants 2025</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">9</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Indicateurs globaux — Cartographie des entreprises</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Indicateurs globaux — Cartographie des entreprises</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">12</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Structure du portefeuille — Maturité et secteurs</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Structure du portefeuille — Maturité et secteurs</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">14</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Technologies utilisées &amp; Chiffre d'affaires</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Technologies utilisées &amp; Chiffre d'affaires</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">17</td>
       </tr>
     </table>
   </div>
 
   <!-- Partie III -->
-  <div style="margin:18px 0 6px">
-    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px">Partie III — Performance économique &amp; Impact</div>
+  <div style="margin:20px 0 8px">
+    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:10px">Partie III — Performance économique &amp; Impact</div>
     <table style="width:100%;border-collapse:collapse;font-size:9pt">
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Entreprises de référence</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Entreprises de référence</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">19</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Emplois qualifiés créés</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Emplois qualifiés créés</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">21</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Satisfaction des startups</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Satisfaction des startups</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">22</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Indicateurs de réussite &amp; pérennité</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Indicateurs de réussite &amp; pérennité</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">25</td>
       </tr>
     </table>
   </div>
 
   <!-- Partie IV -->
-  <div style="margin:18px 0 6px">
-    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px">Partie IV — Déploiement de la feuille de route stratégique</div>
+  <div style="margin:20px 0 8px">
+    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:10px">Partie IV — Déploiement de la feuille de route stratégique</div>
     <table style="width:100%;border-collapse:collapse;font-size:9pt">
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Introduction — Bilan stratégique 2025</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Introduction — Bilan stratégique 2025</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">27</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Morocco Accelerator — Accélération internationale</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Morocco Accelerator — Accélération internationale</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">28</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Programmes DigitAgri, TIWIZI, Boost Up Lab, ETAP 2</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Programmes DigitAgri, TIWIZI, Boost Up Lab, ETAP 2</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">31</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Accès au financement — Levées de fonds 2025</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Accès au financement — Levées de fonds 2025</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">34</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Accès au marché — Ouverture internationale &amp; Export</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Accès au marché — Ouverture internationale &amp; Export</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">37</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Accès aux talents — Formations &amp; Workshops</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Accès aux talents — Formations &amp; Workshops</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">41</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Promotion des startups &amp; Communication</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Promotion des startups &amp; Communication</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">43</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Régionalisation — Sites opérationnels &amp; CI-SM</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Régionalisation — Sites opérationnels &amp; CI-SM</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">45</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Partenariats stratégiques &amp; Attractivité</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Partenariats stratégiques &amp; Attractivité</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">48</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Leadership institutionnel international</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Leadership institutionnel international</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">50</td>
       </tr>
     </table>
   </div>
 
   <!-- Partie V -->
-  <div style="margin:18px 0 6px">
-    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px">Partie V — Le Technopark au service de sa communauté</div>
+  <div style="margin:20px 0 8px">
+    <div style="font-size:7pt;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:10px">Partie V — Le Technopark au service de sa communauté</div>
     <table style="width:100%;border-collapse:collapse;font-size:9pt">
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Entrepreneuriat féminin &amp; inclusivité numérique</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Entrepreneuriat féminin &amp; inclusivité numérique</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">51</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Initiatives communautaires — Octobre Rose, CAN 2025</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Initiatives communautaires — Octobre Rose, CAN 2025</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">52</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Culture, Techno-Read &amp; vie communautaire</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Culture, Techno-Read &amp; vie communautaire</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">53</td>
       </tr>
       <tr style="border-bottom:1px solid var(--gray-100)">
-        <td style="padding:5px 0;color:var(--gray-700)">Synthèse stratégique 2025</td>
+        <td style="padding:8px 0;color:var(--gray-700)">Synthèse stratégique 2025</td>
         <td style="text-align:right;color:var(--gray-500);font-weight:600">54</td>
       </tr>
     </table>
@@ -343,6 +357,8 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
     <div class="hl-box blue"><h3 style="margin-top:0;color:var(--blue)">Digitalisation des services publics</h3><p>Moderniser et rendre plus accessibles les services de l'État, en déployant des solutions numériques orientées usager à l'échelle nationale.</p></div>
     <div class="hl-box teal"><h3 style="margin-top:0;color:var(--teal)">Dynamisation de l'économie numérique</h3><p>Développer et stimuler le secteur digital afin de créer de la richesse, des emplois et des solutions numériques locales.</p></div>
   </div>
+  <h3>Digitalisation des services publics</h3>
+  <p>En 2025, une dynamique majeure a été enclenchée pour rendre l'administration plus accessible, plus efficace et plus orientée usager. Le Maroc a désormais plus de 600 services publics digitalisés, dont 300 destinés aux citoyens, 200 aux entreprises et 100 aux administrations publiques, consolidés progressivement au sein du portail national « e-services ».</p>
   <div class="page-num">2</div>
 </div>
 
@@ -351,8 +367,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Maroc Digital 2030</span></div>
   <h2>Maroc Digital 2030</h2>
-  <h3>Digitalisation des services publics</h3>
-  <p>En 2025, une dynamique majeure a été enclenchée pour rendre l'administration plus accessible, plus efficace et plus orientée usager. Le Maroc a désormais plus de 600 services publics digitalisés, dont 300 destinés aux citoyens, 200 aux entreprises et 100 aux administrations publiques, consolidés progressivement au sein du portail national « e-services ».</p>
+  <h3>Digitalisation des services publics (suite)</h3>
   <p>Cette avancée a été accompagnée d'une refonte complète des parcours administratifs, passant de la simple dématérialisation à une réingénierie des démarches de bout en bout, afin de réduire les délais, améliorer l'ergonomie des services et renforcer la transparence. Cette transformation contribue à l'ambition nationale de hisser le Maroc dans le Top 50 du classement EGDI des Nations unies à l'horizon 2030.</p>
   <h3>Dynamisation de l'économie numérique</h3>
   <p>La stratégie Maroc Digital 2030 a renforcé la dynamisation de l'économie numérique à travers le lancement d'initiatives structurantes dédiées à l'entrepreneuriat technologique. L'offre Startup Venture Building (SVB) constitue le dispositif central d'accompagnement, avec l'ambition de soutenir plus de 800 startups innovantes sur trois ans, grâce à une enveloppe de plus de 700 millions de dirhams.</p>
@@ -469,17 +484,17 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
     <div class="fact-box navy"><div class="fact-title">Morocco Accelerator Program</div><p>Lancé par le Technopark et Plug and Play, avec le soutien du MTNRA, ce programme vise à accompagner des startups à fort potentiel dans leur phase d'accélération et de passage à l'échelle.</p></div>
     <div class="fact-box coral"><div class="fact-title">Startups Venture Building</div><p>Dans le cadre de l'initiative nationale portée par le MTNRA et Tamwilcom, le Technopark a été sélectionné comme structure de déploiement des dispositifs d'incubation à l'échelle nationale.</p></div>
   </div>
+  <h2 style="margin-top:16px">Morocco Accelerator : un programme d'accélération pour propulser les startups marocaines à l'échelle internationale</h2>
+  <p>En juin 2025, le Technopark a lancé le Morocco Accelerator Program, un dispositif structurant dédié à l'accélération des startups à fort potentiel et à leur passage à l'échelle. Déployé en partenariat avec l'Accélérateur américain « Plug and Play » et avec le soutien du Ministère de la Transition Numérique et de la Réforme de l'Administration, ce programme s'inscrit dans la dynamique de renforcement des mécanismes d'accélération et d'internationalisation des startups marocaines.</p>
   <div class="page-num">9</div>
 </div>
 
 <!-- PAGE 10 — MOROCCO ACCELERATOR -->
 <div class="page">
   <div class="accent-bar"></div>
-  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Faits marquants</span></div>
-  <h2>Morocco Accelerator : un programme d'accélération pour propulser les startups marocaines à l'échelle internationale</h2>
+  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Morocco Accelerator</span></div>
   <div class="col-text-photo">
     <div>
-      <p>En juin 2025, le Technopark a lancé le Morocco Accelerator Program, un dispositif structurant dédié à l'accélération des startups à fort potentiel et à leur passage à l'échelle. Déployé en partenariat avec l'Accélérateur américain « Plug and Play » et avec le soutien du Ministère de la Transition Numérique et de la Réforme de l'Administration, ce programme s'inscrit dans la dynamique de renforcement des mécanismes d'accélération et d'internationalisation des startups marocaines.</p>
       <p>Ce partenariat, conclu pour une durée de deux ans, prévoit le déploiement de quatre cohortes successives avec l'objectif d'accompagner près de 70 startups marocaines, y compris celles portées par la diaspora. Le programme vise à soutenir leur croissance en activant des leviers clés de développement : accès au marché, préparation à l'investissement, renforcement des compétences entrepreneuriales et connexion aux réseaux internationaux d'innovation, de grands comptes et d'investisseurs.</p>
     </div>
     <div>
@@ -518,9 +533,10 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Indicateurs globaux d'activité</span></div>
   <div style="margin-bottom:14px"><div class="chapter-tag">Indicateurs globaux d'activité</div><div class="chapter-title" style="font-size:15pt">Cartographie des entreprises résidentes</div></div>
   <h3>Évolution des entreprises et start-ups au Technopark [2021–2025]</h3>
-  <div class="chart-wrap" style="height:230px"><canvas id="chartEntreprises"></canvas></div>
+  <div class="chart-wrap" style="height:300px"><canvas id="chartEntreprises"></canvas></div>
   <div class="legend"><span><span class="lsq" style="background:#534AB7"></span>Nb entreprises</span><span><span class="lsq" style="background:#D85A30"></span>Start-ups (early stage)</span></div>
   <p>Le Technopark enregistre une progression continue du nombre d'entreprises hébergées, illustrant à la fois la dynamique de développement de son réseau et son attractivité croissante auprès des entrepreneurs technologiques. Cette évolution s'inscrit pleinement dans une dynamique de structuration et de maturation de l'écosystème startup marocain à laquelle le Technopark contribue pleinement.</p>
+  <p>En accueillant un nombre croissant d'entreprises et en maintenant une proportion significative de startups en phase early stage (moins de deux ans d'activité), il contribue à alimenter le pipeline entrepreneurial national, en favorisant l'émergence de startups à fort potentiel et le développement continu de solutions innovantes dans des secteurs stratégiques.</p>
   <div class="page-num">12</div>
 </div>
 
@@ -528,7 +544,6 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Indicateurs globaux d'activité</span></div>
-  <p>En accueillant un nombre croissant d'entreprises et en maintenant une proportion significative de startups en phase early stage (moins de deux ans d'activité), il contribue à alimenter le pipeline entrepreneurial national, en favorisant l'émergence de startups à fort potentiel et le développement continu de solutions innovantes dans des secteurs stratégiques.</p>
   <h3>Évolution des entrées / sorties [2021–2025]</h3>
   <div class="chart-wrap" style="height:210px"><canvas id="chartEntreesSorties"></canvas></div>
   <div class="legend"><span><span class="lsq" style="background:#0F6E56"></span>Entrées</span><span><span class="lsq" style="background:#D3D1C7"></span>Sorties</span><span style="font-weight:600;color:#D85A30;margin-left:8px">Taux de rotation : 38%</span></div>
@@ -556,7 +571,6 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   </div>
   <p>Toute entreprise digitale est éligible à l'intégration au Technopark. Toutefois, la distinction entre startups et TPE digitales s'inscrit dans une logique stratégique visant à structurer deux parcours d'accompagnement complémentaires et différenciés. D'une part, un parcours dédié aux startups, résolument orienté vers l'innovation, la validation de marché, l'accélération et la scalabilité. D'autre part, un parcours destiné aux TPE digitales, axé sur la structuration, le développement commercial, la consolidation des modèles économiques et le renforcement des capacités opérationnelles.</p>
   <p>Cette différenciation traduit une volonté affirmée du Technopark de promouvoir davantage l'innovation et la scalabilité, en concentrant des dispositifs à forte intensité d'accompagnement sur les projets à fort potentiel de croissance, tout en assurant un socle solide de développement pour les entreprises digitales. Elle permet ainsi d'orchestrer un continuum de croissance, où les startups peuvent évoluer vers des structures plus matures, contribuant à la consolidation d'un tissu technologique national innovant, compétitif et durable.</p>
-  <h3>Définitions retenues par le Technopark pour la qualification</h3>
   <div class="page-num">14</div>
 </div>
 
@@ -564,6 +578,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Structure du portefeuille</span></div>
+  <h3>Définitions retenues par le Technopark pour la qualification</h3>
   <div class="hl-box blue" style="margin-bottom:10px"><p><strong>📌 Entreprise digitale :</strong> Une entreprise ou PME digitale est une entreprise qui s'appuie sur les technologies numériques pour créer, délivrer ou commercialiser sa proposition de valeur, souvent à travers des plateformes, des données ou des services en ligne.</p></div>
   <div class="hl-box teal"><p><strong>🚀 Startup :</strong> Jeune entreprise innovante à fort potentiel de croissance, en phase de recherche et de validation de son modèle économique, souvent portée par une technologie disruptive ou une solution à fort impact.</p></div>
   <h3>Répartition par niveau de maturité</h3>
@@ -715,6 +730,8 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
       <p>La répartition des entreprises par taille montre que 62 % des structures du Technopark comptent entre 1 et 5 employés, tandis que 22 % disposent de 6 à 10 collaborateurs, et environ 16% dépassent les 20 employés, confirmant un écosystème dominé par des jeunes entreprises technologiques en pleine structuration.</p>
     </div>
   </div>
+  <h2 style="margin-top:16px">Emplois et performance économique</h2>
+  <p>Cette configuration illustre le rôle majeur du Technopark en tant que pourvoyeur d'emplois qualifiés, notamment dans les métiers du digital. En moyenne, une startup hébergée crée 3 à 5 emplois dès sa première année d'activité, portée par un environnement qui facilite l'accès aux compétences tech, l'accélération produit et la mise en marché.</p>
   <div class="page-num">20</div>
 </div>
 
@@ -722,8 +739,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Emplois et performance économique</span></div>
-  <h2>Emplois et performance économique</h2>
-  <p>Cette configuration illustre le rôle majeur du Technopark en tant que pourvoyeur d'emplois qualifiés, notamment dans les métiers du digital. En moyenne, une startup hébergée crée 3 à 5 emplois dès sa première année d'activité, portée par un environnement qui facilite l'accès aux compétences tech, l'accélération produit et la mise en marché. Cette forte concentration d'entreprises early-stage permet au Technopark d'alimenter en continu le marché marocain en profils spécialisés — développeurs, data engineers, experts IA, designers UX, administrateurs cloud et contribue à renforcer la compétitivité technologique nationale, en soutenant la croissance de startups capables d'élargir progressivement leurs équipes et d'ancrer durablement l'emploi numérique au Maroc.</p>
+  <p>Cette forte concentration d'entreprises early-stage permet au Technopark d'alimenter en continu le marché marocain en profils spécialisés — développeurs, data engineers, experts IA, designers UX, administrateurs cloud et contribue à renforcer la compétitivité technologique nationale, en soutenant la croissance de startups capables d'élargir progressivement leurs équipes et d'ancrer durablement l'emploi numérique au Maroc.</p>
   <p>Cette configuration reflète la vocation du Technopark à accompagner l'émergence et la montée en puissance de startups innovantes, tout en favorisant la création d'emplois qualifiés au sein de l'économie numérique.</p>
   <h3>Nombre d'emplois créés en 2025</h3>
   <div class="donut-pair">
@@ -830,6 +846,8 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
     <p>— Les levées de fonds réalisées</p>
   </div>
   <p>Le taux de pérennité des entreprises incubées progresse de manière significative, passant de 88 % à 94 %. Cette évolution reflète le virage stratégique opéré par le Technopark ces dernières années, avec un accompagnement désormais orienté vers la croissance et la consolidation des entreprises. Au-delà de l'incubation, le Technopark a renforcé ses dispositifs d'accès au marché, de mise en relation avec les grands comptes et d'accès au financement, tout en déployant des programmes structurants d'accélération. Cette approche plus intégrée contribue à mieux préparer les startups aux phases critiques de développement et à renforcer leur capacité à s'inscrire durablement sur le marché.</p>
+  <h2 style="margin-top:20px;border-bottom:2px solid var(--coral);padding-bottom:6px;">IV. Déploiement de la feuille de route stratégique du Technopark : bilan 2025</h2>
+  <p style="font-size:10pt;text-align:justify;line-height:1.7;">En 2025, le Technopark Morocco a consolidé son positionnement en tant que plateforme nationale de référence pour l'innovation et l'entrepreneuriat technologique, en déployant les axes clés de sa nouvelle feuille de route stratégique.</p>
   <div class="page-num">26</div>
 </div>
 
@@ -842,31 +860,31 @@ const grd='#EEEDE8';
 const dlBar={display:true,anchor:'end',align:'end',color:G5,font:{size:7.5,family:ff,weight:'600'},offset:-2};
 const dlNone={display:false};
 const dlDonut={display:true,color:'#fff',font:{size:8,family:ff,weight:'700'},formatter:(v)=>v+'%'};
-const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:dlBar,tooltip:{cornerRadius:6,padding:8,titleFont:{family:ff},bodyFont:{family:ff}}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:8,family:ff}}},y:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}}}};
+const base={responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},datalabels:dlBar,tooltip:{cornerRadius:6,padding:8,titleFont:{family:ff},bodyFont:{family:ff}}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:8,family:ff}}},y:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}}}};
 
 new Chart(document.getElementById('chartEntreprises'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Nb entreprises',data:[410,387,393,394,352],backgroundColor:P,borderRadius:5,barPercentage:.4},{label:'Start-ups',data:[141,145,135,128,138],backgroundColor:C,borderRadius:5,barPercentage:.4}]},options:{...base}});
 
 new Chart(document.getElementById('chartEntreesSorties'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Entrées',data:[172,143,147,145,156],backgroundColor:T,borderRadius:5,barPercentage:.4},{label:'Sorties',data:[134,122,125,128,127],backgroundColor:G2,borderRadius:5,barPercentage:.4}]},options:{...base}});
 
-new Chart(document.getElementById('donutDigStartup'),{type:'doughnut',data:{labels:['Startups','Entreprises digitales'],datasets:[{data:[65,35],backgroundColor:[P,CL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
+new Chart(document.getElementById('donutDigStartup'),{type:'doughnut',data:{labels:['Startups','Entreprises digitales'],datasets:[{data:[65,35],backgroundColor:[P,CL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('donutMaturite'),{type:'doughnut',data:{labels:['Startup-Start','Startup-Accel'],datasets:[{data:[62,38],backgroundColor:[P,TL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
+new Chart(document.getElementById('donutMaturite'),{type:'doughnut',data:{labels:['Startup-Start','Startup-Accel'],datasets:[{data:[62,38],backgroundColor:[P,TL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
 new Chart(document.getElementById('chartSecteurs'),{type:'bar',data:{labels:['Dév/Intégration','Marketing digital','EdTech','FinTech','Cybersécurité','GreenTech','AgriTech','E-commerce','Industrie X.0','E-logistique','HR Tech','Health Tech','PropTech','Robotique','E-tourisme','Gaming','Ind. culturelles','E-gov','SportTech'],datasets:[{data:[154,85,28,24,22,21,17,15,15,15,13,13,8,8,8,5,5,2,2],backgroundColor:(ctx)=>{const v=ctx.raw;return v>80?P:v>20?'#7F77DD':PL},borderRadius:4,barPercentage:.65}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:G5,font:{size:7,family:ff,weight:'600'},offset:2}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
 
 new Chart(document.getElementById('chartTech'),{type:'bar',data:{labels:['Techno Web/Mobile','Cloud','Data','IA','ERP/CRM','IoT','Réseau & Télécom','RA/RV','Robotique','Impression 3D','Drone'],datasets:[{label:'2024',data:[94,53,54,119,69,51,29,17,11,13,9],backgroundColor:PL,borderRadius:3,barPercentage:.4},{label:'2025',data:[308,232,226,203,117,74,41,43,17,14,12],backgroundColor:P,borderRadius:3,barPercentage:.4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:G5,font:{size:7,family:ff,weight:'600'},offset:2}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
 
-new Chart(document.getElementById('chartCA'),{type:'doughnut',data:{labels:['<1M MAD','1M-3M MAD','3M-5M MAD','5M-10M MAD','>10M MAD'],datasets:[{data:[76,7,6,3,4],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{display:false},datalabels:dlDonut}}});
+new Chart(document.getElementById('chartCA'),{type:'doughnut',data:{labels:['<1M MAD','1M-3M MAD','3M-5M MAD','5M-10M MAD','>10M MAD'],datasets:[{data:[76,7,6,3,4],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'55%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('donutEffectif'),{type:'doughnut',data:{labels:['0-5','6-10','11-20','21-30','31+'],datasets:[{data:[62,22,7,6,3],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
+new Chart(document.getElementById('donutEffectif'),{type:'doughnut',data:{labels:['0-5','6-10','11-20','21-30','31+'],datasets:[{data:[62,22,7,6,3],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
-new Chart(document.getElementById('donutEmplois'),{type:'doughnut',data:{labels:['CDI','CDD','Stagiaires'],datasets:[{data:[53,19,28],backgroundColor:[T,B,G2],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
+new Chart(document.getElementById('donutEmplois'),{type:'doughnut',data:{labels:['CDI','CDD','Stagiaires'],datasets:[{data:[53,19,28],backgroundColor:[T,B,G2],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
 new Chart(document.getElementById('chartEmploisEvol'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{data:[900,1400,1766],backgroundColor:[PL,P,C],borderRadius:6,barPercentage:.4}]},options:{...base,plugins:{...base.plugins,datalabels:{display:true,anchor:'end',align:'end',color:'var(--gray-700)',font:{size:9,family:ff,weight:'700'},offset:-2}}}});
 
-new Chart(document.getElementById('chartSat'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Satisfait',data:[64,53,54,54,54],backgroundColor:T,borderRadius:{topLeft:0,topRight:0,bottomLeft:4,bottomRight:4},barPercentage:.5},{label:'Tres satisfait',data:[33,44,41,43,41],backgroundColor:TL,borderRadius:{topLeft:4,topRight:4,bottomLeft:0,bottomRight:0},barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,color:'#fff',font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%'}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{stacked:true,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
+new Chart(document.getElementById('chartSat'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Satisfait',data:[64,53,54,54,54],backgroundColor:T,borderRadius:{topLeft:0,topRight:0,bottomLeft:4,bottomRight:4},barPercentage:.5},{label:'Tres satisfait',data:[33,44,41,43,41],backgroundColor:TL,borderRadius:{topLeft:4,topRight:4,bottomLeft:0,bottomRight:0},barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},datalabels:{display:true,color:'#fff',font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%'}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{stacked:true,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
 
-new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Taux de reussite',data:[96,95,88,98,96],borderColor:P,pointBackgroundColor:P,pointRadius:5,borderWidth:2,tension:.3},{label:'Taux de perennite',data:[87,87,90,88,94],borderColor:T,pointBackgroundColor:T,pointRadius:5,borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'top',color:(ctx)=>ctx.datasetIndex===0?P:T,font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%',offset:2}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{min:75,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
+new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Taux de reussite',data:[96,95,88,98,96],borderColor:P,pointBackgroundColor:P,pointRadius:5,borderWidth:2,tension:.3},{label:'Taux de perennite',data:[87,87,90,88,94],borderColor:T,pointBackgroundColor:T,pointRadius:5,borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'top',color:(ctx)=>ctx.datasetIndex===0?P:T,font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%',offset:2}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{min:75,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
 </script>
 
 <!-- ============================================================ -->
@@ -877,14 +895,6 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Feuille de route stratégique</span></div>
-  <div style="margin-bottom:18px">
-    <div class="chapter-tag">Partie IV</div>
-    <div class="chapter-title">Déploiement de la feuille de route stratégique du Technopark : bilan 2025</div>
-  </div>
-  <p>En 2025, le Technopark Morocco a consolidé son positionnement en tant que plateforme nationale de référence pour l'innovation et l'entrepreneuriat technologique, en déployant les axes clés de sa nouvelle feuille de route stratégique. L'année a été marquée par le lancement et le renforcement de plusieurs <strong>programmes d'accompagnement ciblés</strong>, couvrant l'idéation, l'incubation, l'accélération et l'internationalisation, et dont la mise en œuvre a été <strong>fortement soutenue par le Ministère de la Transition Numérique et de la Réforme de l'Administration (MTNRA)</strong>, partenaire institutionnel majeur dans le développement de ces dispositifs.</p>
-  <p>Cette dynamique a permis d'offrir aux startups un continuum de soutien adapté à chaque étape de leur croissance.</p>
-  <p>Le Technopark a également intensifié ses actions en matière d'<strong>accès au financement</strong>, en facilitant les connexions avec les investisseurs, les fonds de capital-risque et les dispositifs nationaux, tout en accompagnant les startups dans leur préparation aux levées de fonds. En parallèle, l'accent a été mis sur l'<strong>accès au marché</strong>, grâce à des missions internationales, des participations à des événements stratégiques et la conclusion de partenariats ouvrant de nouvelles opportunités commerciales.</p>
-  <p>Enfin, la <strong>valorisation des startups</strong> a constitué un axe prioritaire, avec une visibilité accrue à l'échelle nationale et internationale, confirmant le rôle du Technopark comme catalyseur de l'innovation et moteur de la compétitivité numérique du Royaume.</p>
   <h2>A. Renforcement et déploiement d'un accompagnement structuré à grande échelle</h2>
   <h3>Programmes d'accompagnement spécifiques pour les startups nationales</h3>
   <p>Pensés comme un continuum d'accompagnement, les programmes d'accompagnement spécifiques du Technopark s'inscrivent pleinement dans sa stratégie visant à faire émerger une nouvelle génération de startups compétitives. Ils traduisent également la volonté de renforcer l'ancrage du Technopark au sein de l'écosystème entrepreneurial, en facilitant les synergies, l'accès aux ressources et les opportunités de développement, à l'échelle nationale comme internationale.</p>
@@ -989,6 +999,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     <div class="kpi-mini"><div class="kpi-mini-val">6</div><div class="kpi-mini-lbl">Startups en discussions actives de financement</div></div>
     <div class="kpi-mini"><div class="kpi-mini-val">3</div><div class="kpi-mini-lbl">Tours pré-série A sécurisés</div></div>
   </div>
+  <h2 style="margin-top:18px">DigitAgri : Accélérer la transformation numérique de l'agriculture marocaine</h2>
+  <p>Poursuivant l'élan initié en 2024, le Technopark a déployé en 2025 la deuxième phase du programme DigitAgri, une initiative d'open innovation majeure portée en partenariat avec le Pôle Digital de l'Agriculture, de la Forêt et de l'Observatoire de la Sécheresse, sous l'égide du Ministère de la Transition Numérique et de la Réforme de l'Administration. Ce dispositif connecte l'écosystème technologique aux acteurs agricoles pour catalyser le développement et l'adoption de solutions innovantes.</p>
   <div class="page-num">30</div>
 </div>
 
@@ -996,8 +1008,6 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Programme DigitAgri</span></div>
-  <h2>DigitAgri : Accélérer la transformation numérique de l'agriculture marocaine</h2>
-  <p>Poursuivant l'élan initié en 2024, le Technopark a déployé en 2025 la deuxième phase du programme DigitAgri, une initiative d'open innovation majeure portée en partenariat avec le Pôle Digital de l'Agriculture, de la Forêt et de l'Observatoire de la Sécheresse, sous l'égide du Ministère de la Transition Numérique et de la Réforme de l'Administration. Ce dispositif connecte l'écosystème technologique aux acteurs agricoles pour catalyser le développement et l'adoption de solutions innovantes.</p>
   <p>En favorisant une collaboration étroite entre startups, institutions et industriels, DigitAgri accélère la mise sur le marché de technologies de pointe répondant aux enjeux critiques de productivité, de gestion des ressources, de traçabilité et de durabilité. Le programme s'inscrit pleinement dans les orientations de la stratégie <strong>Maroc Digital 2030</strong>.</p>
   <h3>Consortium de partenaires stratégiques</h3>
   <div class="rank-grid">
@@ -1169,6 +1179,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
       <tr><td>ARTYET</td><td>Technopark Essaouira</td><td>ICC</td><td>250</td></tr>
     </tbody>
   </table>
+  <h2 style="margin-top:18px">Partenariats avec des fonds d'investissement nationaux et internationaux</h2>
+  <p>Le Technopark a renforcé sa dynamique d'accompagnement des startups marocaines en scellant des partenariats structurants avec des fonds d'investissement de premier plan.</p>
   <div class="page-num">35</div>
 </div>
 
@@ -1176,8 +1188,7 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Partenariats &amp; événements financement</span></div>
-  <h2>Partenariats avec des fonds d'investissement nationaux et internationaux</h2>
-  <p>Le Technopark a renforcé sa dynamique d'accompagnement des startups marocaines en scellant des partenariats structurants avec des fonds d'investissement de premier plan.</p>
+  <h2 style="margin-top:0">Partenariats avec des fonds d'investissement (suite)</h2>
   <div class="two-col">
     <div class="hl-box blue">
       <h3 style="margin-top:0;color:var(--blue)">Azur Innovation Management</h3>
@@ -1825,6 +1836,7 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
       options:{
         responsive:true,
         maintainAspectRatio:false,
+        animation:false,
         plugins:{
           legend:{display:false},
           datalabels:{display:true,anchor:'end',align:'end',color:G5,font:{size:8,family:ff,weight:'600'},formatter:function(v){return v+' MDH';},offset:-2},
@@ -1855,6 +1867,7 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
       options:{
         responsive:true,
         maintainAspectRatio:false,
+        animation:false,
         cutout:'55%',
         plugins:{
           legend:{display:false},
