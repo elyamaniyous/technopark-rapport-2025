@@ -242,7 +242,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 .img-icon{width:30mm;height:auto}
 .img-logo-partner{width:35mm;height:auto}
 .img-social{width:28mm;height:50mm;object-fit:cover}
-.img-7kaytech{width:24mm;height:40mm;object-fit:cover}
+.img-7kaytech{width:100%;height:100%;object-fit:contain;border-radius:6px}
 .img-delegation{width:89mm;height:50mm;object-fit:cover}
 .img-event{width:75mm;height:50mm;object-fit:cover}
 .img-site{width:80mm;height:auto}
@@ -1419,30 +1419,30 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>SVB — Couverture et parcours</span></div>
   <!-- COUVERTURE RÉGIONALE — recréée en HTML/CSS -->
-  <div style="background:linear-gradient(135deg,#1B2A4A,#2D4A7A);border-radius:10px;padding:14px;color:#fff;margin-bottom:12px">
+  <div style="background:linear-gradient(135deg,#EFF3F8,#F5F7FA);border:1px solid #D6DDE8;border-radius:10px;padding:14px;color:var(--navy);margin-bottom:12px">
     <div style="display:flex;gap:14px">
       <div style="flex:1;font-size:7.5pt;line-height:1.5">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:20px;height:3px;background:var(--coral)"></div><strong style="font-size:8.5pt">Couverture régionale</strong></div>
-        <p style="margin:0 0 10px;opacity:.9">Capacité à adresser une part significative du territoire national grâce à une forte couverture régionale, jouant un rôle de catalyseur entre startups, acteurs publics, investisseurs et partenaires privés.</p>
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><div style="width:20px;height:3px;background:var(--teal-light)"></div><strong style="font-size:8.5pt">Parcours d'incubation</strong></div>
-        <p style="margin:0 0 10px;opacity:.9">Accompagnement technique (MVP, business model, go-to-market) + accompagnement au financement (bourses, investment readiness, mise en relation).</p>
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><div style="width:20px;height:3px;background:var(--purple-light)"></div><strong style="font-size:8.5pt">Parcours d'accélération</strong></div>
-        <p style="margin:0 0 10px;opacity:.9">Financement (bourse de vie, prêt d'amorçage, prêt d'honneur) + accès à l'écosystème financier (investisseurs nationaux & internationaux).</p>
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><div style="width:20px;height:3px;background:var(--coral-light)"></div><strong style="font-size:8.5pt">Effet de levier</strong></div>
-        <p style="margin:0;opacity:.9">Maximiser l'impact socioéconomique et renforcer les écosystèmes régionaux à travers un accompagnement 360°.</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:20px;height:3px;background:var(--coral)"></div><strong style="font-size:8.5pt;color:var(--navy)">Couverture régionale</strong></div>
+        <p style="margin:0 0 10px;color:var(--gray-700)">Capacité à adresser une part significative du territoire national grâce à une forte couverture régionale, jouant un rôle de catalyseur entre startups, acteurs publics, investisseurs et partenaires privés.</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><div style="width:20px;height:3px;background:var(--teal)"></div><strong style="font-size:8.5pt;color:var(--navy)">Parcours d'incubation</strong></div>
+        <p style="margin:0 0 10px;color:var(--gray-700)">Accompagnement technique (MVP, business model, go-to-market) + accompagnement au financement (bourses, investment readiness, mise en relation).</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><div style="width:20px;height:3px;background:var(--purple)"></div><strong style="font-size:8.5pt;color:var(--navy)">Parcours d'accélération</strong></div>
+        <p style="margin:0 0 10px;color:var(--gray-700)">Financement (bourse de vie, prêt d'amorçage, prêt d'honneur) + accès à l'écosystème financier (investisseurs nationaux & internationaux).</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><div style="width:20px;height:3px;background:var(--coral)"></div><strong style="font-size:8.5pt;color:var(--navy)">Effet de levier</strong></div>
+        <p style="margin:0;color:var(--gray-700)">Maximiser l'impact socioéconomique et renforcer les écosystèmes régionaux à travers un accompagnement 360°.</p>
       </div>
-      <div style="flex:0 0 160px;display:flex;flex-direction:column;gap:4px;font-size:7pt;text-align:center">
+      <div style="flex:0 0 160px;display:flex;flex-direction:column;gap:4px;font-size:7pt;text-align:center;color:var(--navy)">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-          <div style="background:rgba(255,255,255,.12);border-radius:4px;padding:4px">Tanger</div>
-          <div style="background:rgba(255,255,255,.12);border-radius:4px;padding:4px">Oujda</div>
-          <div style="background:rgba(255,255,255,.12);border-radius:4px;padding:4px">Rabat</div>
-          <div style="background:rgba(255,255,255,.12);border-radius:4px;padding:4px">Fès</div>
-          <div style="background:rgba(255,255,255,.15);border-radius:4px;padding:4px;font-weight:700">Casablanca</div>
-          <div style="background:rgba(255,255,255,.12);border-radius:4px;padding:4px">Izni</div>
-          <div style="background:rgba(255,255,255,.12);border-radius:4px;padding:4px">Essaouira</div>
-          <div style="background:rgba(255,255,255,.12);border-radius:4px;padding:4px">Agadir</div>
+          <div style="background:rgba(24,95,165,.08);border:1px solid rgba(24,95,165,.15);border-radius:4px;padding:4px">Tanger</div>
+          <div style="background:rgba(24,95,165,.08);border:1px solid rgba(24,95,165,.15);border-radius:4px;padding:4px">Oujda</div>
+          <div style="background:rgba(24,95,165,.08);border:1px solid rgba(24,95,165,.15);border-radius:4px;padding:4px">Rabat</div>
+          <div style="background:rgba(24,95,165,.08);border:1px solid rgba(24,95,165,.15);border-radius:4px;padding:4px">Fès</div>
+          <div style="background:rgba(24,95,165,.12);border:1px solid rgba(24,95,165,.2);border-radius:4px;padding:4px;font-weight:700">Casablanca</div>
+          <div style="background:rgba(24,95,165,.08);border:1px solid rgba(24,95,165,.15);border-radius:4px;padding:4px">Ifni</div>
+          <div style="background:rgba(24,95,165,.08);border:1px solid rgba(24,95,165,.15);border-radius:4px;padding:4px">Essaouira</div>
+          <div style="background:rgba(24,95,165,.08);border:1px solid rgba(24,95,165,.15);border-radius:4px;padding:4px">Agadir</div>
         </div>
-        <div style="background:rgba(255,255,255,.15);border-radius:4px;padding:4px;font-weight:700;margin-top:2px">SMIA — Souss Massa</div>
+        <div style="background:rgba(24,95,165,.12);border:1px solid rgba(24,95,165,.2);border-radius:4px;padding:4px;font-weight:700;margin-top:2px">CISM — Souss Massa</div>
       </div>
     </div>
   </div>
@@ -1596,9 +1596,6 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
       <tr><td>ARTYET</td><td>Technopark Essaouira</td><td>ICC</td><td>250</td></tr>
     </tbody>
   </table>
-  <div aria-hidden="true" style="font-size:0;height:0;overflow:hidden;position:absolute">KHABIRY Technopark AI-powered 500 CONSULTING Casablanca consulting SARL platform ARTYET Technopark ICC 250 Essaouira</div>
-  <h2 style="margin-top:18px">Partenariats avec des fonds d'investissement nationaux et internationaux</h2>
-  <p>Le Technopark a renforcé sa dynamique d'accompagnement des startups marocaines en scellant des partenariats structurants avec des fonds d'investissement de premier plan, notamment « Azur Innovation Management » et « Renew Capital ».</p>
   <div class="page-num">35b</div>
 </div>
 
@@ -1606,7 +1603,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Partenariats &amp; événements financement</span></div>
-  <h2 style="margin-top:0">Partenariats avec des fonds d'investissement (suite)</h2>
+  <h2 style="margin-top:0">Partenariats avec des fonds d'investissement nationaux et internationaux</h2>
   <p>Le Technopark a renforcé sa dynamique d'accompagnement des startups marocaines en scellant des partenariats structurants avec des fonds d'investissement de premier plan, notamment « Azur Innovation Management » et « Renew Capital ».</p>
   <div class="two-col">
     <div class="hl-box blue">
@@ -1696,71 +1693,22 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
     <div class="rank-card coral"><div class="rank-value">95%</div><div class="rank-name">Taux de satisfaction</div><div class="rank-desc">Exprimé par les startups sur la pertinence des mises en relation</div></div>
     <div class="rank-card blue"><div class="rank-value">170</div><div class="rank-name">Participants AUSIM</div><div class="rank-desc">Aux 4 sessions de matchmaking startups-DSI organisées en 2025</div></div>
   </div>
-  <div style="position:relative;height:220px;margin:12px 0">
-<canvas id="chartMarcheBenef"></canvas>
-</div>
-<script>
-new Chart(document.getElementById('chartMarcheBenef'),{
-  type:'bar',
-  data:{
-    labels:['2023','2024','2025'],
-    datasets:[{
-      label:'Accès au marché – Nb bénéficiaires',
-      data:[92,78,94],
-      backgroundColor:['#D3D1C7','#AFA9EC','#534AB7'],
-      borderRadius:4,
-      barPercentage:.5
-    }]
-  },
-  options:{responsive:true,maintainAspectRatio:false,animation:false,
-    scales:{
-      x:{grid:{display:false},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"}}},
-      y:{beginAtZero:true,grid:{color:'#EEEDE8'},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"}},border:{display:false}}
-    },
-    plugins:{
-      legend:{display:false},
-      datalabels:{display:true,anchor:'end',align:'end',color:'#888780',font:{size:9,family:"'Inter',sans-serif",weight:'600'},offset:-2},
-      tooltip:{cornerRadius:6,padding:8}
-    }}
-});
-</script>
-  <div class="page-num">37</div>
-</div>
-
-<!-- PAGE 37b — ACCÈS AU MARCHÉ SUITE -->
-<div class="page">
-  <div class="accent-bar"></div>
-  <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Accès au marché — Satisfaction</span></div>
-  <div style="position:relative;height:250px;margin:12px 0">
-<canvas id="chartMarcheSat"></canvas>
-</div>
-<script>
-new Chart(document.getElementById('chartMarcheSat'),{
-  type:'bar',
-  data:{
-    labels:['2023','2024','2025'],
-    datasets:[{
-      label:'Accès au marché – Taux satisfaction',
-      data:[91,97,95],
-      backgroundColor:['#D3D1C7','#AFA9EC','#534AB7'],
-      borderRadius:4,
-      barPercentage:.5
-    }]
-  },
-  options:{responsive:true,maintainAspectRatio:false,animation:false,
-    scales:{
-      x:{grid:{display:false},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"}}},
-      y:{beginAtZero:true,max:100,grid:{color:'#EEEDE8'},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"},callback:v=>v+'%'},border:{display:false}}
-    },
-    plugins:{
-      legend:{display:false},
-      datalabels:{display:true,anchor:'end',align:'end',color:'#888780',font:{size:9,family:"'Inter',sans-serif",weight:'600'},formatter:v=>v+'%',offset:-2},
-      tooltip:{cornerRadius:6,padding:8}
-    }}
-});
-</script>
-  <p>Le Technopark a consolidé, à l'échelle de son réseau, un dispositif structuré de <strong>mises en relation qualifiées</strong>, ayant permis de générer plus de 150 mises en relation entre startups et acteurs clés du marché (entreprises, institutions et partenaires technologiques). Ces interactions, ciblées et orientées business, s'inscrivent dans une logique d'activation d'opportunités concrètes et de réduction du cycle d'accès au marché. Elles ont permis aux startups de franchir des étapes commerciales déterminantes, notamment à travers l'obtention de bons de commande, la signature de premiers contrats, le lancement de collaborations opérationnelles et l'intégration dans des chaînes de valeur sectorielles.</p>
-  <p>En 2025, ce dispositif a bénéficié à près <strong>d'une centaine de startups</strong>, avec des collaborations concluantes, traduisant une <strong>efficacité opérationnelle élevée</strong>. Le taux de satisfaction de <strong>95 %</strong> exprimé par les startups confirme la pertinence du ciblage des mises en relation ainsi que leur adéquation avec les besoins réels du marché. Au-delà des résultats immédiats, ces performances illustrent la capacité du Technopark à jouer un rôle d'intermédiation économique à forte valeur ajoutée, en connectant efficacement l'offre des startups à une demande qualifiée et en transformant ces interactions en leviers durables de développement commercial.</p>
+  <div style="display:flex;gap:12px;margin:10px 0">
+    <div style="flex:1">
+      <h3 style="font-size:8pt;text-align:center;margin:0 0 4px;color:var(--navy)">Nb bénéficiaires</h3>
+      <div style="position:relative;height:160px"><canvas id="chartMarcheBenef"></canvas></div>
+    </div>
+    <div style="flex:1">
+      <h3 style="font-size:8pt;text-align:center;margin:0 0 4px;color:var(--navy)">Taux de satisfaction</h3>
+      <div style="position:relative;height:160px"><canvas id="chartMarcheSat"></canvas></div>
+    </div>
+  </div>
+  <script>
+  new Chart(document.getElementById('chartMarcheBenef'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{label:'Nb bénéficiaires',data:[92,78,94],backgroundColor:['#D3D1C7','#AFA9EC','#534AB7'],borderRadius:4,barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,animation:false,scales:{x:{grid:{display:false},ticks:{color:'#888780',font:{size:8,family:"'Inter',sans-serif"}}},y:{beginAtZero:true,grid:{color:'#EEEDE8'},ticks:{color:'#888780',font:{size:8,family:"'Inter',sans-serif"}},border:{display:false}}},plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:'#888780',font:{size:8,family:"'Inter',sans-serif",weight:'600'},offset:-2},tooltip:{cornerRadius:6,padding:8}}}});
+  new Chart(document.getElementById('chartMarcheSat'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{label:'Taux satisfaction',data:[91,97,95],backgroundColor:['#D3D1C7','#AFA9EC','#534AB7'],borderRadius:4,barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,animation:false,scales:{x:{grid:{display:false},ticks:{color:'#888780',font:{size:8,family:"'Inter',sans-serif"}}},y:{beginAtZero:true,max:100,grid:{color:'#EEEDE8'},ticks:{color:'#888780',font:{size:8,family:"'Inter',sans-serif"},callback:v=>v+'%'},border:{display:false}}},plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:'#888780',font:{size:8,family:"'Inter',sans-serif",weight:'600'},formatter:v=>v+'%',offset:-2},tooltip:{cornerRadius:6,padding:8}}}});
+  </script>
+  <p>Le Technopark a consolidé un dispositif structuré de <strong>mises en relation qualifiées</strong>, générant plus de 150 connexions entre startups et acteurs clés du marché. Ces interactions ont permis aux startups de franchir des étapes commerciales déterminantes : bons de commande, premiers contrats, collaborations opérationnelles et intégration dans des chaînes de valeur sectorielles.</p>
+  <p>En 2025, ce dispositif a bénéficié à près <strong>d'une centaine de startups</strong>, avec un taux de satisfaction de <strong>95 %</strong> confirmant la pertinence du ciblage et l'adéquation avec les besoins du marché.</p>
   <div class="page-num">37</div>
 </div>
 
@@ -1769,7 +1717,7 @@ new Chart(document.getElementById('chartMarcheSat'),{
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Accès au marché (suite)</span></div>
   <h3>Cartographie des références marché des startups : un indicateur clé de maturité et de confiance des grands donneurs d'ordre</h3>
-  <img src="public/images/04h_marche_cartographie-references.png" alt="Cartographie des références marché — clients des startups Technopark" loading="lazy" class="report-img">
+  <img src="public/images/04h_marche_cartographie-references.png" alt="Cartographie des références marché — clients des startups Technopark" loading="lazy" style="max-width:100%;height:160px;object-fit:contain;border-radius:6px;margin:8px auto;display:block">
   <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">En 2025, le Technopark a engagé un travail structuré de cartographie et de qualification des références clients des startups accompagnées, dans une logique de valorisation des réalisations concrètes et de renforcement de leur visibilité auprès des donneurs d'ordre. Cette démarche permet de disposer d'une vision consolidée et sectorielle des cas d'usage déployés, et de mieux positionner les startups en fonction de leur maturité et de leurs références marché.</p>
   <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">Cette cartographie met en évidence un constat stratégique majeur : les startups du Technopark démontrent une capacité avérée à déployer leurs solutions auprès de grands comptes et d'institutions, dans des secteurs variés tels que la finance, l'industrie, l'énergie, la santé, l'éducation ou encore le retail. La diversité et la qualité des références recensées traduisent une confiance marché tangible, et confirment la fiabilité des solutions développées ainsi que leur aptitude à répondre à des besoins métiers complexes, y compris dans des environnements exigeants et réglementés.</p>
   <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">À travers cette démarche, le Technopark consolide son rôle de tiers de confiance et d'orchestrateur de l'écosystème, en connectant des startups crédibles et opérationnelles avec des acteurs économiques de premier plan, et en accélérant leur déploiement à plus grande échelle.</p>
@@ -2029,7 +1977,7 @@ new Chart(document.getElementById('chartExportTranches'),{
   <div aria-hidden="true" style="font-size:0;height:0;overflow:hidden;position:absolute">Au delà de ChatGPT Boostez votre Technologie maîtrise de l IA Générative Innovation Dive into GenAI and Serverless Computing AWS User Group spécialiser l IA dans votre domaine grâce au finetuning des modèles Apports de la Loi de Finances 2025 Finance pour les Startups et PMEs Management Marketing Présentation de la loi de finance 2025 Maîtriser les clés de l éducation financière L art du Storytelling Développement personnel Impact des soft skills dans l adaptation aux évolutions technologiques Gestion des émotions pour une harmonisation intérieure profonde</div>
   <h3>Les RDVs Experts du Technopark</h3>
   <p>Les Rendez-vous Experts constituent un cycle d'ateliers organisés sous forme de webinaires, articulé autour de deux axes stratégiques — technologie et business — ayant connu en 2025 une montée en puissance significative, tant par la diversité des thématiques abordées que par le niveau d'engagement des participants à travers les six sites du réseau.</p>
-  <img src="public/images/04i_talents_formations-ateliers.png" alt="Formations et ateliers — Technopark réseau 2025" loading="lazy" class="report-img">
+  <img src="public/images/04i_talents_formations-ateliers.png" alt="Formations et ateliers — Technopark réseau 2025" loading="lazy" style="max-width:100%;height:160px;object-fit:contain;border-radius:6px;margin:8px auto;display:block">
   <div class="page-num">43</div>
 </div>
 
@@ -2050,14 +1998,16 @@ new Chart(document.getElementById('chartExportTranches'),{
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Promotion des startups (suite)</span></div>
   <h3>7KayTech — galerie des entrepreneurs</h3>
-  <div class="img-gallery" style="margin:14px 0">
-    <img src="public/images/04j_promotion_7kaytech-1.png" alt="7KayTech — portrait entrepreneur Technopark 1" loading="lazy" class="img-7kaytech">
-    <img src="public/images/04j_promotion_7kaytech-2.png" alt="7KayTech — portrait entrepreneur Technopark 2" loading="lazy" class="img-7kaytech">
-    <img src="public/images/04j_promotion_7kaytech-3.png" alt="7KayTech — portrait entrepreneur Technopark 3" loading="lazy" class="img-7kaytech">
-    <img src="public/images/04j_promotion_7kaytech-4.png" alt="7KayTech — portrait entrepreneur Technopark 4" loading="lazy" class="img-7kaytech">
-    <img src="public/images/04j_promotion_7kaytech-5.png" alt="7KayTech — portrait entrepreneur Technopark 5" loading="lazy" class="img-7kaytech">
-    <img src="public/images/04j_promotion_7kaytech-6.png" alt="7KayTech — portrait entrepreneur Technopark 6" loading="lazy" class="img-7kaytech">
-    <img src="public/images/04j_promotion_7kaytech-7.png" alt="7KayTech — portrait entrepreneur Technopark 7" loading="lazy" class="img-7kaytech">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0">
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_7kaytech-1.png" alt="7KayTech — portrait entrepreneur 1" loading="lazy" class="img-7kaytech"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_7kaytech-2.png" alt="7KayTech — portrait entrepreneur 2" loading="lazy" class="img-7kaytech"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_7kaytech-3.png" alt="7KayTech — portrait entrepreneur 3" loading="lazy" class="img-7kaytech"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_7kaytech-4.png" alt="7KayTech — portrait entrepreneur 4" loading="lazy" class="img-7kaytech"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 auto;max-width:75%">
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_7kaytech-5.png" alt="7KayTech — portrait entrepreneur 5" loading="lazy" class="img-7kaytech"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_7kaytech-6.png" alt="7KayTech — portrait entrepreneur 6" loading="lazy" class="img-7kaytech"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_7kaytech-7.png" alt="7KayTech — portrait entrepreneur 7" loading="lazy" class="img-7kaytech"></div>
   </div>
   <div class="page-num">44b</div>
 </div>
@@ -2082,13 +2032,15 @@ new Chart(document.getElementById('chartExportTranches'),{
     </tbody>
   </table>
   <h3>Articles TelQuel 2025 — galerie</h3>
-  <div class="img-gallery" style="margin-top:14px">
-    <img src="public/images/04j_promotion_telquel-mlnetworks.png" alt="Article TelQuel — MLNetworks" loading="lazy" class="img-social">
-    <img src="public/images/04j_promotion_telquel-mentorclass.png" alt="Article TelQuel — MentorClass Academy" loading="lazy" class="img-social">
-    <img src="public/images/04j_promotion_telquel-clickdoc.png" alt="Article TelQuel — Click Doc" loading="lazy" class="img-social">
-    <img src="public/images/04j_promotion_telquel-alyapay.png" alt="Article TelQuel — Alya Pay" loading="lazy" class="img-social">
-    <img src="public/images/04j_promotion_telquel-alyapay-2.png" alt="Article TelQuel — Alya Pay (suite)" loading="lazy" class="img-social">
-    <img src="public/images/04j_promotion_telquel-key-intelligent.png" alt="Article TelQuel — Key Intelligent Technology" loading="lazy" class="img-social">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0">
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_telquel-mlnetworks.png" alt="Article TelQuel — MLNetworks" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_telquel-mentorclass.png" alt="Article TelQuel — MentorClass Academy" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_telquel-clickdoc.png" alt="Article TelQuel — Click Doc" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0">
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_telquel-alyapay.png" alt="Article TelQuel — Alya Pay" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_telquel-alyapay-2.png" alt="Article TelQuel — Alya Pay (suite)" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04j_promotion_telquel-key-intelligent.png" alt="Article TelQuel — Key Intelligent Technology" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
   </div>
   <div class="page-num">45</div>
 </div>
@@ -2158,13 +2110,15 @@ new Chart(document.getElementById('chartExportTranches'),{
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Transformation digitale (suite)</span></div>
   <p>Ces résultats illustrent une évolution progressive vers un modèle où la communication digitale dépasse sa fonction de visibilité pour devenir un véritable levier d'attractivité, d'engagement et de rayonnement du Technopark et de l'innovation marocaine.</p>
-  <div class="img-gallery">
-    <img src="public/images/04k_communication_social-media-1.png" alt="Réseaux sociaux Technopark — publication 1" loading="lazy" class="img-social">
-    <img src="public/images/04k_communication_social-media-2.png" alt="Réseaux sociaux Technopark — publication 2" loading="lazy" class="img-social">
-    <img src="public/images/04k_communication_social-media-3.png" alt="Réseaux sociaux Technopark — publication 3" loading="lazy" class="img-social">
-    <img src="public/images/04k_communication_social-media-4.png" alt="Réseaux sociaux Technopark — publication 4" loading="lazy" class="img-social">
-    <img src="public/images/04k_communication_social-media-5.png" alt="Réseaux sociaux Technopark — publication 5" loading="lazy" class="img-social">
-    <img src="public/images/04k_communication_social-media-6.png" alt="Réseaux sociaux Technopark — publication 6" loading="lazy" class="img-social">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0">
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04k_communication_social-media-1.png" alt="Réseaux sociaux Technopark — publication 1" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04k_communication_social-media-2.png" alt="Réseaux sociaux Technopark — publication 2" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04k_communication_social-media-3.png" alt="Réseaux sociaux Technopark — publication 3" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0">
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04k_communication_social-media-4.png" alt="Réseaux sociaux Technopark — publication 4" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04k_communication_social-media-5.png" alt="Réseaux sociaux Technopark — publication 5" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+    <div style="background:#f5f5f5;border-radius:6px;overflow:hidden;aspect-ratio:3/4"><img src="public/images/04k_communication_social-media-6.png" alt="Réseaux sociaux Technopark — publication 6" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
   </div>
   <h3 style="margin-top:10px">Communication régionale — sites du réseau Technopark</h3>
   <div class="img-gallery">
