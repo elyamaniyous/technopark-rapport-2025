@@ -18,8 +18,51 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
-.page{width:210mm;min-height:297mm;margin:0 auto 20px;background:#fff;padding:20mm;page-break-after:always;position:relative;overflow:hidden}
-@media print{body{background:#fff}.page{margin:0;page-break-after:always}}
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+.page{width:210mm;height:297mm;max-height:297mm;margin:0 auto 0;padding:8mm 10mm 5mm 10mm;background:#fff;position:relative;overflow:hidden;box-sizing:border-box;page-break-after:always;page-break-inside:avoid}
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+  .page {
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    margin: 0 !important;
+    padding: 8mm 10mm 5mm 10mm !important;
+    overflow: hidden !important;
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .page > * {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+  }
+  .page + .page { margin-top: 0 !important; }
+}
+@media screen {
+  .page {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+}
 .accent-bar{width:60px;height:4px;background:linear-gradient(90deg,var(--navy),var(--coral));margin-bottom:18px}
 .page-header{display:flex;justify-content:space-between;font-size:7.5pt;color:var(--gray-500);letter-spacing:.03em;border-bottom:1px solid var(--gray-100);padding-bottom:8px;margin-bottom:20px}
 .page-num{position:absolute;bottom:12mm;right:20mm;font-size:8pt;color:var(--gray-500);font-weight:500}
@@ -99,10 +142,21 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 .ref-table td:last-child{color:var(--gray-500);font-size:7.5pt}
 .site-badge{display:inline-block;background:var(--navy);color:#fff;font-size:6pt;font-weight:600;padding:2px 7px;border-radius:10px;text-transform:uppercase}
 .report-img{max-width:100%;height:auto;border-radius:6px;margin:12px 0;display:block}
-.img-gallery{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
-.img-gallery img{flex:1 1 calc(50% - 10px);min-width:200px;border-radius:6px;object-fit:cover}
+.img-gallery{display:flex;gap:4mm;flex-wrap:wrap;justify-content:center;margin:8px 0}
+.img-gallery img{flex:1 1 calc(50% - 4mm);border-radius:6px;object-fit:cover;max-width:100%}
 .logo-grid{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;margin:16px 0}
 .logo-grid img{height:60px;width:auto;object-fit:contain}
+.img-full{width:190mm;height:auto}
+.img-large{width:130mm;height:auto}
+.img-medium{width:90mm;height:auto}
+.img-small{width:60mm;height:auto}
+.img-icon{width:30mm;height:auto}
+.img-logo-partner{width:35mm;height:auto}
+.img-social{width:28mm;height:50mm;object-fit:cover}
+.img-7kaytech{width:24mm;height:40mm;object-fit:cover}
+.img-delegation{width:89mm;height:50mm;object-fit:cover}
+.img-event{width:75mm;height:50mm;object-fit:cover}
+.img-site{width:80mm;height:auto}
 </style>
 </head>
 <body>
@@ -111,9 +165,6 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Table des matières</span></div>
-  <div style="text-align:center;margin-bottom:20px">
-    <img src="public/images/00_page-garde_logo-technopark.jpg" alt="Logo Technopark Maroc" loading="lazy" style="max-height:80px;width:auto;object-fit:contain">
-  </div>
   <h1 style="font-size:18pt;margin-bottom:24px">Table des matières</h1>
 
   <!-- Partie I -->
@@ -868,8 +919,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     <img src="public/images/04a_morocco-accelerator_logo-programme.png" alt="Logo Morocco Accelerator by Technopark & Plug and Play" loading="lazy" style="max-height:70px;width:auto;object-fit:contain">
   </div>
   <div class="img-gallery">
-    <img src="public/images/04a_morocco-accelerator_focus-weeks.png" alt="Focus Weeks — Morocco Accelerator Program" loading="lazy">
-    <img src="public/images/04a_morocco-accelerator_partenaires.png" alt="Partenaires du Morocco Accelerator Program" loading="lazy">
+    <img src="public/images/04a_morocco-accelerator_focus-weeks.png" alt="Focus Weeks — Morocco Accelerator Program" loading="lazy" class="img-event">
+    <img src="public/images/04a_morocco-accelerator_partenaires.png" alt="Partenaires du Morocco Accelerator Program" loading="lazy" class="img-event">
   </div>
   <div class="page-num">28</div>
 </div>
@@ -906,8 +957,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     <p>Levées de fonds opérées par les startups de la première cohorte : <strong>73 MDH</strong>, avec des investisseurs de référence tels que Plug and Play, Antler, Orange Ventures, Newfund Capital et CDG.</p>
   </div>
   <div class="img-gallery">
-    <img src="public/images/04a_morocco-accelerator_cohorte1-gouvernance.png" alt="Gouvernance de la Cohorte 1 — Morocco Accelerator" loading="lazy">
-    <img src="public/images/04a_morocco-accelerator_cohorte1-exposition.png" alt="Exposition internationale — Cohorte 1 Morocco Accelerator" loading="lazy">
+    <img src="public/images/04a_morocco-accelerator_cohorte1-gouvernance.png" alt="Gouvernance de la Cohorte 1 — Morocco Accelerator" loading="lazy" class="img-event">
+    <img src="public/images/04a_morocco-accelerator_cohorte1-exposition.png" alt="Exposition internationale — Cohorte 1 Morocco Accelerator" loading="lazy" class="img-event">
   </div>
   <div class="page-num">29</div>
 </div>
@@ -964,8 +1015,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   </div>
   <p>Le programme DigitAgri réaffirme son rôle de catalyseur de l'innovation agricole au Maroc. La combinaison d'un accompagnement structuré, d'un accès facilité aux infrastructures d'expérimentation, d'un soutien au financement et d'une exposition sur la scène internationale a permis aux startups accompagnées de franchir des étapes déterminantes dans leur développement.</p>
   <div class="img-gallery">
-    <img src="public/images/04b_digitagri_resultats-indicateurs.png" alt="Résultats et indicateurs — Programme DigitAgri" loading="lazy">
-    <img src="public/images/04b_digitagri_illustration.png" alt="Illustration programme DigitAgri" loading="lazy">
+    <img src="public/images/04b_digitagri_resultats-indicateurs.png" alt="Résultats et indicateurs — Programme DigitAgri" loading="lazy" class="img-medium">
+    <img src="public/images/04b_digitagri_illustration.png" alt="Illustration programme DigitAgri" loading="lazy" class="img-medium">
   </div>
   <img src="public/images/04b_digitagri_visuel.png" alt="Visuel complémentaire DigitAgri" loading="lazy" class="report-img">
   <div class="page-num">31</div>
@@ -986,8 +1037,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   </div>
   <p>À l'issue du programme, deux projets ont été installés au Technopark Souss Massa, tandis que le projet finaliste Sintrocare a choisi de rejoindre la Cité de l'Innovation Souss Massa. Les projets couvrent : E-tourisme, Industries culturelles et créatives, GreenTech, EdTech, AgriTech, Développement informatique et marketing digital.</p>
   <div class="img-gallery">
-    <img src="public/images/04c_tiwizi_photo-programme.jpeg" alt="Photo du programme TIWIZI" loading="lazy">
-    <img src="public/images/04c_tiwizi_cartographie-secteurs.png" alt="Cartographie sectorielle TIWIZI" loading="lazy">
+    <img src="public/images/04c_tiwizi_photo-programme.jpeg" alt="Photo du programme TIWIZI" loading="lazy" class="img-event">
+    <img src="public/images/04c_tiwizi_cartographie-secteurs.png" alt="Cartographie sectorielle TIWIZI" loading="lazy" class="img-medium">
   </div>
   <img src="public/images/04c_tiwizi_laureats-demoday.png" alt="Lauréats du Demo Day TIWIZI — 5 mai 2025" loading="lazy" class="report-img">
   <h2>Boost Up Lab Essaouira : Catalyser l'innovation territoriale</h2>
@@ -1012,8 +1063,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     </div>
   </div>
   <div class="img-gallery">
-    <img src="public/images/04d_boost-up-lab_deroule-programme.png" alt="Déroulé du programme Boost Up Lab Essaouira" loading="lazy">
-    <img src="public/images/04d_boost-up-lab_impact-territorial.png" alt="Impact territorial Boost Up Lab" loading="lazy">
+    <img src="public/images/04d_boost-up-lab_deroule-programme.png" alt="Déroulé du programme Boost Up Lab Essaouira" loading="lazy" class="img-medium">
+    <img src="public/images/04d_boost-up-lab_impact-territorial.png" alt="Impact territorial Boost Up Lab" loading="lazy" class="img-medium">
   </div>
   <div class="page-num">32</div>
 </div>
@@ -1033,8 +1084,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   </div>
   <p>Parmi les startups bénéficiaires 2025/2026 : Elysec International (Cybersécurité), Experts ITN (Réseau &amp; Télécom), Kekeli Academy (EdTech), Rhitoric (EdTech), Kounhany (Automobile), Indusnov (Industrie 4.0), Zaim Digital (PropTech), Lead Pal (Marketing Digital), Mentor Class Academy (EdTech).</p>
   <div class="img-gallery">
-    <img src="public/images/04e_etap2-export_visuel-programme.png" alt="Visuel du programme ETAP 2 Export" loading="lazy">
-    <img src="public/images/04e_etap2-export_photo-programme.jpeg" alt="Photo du programme ETAP 2 Export" loading="lazy">
+    <img src="public/images/04e_etap2-export_visuel-programme.png" alt="Visuel du programme ETAP 2 Export" loading="lazy" class="img-medium">
+    <img src="public/images/04e_etap2-export_photo-programme.jpeg" alt="Photo du programme ETAP 2 Export" loading="lazy" class="img-event">
   </div>
   <div class="logo-grid">
     <img src="public/images/04e_etap2_logo-elysec.png" alt="Elysec International" loading="lazy">
@@ -1053,8 +1104,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   </div>
   <p>Dans le cadre du programme SVB, Technopark Morocco déploie une offre intégrée couvrant les phases d'incubation et d'accélération, avec une exigence d'exécution homogène à l'échelle nationale. Les programmes seront déployés progressivement courant l'année 2026, en cohérence avec le calendrier opérationnel du dispositif.</p>
   <div class="img-gallery">
-    <img src="public/images/04f_svb_lancement-national.png" alt="Lancement national Startup Venture Building" loading="lazy">
-    <img src="public/images/04f_svb_ancrage-territorial.png" alt="Ancrage territorial SVB — déploiement régional" loading="lazy">
+    <img src="public/images/04f_svb_lancement-national.png" alt="Lancement national Startup Venture Building" loading="lazy" class="img-medium">
+    <img src="public/images/04f_svb_ancrage-territorial.png" alt="Ancrage territorial SVB — déploiement régional" loading="lazy" class="img-medium">
   </div>
   <img src="public/images/04f_svb_approche-operationnelle.png" alt="Approche opérationnelle SVB" loading="lazy" class="report-img">
   <div class="page-num">33</div>
@@ -1146,8 +1197,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     <p>En consolidant la préparation des startups et en structurant les connexions avec les investisseurs, le Technopark renforce son positionnement en tant qu'intermédiaire de confiance entre entrepreneurs et financeurs, contribuant à la construction d'un écosystème plus mature, plus crédible et mieux intégré aux circuits de financement nationaux et internationaux.</p>
   </div>
   <div class="img-gallery">
-    <img src="public/images/04g_financement_partenariat-azur-1.png" alt="Partenariat Azur Innovation Management — signature" loading="lazy">
-    <img src="public/images/04g_financement_partenariat-azur-2.jpeg" alt="Partenariat Azur Innovation Fund — Technopark" loading="lazy">
+    <img src="public/images/04g_financement_partenariat-azur-1.png" alt="Partenariat Azur Innovation Management — signature" loading="lazy" class="img-event">
+    <img src="public/images/04g_financement_partenariat-azur-2.jpeg" alt="Partenariat Azur Innovation Fund — Technopark" loading="lazy" class="img-event">
   </div>
   <div class="page-num">36</div>
 </div>
@@ -1206,8 +1257,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     </div>
   </div>
   <div class="img-gallery">
-    <img src="public/images/04h_marche_glovo-startup-lab.jpeg" alt="Glovo Startup Lab Barcelone — immersion startups Technopark" loading="lazy">
-    <img src="public/images/04h_marche_qstp-qatar.jpeg" alt="QSTP Qatar — Global Innovation Link, startups Technopark" loading="lazy">
+    <img src="public/images/04h_marche_glovo-startup-lab.jpeg" alt="Glovo Startup Lab Barcelone — immersion startups Technopark" loading="lazy" class="img-event">
+    <img src="public/images/04h_marche_qstp-qatar.jpeg" alt="QSTP Qatar — Global Innovation Link, startups Technopark" loading="lazy" class="img-event">
   </div>
   <div class="page-num">38</div>
 </div>
@@ -1228,10 +1279,10 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   <p>Les 40 startups sélectionnées dans le GITEX Africa Morocco 200 bénéficiaient d'une subvention de 95 % du coût global du stand, de l'opportunité de participer au Supernova Challenge (prix de 100 000 $), ainsi que de rencontres avec des investisseurs et fonds actifs en Afrique. Partenariats stratégiques signés : ADD, Concentrix, APEBI, ANAPEC.</p>
   <img src="public/images/04h_marche_gitex-africa-2025.png" alt="GITEX Africa 2025 — Marrakech, stand Technopark" loading="lazy" class="report-img">
   <div class="img-gallery">
-    <img src="public/images/04h_marche_gitex-africa-stand1.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 1" loading="lazy">
-    <img src="public/images/04h_marche_gitex-africa-stand2.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 2" loading="lazy">
-    <img src="public/images/04h_marche_gitex-africa-stand3.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 3" loading="lazy">
-    <img src="public/images/04h_marche_gitex-africa-stand4.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 4" loading="lazy">
+    <img src="public/images/04h_marche_gitex-africa-stand1.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 1" loading="lazy" class="img-event">
+    <img src="public/images/04h_marche_gitex-africa-stand2.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 2" loading="lazy" class="img-event">
+    <img src="public/images/04h_marche_gitex-africa-stand3.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 3" loading="lazy" class="img-event">
+    <img src="public/images/04h_marche_gitex-africa-stand4.jpeg" alt="Stand Technopark GITEX Africa 2025 — vue 4" loading="lazy" class="img-event">
   </div>
   <h3>VivaTech 2025 — Paris</h3>
   <p>Sous l'impulsion du MTNRA, le Maroc a pris part à VivaTech 2025 à Paris. Technopark a contribué à renforcer la visibilité internationale de trois startups de son réseau : <strong>ISSROAD</strong> (cohorte ministérielle), <strong>SVB DEV</strong> et <strong>MX4AI</strong>.</p>
@@ -1242,8 +1293,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   <h3>Emerging Valley 2025 — Aix-Marseille-Provence (novembre 2025)</h3>
   <p>En novembre 2025, Technopark Morocco a pris part à la deuxième édition d'Emerging Valley, offrant aux startups un accès privilégié à des experts, investisseurs et acteurs clés des écosystèmes européens et africains. La délégation marocaine incluant l'UM6P a mis en lumière plusieurs startups innovantes, avec des présentations à Marseille Innovation et des sessions de networking au Palais du Pharo.</p>
   <div class="img-gallery">
-    <img src="public/images/04h_marche_emerging-valley-1.jpeg" alt="Emerging Valley 2025 — délégation Technopark, photo 1" loading="lazy">
-    <img src="public/images/04h_marche_emerging-valley-2.jpeg" alt="Emerging Valley 2025 — délégation Technopark, photo 2" loading="lazy">
+    <img src="public/images/04h_marche_emerging-valley-1.jpeg" alt="Emerging Valley 2025 — délégation Technopark, photo 1" loading="lazy" class="img-delegation">
+    <img src="public/images/04h_marche_emerging-valley-2.jpeg" alt="Emerging Valley 2025 — délégation Technopark, photo 2" loading="lazy" class="img-delegation">
   </div>
   <div class="page-num">39</div>
 </div>
@@ -1335,13 +1386,13 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   <h3>7KayTech : capital narratif et identité entrepreneuriale</h3>
   <p>Lancée en 2024, l'initiative « 7KayTech » s'est consolidée en 2025 comme un format emblématique de valorisation des entrepreneurs de l'écosystème. Son intitulé fait écho à l'expression marocaine « 7kaytek », qui signifie « raconte ton histoire », tout en intégrant la dimension Tech. Le concept repose sur des formats d'échange ouverts et sincères, au cours desquels les fondateurs partagent les réalités de leur parcours entrepreneurial.</p>
   <div class="img-gallery" style="margin:14px 0">
-    <img src="public/images/04j_promotion_7kaytech-1.png" alt="7KayTech — portrait entrepreneur Technopark 1" loading="lazy">
-    <img src="public/images/04j_promotion_7kaytech-2.png" alt="7KayTech — portrait entrepreneur Technopark 2" loading="lazy">
-    <img src="public/images/04j_promotion_7kaytech-3.png" alt="7KayTech — portrait entrepreneur Technopark 3" loading="lazy">
-    <img src="public/images/04j_promotion_7kaytech-4.png" alt="7KayTech — portrait entrepreneur Technopark 4" loading="lazy">
-    <img src="public/images/04j_promotion_7kaytech-5.png" alt="7KayTech — portrait entrepreneur Technopark 5" loading="lazy">
-    <img src="public/images/04j_promotion_7kaytech-6.png" alt="7KayTech — portrait entrepreneur Technopark 6" loading="lazy">
-    <img src="public/images/04j_promotion_7kaytech-7.png" alt="7KayTech — portrait entrepreneur Technopark 7" loading="lazy">
+    <img src="public/images/04j_promotion_7kaytech-1.png" alt="7KayTech — portrait entrepreneur Technopark 1" loading="lazy" class="img-7kaytech">
+    <img src="public/images/04j_promotion_7kaytech-2.png" alt="7KayTech — portrait entrepreneur Technopark 2" loading="lazy" class="img-7kaytech">
+    <img src="public/images/04j_promotion_7kaytech-3.png" alt="7KayTech — portrait entrepreneur Technopark 3" loading="lazy" class="img-7kaytech">
+    <img src="public/images/04j_promotion_7kaytech-4.png" alt="7KayTech — portrait entrepreneur Technopark 4" loading="lazy" class="img-7kaytech">
+    <img src="public/images/04j_promotion_7kaytech-5.png" alt="7KayTech — portrait entrepreneur Technopark 5" loading="lazy" class="img-7kaytech">
+    <img src="public/images/04j_promotion_7kaytech-6.png" alt="7KayTech — portrait entrepreneur Technopark 6" loading="lazy" class="img-7kaytech">
+    <img src="public/images/04j_promotion_7kaytech-7.png" alt="7KayTech — portrait entrepreneur Technopark 7" loading="lazy" class="img-7kaytech">
   </div>
   <h3>Partenariat médiatique avec TelQuel</h3>
   <p>Dans le cadre d'un partenariat stratégique avec le magazine marocain <em>TelQuel</em>, une startup du réseau Technopark est mise à l'honneur chaque mois à travers un article dédié. Parmi les startups mises en lumière en 2025 :</p>
@@ -1371,16 +1422,16 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     </tbody>
   </table>
   <div class="img-gallery" style="margin-top:14px">
-    <img src="public/images/04j_promotion_telquel-mlnetworks.png" alt="Article TelQuel — MLNetworks" loading="lazy">
-    <img src="public/images/04j_promotion_telquel-mentorclass.png" alt="Article TelQuel — MentorClass Academy" loading="lazy">
-    <img src="public/images/04j_promotion_telquel-clickdoc.png" alt="Article TelQuel — Click Doc" loading="lazy">
-    <img src="public/images/04j_promotion_telquel-alyapay.png" alt="Article TelQuel — Alya Pay" loading="lazy">
-    <img src="public/images/04j_promotion_telquel-alyapay-2.png" alt="Article TelQuel — Alya Pay (suite)" loading="lazy">
-    <img src="public/images/04j_promotion_telquel-key-intelligent.png" alt="Article TelQuel — Key Intelligent Technology" loading="lazy">
+    <img src="public/images/04j_promotion_telquel-mlnetworks.png" alt="Article TelQuel — MLNetworks" loading="lazy" class="img-social">
+    <img src="public/images/04j_promotion_telquel-mentorclass.png" alt="Article TelQuel — MentorClass Academy" loading="lazy" class="img-social">
+    <img src="public/images/04j_promotion_telquel-clickdoc.png" alt="Article TelQuel — Click Doc" loading="lazy" class="img-social">
+    <img src="public/images/04j_promotion_telquel-alyapay.png" alt="Article TelQuel — Alya Pay" loading="lazy" class="img-social">
+    <img src="public/images/04j_promotion_telquel-alyapay-2.png" alt="Article TelQuel — Alya Pay (suite)" loading="lazy" class="img-social">
+    <img src="public/images/04j_promotion_telquel-key-intelligent.png" alt="Article TelQuel — Key Intelligent Technology" loading="lazy" class="img-social">
   </div>
   <div class="img-gallery">
-    <img src="public/images/04j_promotion_prix-mlnetworks-1.png" alt="Prix MLNetworks — Outstanding Catalyst Rising Star Award" loading="lazy">
-    <img src="public/images/04j_promotion_prix-mlnetworks-2.png" alt="Distinction MLNetworks — TM Forum DTW Ignite Copenhague" loading="lazy">
+    <img src="public/images/04j_promotion_prix-mlnetworks-1.png" alt="Prix MLNetworks — Outstanding Catalyst Rising Star Award" loading="lazy" class="img-event">
+    <img src="public/images/04j_promotion_prix-mlnetworks-2.png" alt="Distinction MLNetworks — TM Forum DTW Ignite Copenhague" loading="lazy" class="img-event">
   </div>
   <div class="page-num">43</div>
 </div>
@@ -1411,20 +1462,20 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   </div>
   <p>Ces résultats illustrent une évolution progressive vers un modèle où la communication digitale dépasse sa fonction de visibilité pour devenir un véritable levier d'attractivité, d'engagement et de rayonnement du Technopark et de l'innovation marocaine.</p>
   <div class="img-gallery">
-    <img src="public/images/04k_communication_social-media-1.png" alt="Réseaux sociaux Technopark — publication 1" loading="lazy">
-    <img src="public/images/04k_communication_social-media-2.png" alt="Réseaux sociaux Technopark — publication 2" loading="lazy">
-    <img src="public/images/04k_communication_social-media-3.png" alt="Réseaux sociaux Technopark — publication 3" loading="lazy">
-    <img src="public/images/04k_communication_social-media-4.png" alt="Réseaux sociaux Technopark — publication 4" loading="lazy">
-    <img src="public/images/04k_communication_social-media-5.png" alt="Réseaux sociaux Technopark — publication 5" loading="lazy">
-    <img src="public/images/04k_communication_social-media-6.png" alt="Réseaux sociaux Technopark — publication 6" loading="lazy">
+    <img src="public/images/04k_communication_social-media-1.png" alt="Réseaux sociaux Technopark — publication 1" loading="lazy" class="img-social">
+    <img src="public/images/04k_communication_social-media-2.png" alt="Réseaux sociaux Technopark — publication 2" loading="lazy" class="img-social">
+    <img src="public/images/04k_communication_social-media-3.png" alt="Réseaux sociaux Technopark — publication 3" loading="lazy" class="img-social">
+    <img src="public/images/04k_communication_social-media-4.png" alt="Réseaux sociaux Technopark — publication 4" loading="lazy" class="img-social">
+    <img src="public/images/04k_communication_social-media-5.png" alt="Réseaux sociaux Technopark — publication 5" loading="lazy" class="img-social">
+    <img src="public/images/04k_communication_social-media-6.png" alt="Réseaux sociaux Technopark — publication 6" loading="lazy" class="img-social">
   </div>
   <div class="img-gallery">
-    <img src="public/images/04k_communication_regional-1.png" alt="Communication régionale Technopark — site 1" loading="lazy">
-    <img src="public/images/04k_communication_regional-2.png" alt="Communication régionale Technopark — site 2" loading="lazy">
-    <img src="public/images/04k_communication_regional-3.png" alt="Communication régionale Technopark — site 3" loading="lazy">
-    <img src="public/images/04k_communication_regional-4.png" alt="Communication régionale Technopark — site 4" loading="lazy">
-    <img src="public/images/04k_communication_regional-5.png" alt="Communication régionale Technopark — site 5" loading="lazy">
-    <img src="public/images/04k_communication_regional-6.png" alt="Communication régionale Technopark — site 6" loading="lazy">
+    <img src="public/images/04k_communication_regional-1.png" alt="Communication régionale Technopark — site 1" loading="lazy" class="img-site">
+    <img src="public/images/04k_communication_regional-2.png" alt="Communication régionale Technopark — site 2" loading="lazy" class="img-site">
+    <img src="public/images/04k_communication_regional-3.png" alt="Communication régionale Technopark — site 3" loading="lazy" class="img-site">
+    <img src="public/images/04k_communication_regional-4.png" alt="Communication régionale Technopark — site 4" loading="lazy" class="img-site">
+    <img src="public/images/04k_communication_regional-5.png" alt="Communication régionale Technopark — site 5" loading="lazy" class="img-site">
+    <img src="public/images/04k_communication_regional-6.png" alt="Communication régionale Technopark — site 6" loading="lazy" class="img-site">
   </div>
   <div class="page-num">44</div>
 </div>
@@ -1452,10 +1503,10 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     </tbody>
   </table>
   <div class="img-gallery">
-    <img src="public/images/05a_site-casablanca_photo.jpeg" alt="Technopark Casablanca — site principal" loading="lazy">
-    <img src="public/images/05b_site-rabat_photo.jpeg" alt="Technopark Rabat" loading="lazy">
-    <img src="public/images/05c_site-tanger_photo.jpeg" alt="Technopark Tanger" loading="lazy">
-    <img src="public/images/05d_site-agadir_photo.jpeg" alt="Technopark Agadir" loading="lazy">
+    <img src="public/images/05a_site-casablanca_photo.jpeg" alt="Technopark Casablanca — site principal" loading="lazy" class="img-site">
+    <img src="public/images/05b_site-rabat_photo.jpeg" alt="Technopark Rabat" loading="lazy" class="img-site">
+    <img src="public/images/05c_site-tanger_photo.jpeg" alt="Technopark Tanger" loading="lazy" class="img-site">
+    <img src="public/images/05d_site-agadir_photo.jpeg" alt="Technopark Agadir" loading="lazy" class="img-site">
   </div>
   <h3>Technopark Essaouira</h3>
   <p>Lancé en novembre 2023, le Technopark Essaouira a une capacité d'accueil de 60 startups. Doté d'un espace pour les Digital Nomads, il s'inscrit dans l'esprit d'Essaouira, ville créative et ouverte, prisée pour son patrimoine, son climat et son attractivité auprès des entrepreneurs et télétravailleurs du monde entier. <strong>14 entreprises installées</strong>, superficie globale 2 350 m², plus de <strong>6 500 visiteurs</strong> et 1 500 participants aux événements (cumulé 2024-2025).</p>
@@ -1591,11 +1642,11 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     </tbody>
   </table>
   <div class="img-gallery" style="margin-top:14px">
-    <img src="public/images/07_delegations_cap-verdienne-casablanca.png" alt="Délégation Cap-Verdienne — Casablanca" loading="lazy">
-    <img src="public/images/07_delegations_emiratie-casablanca.jpeg" alt="Délégation Émiratie — Casablanca" loading="lazy">
-    <img src="public/images/07_delegations_hongkongaise-tanger.jpeg" alt="Délégation Hongkongaise — Tanger" loading="lazy">
-    <img src="public/images/07_delegations_irlandaise-casablanca.jpeg" alt="Délégation Irlandaise — Casablanca" loading="lazy">
-    <img src="public/images/07_delegations_usaid-agadir.jpeg" alt="Délégation USAID — Agadir" loading="lazy">
+    <img src="public/images/07_delegations_cap-verdienne-casablanca.png" alt="Délégation Cap-Verdienne — Casablanca" loading="lazy" class="img-delegation">
+    <img src="public/images/07_delegations_emiratie-casablanca.jpeg" alt="Délégation Émiratie — Casablanca" loading="lazy" class="img-delegation">
+    <img src="public/images/07_delegations_hongkongaise-tanger.jpeg" alt="Délégation Hongkongaise — Tanger" loading="lazy" class="img-delegation">
+    <img src="public/images/07_delegations_irlandaise-casablanca.jpeg" alt="Délégation Irlandaise — Casablanca" loading="lazy" class="img-delegation">
+    <img src="public/images/07_delegations_usaid-agadir.jpeg" alt="Délégation USAID — Agadir" loading="lazy" class="img-delegation">
   </div>
   <div class="page-num">49</div>
 </div>
@@ -1630,19 +1681,19 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   </div>
   <p>Autres participations : <strong>Innovation Fair / Bruxelles (octobre 2025)</strong> — coopération Afrique-Europe organisée avec le soutien de la Commission européenne. <strong>IASP WANA Division / Riyad (novembre 2025)</strong> — King Abdulaziz City for Science and Technology (KACST), thématique « Innovation Ecosystems for Economic Impact ». <strong>Emerging Valley / Marseille (novembre 2025)</strong> — sommet euro-africain sous le Haut Patronage du Président de la République française, réunissant plus de 1 300 participants issus de 70 pays.</p>
   <div class="img-gallery">
-    <img src="public/images/08_rayonnement_dg-intervention.jpeg" alt="Directrice Générale Technopark — intervention internationale" loading="lazy">
-    <img src="public/images/08_rayonnement_linkup-africa-nouakchott.jpeg" alt="Link Up Africa AMCI — Nouakchott, mars 2025" loading="lazy">
-    <img src="public/images/08_rayonnement_skolkovo-moscou.png" alt="SKOLKOVO Startup Village — Moscou, mai 2025" loading="lazy">
-    <img src="public/images/08_rayonnement_vivatech-paris.jpeg" alt="VivaTech Paris — panel Technopark, juin 2025" loading="lazy">
-    <img src="public/images/08_rayonnement_iasp-wana-riyad-photo.jpg" alt="IASP WANA Division — Riyad, novembre 2025" loading="lazy">
-    <img src="public/images/08_rayonnement_innovation-fair-bruxelles.jpg" alt="Innovation Fair Bruxelles — octobre 2025" loading="lazy">
+    <img src="public/images/08_rayonnement_dg-intervention.jpeg" alt="Directrice Générale Technopark — intervention internationale" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_linkup-africa-nouakchott.jpeg" alt="Link Up Africa AMCI — Nouakchott, mars 2025" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_skolkovo-moscou.png" alt="SKOLKOVO Startup Village — Moscou, mai 2025" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_vivatech-paris.jpeg" alt="VivaTech Paris — panel Technopark, juin 2025" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_iasp-wana-riyad-photo.jpg" alt="IASP WANA Division — Riyad, novembre 2025" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_innovation-fair-bruxelles.jpg" alt="Innovation Fair Bruxelles — octobre 2025" loading="lazy" class="img-event">
   </div>
   <div class="img-gallery">
-    <img src="public/images/08_rayonnement_iasp-membre.jpeg" alt="IASP — Technopark membre de l'association mondiale" loading="lazy">
-    <img src="public/images/08_rayonnement_iasp-wana-riyad.png" alt="IASP WANA Riyad — visite et networking" loading="lazy">
-    <img src="public/images/08_rayonnement_panel.png" alt="Panel international — Directrice Générale Technopark" loading="lazy">
-    <img src="public/images/08_rayonnement_evenements-1.jpg" alt="Événements internationaux Technopark 2025 — aperçu 1" loading="lazy">
-    <img src="public/images/08_rayonnement_evenements-2.jpg" alt="Événements internationaux Technopark 2025 — aperçu 2" loading="lazy">
+    <img src="public/images/08_rayonnement_iasp-membre.jpeg" alt="IASP — Technopark membre de l'association mondiale" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_iasp-wana-riyad.png" alt="IASP WANA Riyad — visite et networking" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_panel.png" alt="Panel international — Directrice Générale Technopark" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_evenements-1.jpg" alt="Événements internationaux Technopark 2025 — aperçu 1" loading="lazy" class="img-event">
+    <img src="public/images/08_rayonnement_evenements-2.jpg" alt="Événements internationaux Technopark 2025 — aperçu 2" loading="lazy" class="img-event">
   </div>
   <div class="page-num">50</div>
 </div>
@@ -1700,8 +1751,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   <p>Dans le cadre de son partenariat avec Visa — sponsor officiel de la Coupe d'Afrique des Nations Maroc 2025 — le Technopark a accueilli à Casablanca <strong>l'exposition officielle du trophée de la CAN</strong>, offrant à sa communauté un moment fédérateur mêlant innovation, culture et passion du football africain.</p>
   <p>En parallèle, <strong>trente enfants issus de la communauté du Technopark</strong> ont vécu une expérience immersive unique à l'occasion de trois matchs à Casablanca-Tanger-Agadir, en participant à la cérémonie officielle des hymnes nationaux aux côtés des joueurs africains. Portée en coordination avec Visa et la CAF, cette action illustre la capacité du Technopark à créer des passerelles entre son écosystème et des initiatives à fort impact.</p>
   <div class="img-gallery">
-    <img src="public/images/10d_communaute_can-2025-visa-1.jpeg" alt="CAN 2025 — trophée exposé au Technopark, partenariat Visa" loading="lazy">
-    <img src="public/images/10d_communaute_can-2025-visa-2.jpeg" alt="CAN 2025 — enfants de la communauté Technopark, cérémonie hymnes" loading="lazy">
+    <img src="public/images/10d_communaute_can-2025-visa-1.jpeg" alt="CAN 2025 — trophée exposé au Technopark, partenariat Visa" loading="lazy" class="img-event">
+    <img src="public/images/10d_communaute_can-2025-visa-2.jpeg" alt="CAN 2025 — enfants de la communauté Technopark, cérémonie hymnes" loading="lazy" class="img-event">
   </div>
   <div class="page-num">52</div>
 </div>
@@ -1720,8 +1771,8 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   <p>Le Technopark accorde une place importante à la culture, considérée comme un levier essentiel d'épanouissement personnel et de créativité pour les entrepreneurs. En favorisant l'accès à des initiatives culturelles variées — expositions artistiques, performances musicales, conférences et rencontres interculturelles — le Technopark contribue à enrichir la vie de sa communauté et à encourager l'ouverture, la diversité et l'expression créative.</p>
   <p>Dans cette dynamique, le Technopark accueille également des acteurs culturels engagés, à l'image de l'association <strong>EAC L'Boulevart</strong> à Casablanca, qui participe activement à l'animation culturelle de l'écosystème.</p>
   <div class="img-gallery">
-    <img src="public/images/10e_communaute_actions-culturelles-1.jpeg" alt="Actions culturelles Technopark 2025 — photo 1" loading="lazy">
-    <img src="public/images/10e_communaute_actions-culturelles-2.jpeg" alt="Actions culturelles Technopark 2025 — photo 2" loading="lazy">
+    <img src="public/images/10e_communaute_actions-culturelles-1.jpeg" alt="Actions culturelles Technopark 2025 — photo 1" loading="lazy" class="img-event">
+    <img src="public/images/10e_communaute_actions-culturelles-2.jpeg" alt="Actions culturelles Technopark 2025 — photo 2" loading="lazy" class="img-event">
   </div>
   <div class="page-num">53</div>
 </div>
