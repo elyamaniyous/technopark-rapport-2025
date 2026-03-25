@@ -842,58 +842,6 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
       <tr><td>Impact sur le réseau</td><td>79%</td><td>76%</td><td>74%</td></tr>
     </tbody>
   </table>
-  <div style="position:relative;height:220px;margin:12px 0">
-<canvas id="chartSatAccompagnement"></canvas>
-</div>
-<script>
-new Chart(document.getElementById('chartSatAccompagnement'),{
-  type:'bar',
-  data:{
-    labels:['Accès au financement'],
-    datasets:[
-      {label:'2025',data:[93],backgroundColor:'#534AB7',borderRadius:4,barPercentage:.5},
-      {label:'2024',data:[92],backgroundColor:'#AFA9EC',borderRadius:4,barPercentage:.5},
-      {label:'2023',data:[86],backgroundColor:'#D3D1C7',borderRadius:4,barPercentage:.5}
-    ]
-  },
-  options:{responsive:true,maintainAspectRatio:false,animation:false,
-    scales:{
-      x:{grid:{display:false},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"}}},
-      y:{beginAtZero:true,max:100,grid:{color:'#EEEDE8'},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"},callback:v=>v+'%'},border:{display:false}}
-    },
-    plugins:{
-      legend:{display:true,position:'bottom',labels:{font:{size:9,family:"'Inter',sans-serif"},color:'#888780',boxWidth:12,padding:8}},
-      datalabels:{display:true,anchor:'end',align:'end',color:'#888780',font:{size:9,family:"'Inter',sans-serif",weight:'600'},formatter:v=>v+'%',offset:-2},
-      tooltip:{cornerRadius:6,padding:8}
-    }}
-});
-</script>
-  <div style="position:relative;height:220px;margin:12px 0">
-<canvas id="chartAccompNombres"></canvas>
-</div>
-<script>
-new Chart(document.getElementById('chartAccompNombres'),{
-  type:'bar',
-  data:{
-    labels:['Accès au financement'],
-    datasets:[
-      {label:'2025',data:[83],backgroundColor:'#534AB7',borderRadius:4,barPercentage:.5},
-      {label:'2024',data:[76],backgroundColor:'#AFA9EC',borderRadius:4,barPercentage:.5},
-      {label:'2023',data:[99],backgroundColor:'#D3D1C7',borderRadius:4,barPercentage:.5}
-    ]
-  },
-  options:{responsive:true,maintainAspectRatio:false,animation:false,
-    scales:{
-      x:{grid:{display:false},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"}}},
-      y:{beginAtZero:true,grid:{color:'#EEEDE8'},ticks:{color:'#888780',font:{size:9,family:"'Inter',sans-serif"}},border:{display:false}}
-    },
-    plugins:{
-      legend:{display:true,position:'bottom',labels:{font:{size:9,family:"'Inter',sans-serif"},color:'#888780',boxWidth:12,padding:8}},
-      datalabels:{display:true,anchor:'end',align:'end',color:'#888780',font:{size:9,family:"'Inter',sans-serif",weight:'600'},offset:-2},
-      tooltip:{cornerRadius:6,padding:8}
-    }}
-});
-</script>
   <p>Depuis 2021, le Technopark a renforcé son dispositif de pilotage de l'accompagnement en mettant en place un système d'évaluation structuré, centré sur les principaux leviers de croissance des startups : l'accès au marché, l'accès au financement et la visibilité. Ce dispositif permet d'apprécier de manière régulière l'efficacité des actions déployées et leur impact concret sur le développement des entreprises accompagnées.</p>
   <p>Les indicateurs traduisent la solidité du modèle d'accompagnement du Technopark. Ils confirment notamment la pertinence des actions menées pour faciliter l'intégration des startups dans les réseaux d'affaires, leur connexion aux opportunités de marché et leur accès aux sources de financement.</p>
   <p>L'évolution des indicateurs entre 2023 et 2025 confirme la solidité et la progression des dispositifs d'accompagnement du Technopark. Les taux de satisfaction demeurent à un niveau élevé, notamment pour l'accès au marché (95 %) et l'accès au financement (93 %), témoignant de la pertinence des actions déployées.</p>
