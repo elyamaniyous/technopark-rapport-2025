@@ -18,16 +18,13 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
-@page {
-  size: A4 portrait;
-  margin: 0;
-}
+@page { size: A4; margin: 0; }
 .page {
   width: 210mm;
   height: 297mm;
   max-height: 297mm;
   margin: 0 auto;
-  padding: 8mm 10mm 5mm 10mm;
+  padding: 7.5mm 7.5mm 5mm 7.5mm;
   background: #fff;
   position: relative;
   overflow: hidden;
@@ -52,7 +49,7 @@ body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
     height: 297mm !important;
     max-height: 297mm !important;
     margin: 0 !important;
-    padding: 8mm 10mm 5mm 10mm !important;
+    padding: 7.5mm 7.5mm 5mm 7.5mm !important;
     overflow: hidden !important;
     page-break-after: always !important;
     page-break-inside: avoid !important;
@@ -80,9 +77,37 @@ body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
 .accent-bar{width:60px;height:4px;background:linear-gradient(90deg,var(--navy),var(--coral));margin-bottom:18px}
 .page-header{display:flex;justify-content:space-between;font-size:7.5pt;color:var(--gray-500);letter-spacing:.03em;border-bottom:1px solid var(--gray-100);padding-bottom:8px;margin-bottom:20px}
 .page-num{position:absolute;bottom:12mm;right:20mm;font-size:8pt;color:var(--gray-500);font-weight:500}
-h1{font-size:22pt;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:20px}
-h2{font-size:16pt;font-weight:600;color:var(--navy);border-bottom:2px solid var(--coral);padding-bottom:6px;margin:22px 0 14px}
-h3{font-size:12pt;font-weight:600;color:var(--navy-light);margin:16px 0 8px}
+/* Chapter titles (I, II, III, IV, V) - BIGGEST */
+h1, .chapter-title {
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #1B2A4A !important;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+/* Subchapter titles (A, B, C) - MEDIUM */
+h2, .subchapter-title {
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  color: #1B2A4A !important;
+  margin-bottom: 12px;
+}
+
+/* Sub-subsection titles (a, b, b.1) - SMALLER */
+h3, .subsection-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #2D4A7A !important;
+  margin-bottom: 8px;
+}
+
+h4 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #2D4A7A !important;
+}
 p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var(--gray-900)}
 .caption{font-size:8pt;color:var(--gray-500);text-align:center;font-style:italic;margin-top:5px;margin-bottom:14px}
 .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
@@ -96,10 +121,11 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 .kpi-desc{font-size:8.5pt;font-weight:500;color:var(--gray-700);margin:3px 0 2px}
 .kpi-label{font-size:7pt;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em}
 .chapter-tag{font-size:7pt;font-weight:600;color:var(--coral);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px}
-.chapter-title{font-size:18pt;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:10px}
-/* Chapter title hierarchy */
-.subchapter-title{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:12px}
-.subsection-title{font-size:16px;font-weight:600;color:var(--navy-light);margin-bottom:8px}
+/* .chapter-title overridden by h1/.chapter-title rule above */
+.chapter-title{font-size:28px;font-weight:800;color:#1B2A4A;line-height:1.2;margin-bottom:16px;text-transform:uppercase}
+/* Chapter title hierarchy - overrides applied via h1/h2/h3 rules above */
+.subchapter-title{font-size:21px !important;font-weight:700 !important;color:var(--navy) !important;margin-bottom:12px}
+.subsection-title{font-size:16px !important;font-weight:600 !important;color:var(--navy-light) !important;margin-bottom:8px}
 .hl-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:0 8px 8px 0;padding:13px 15px;margin:14px 0}
 .hl-box.teal{border-color:var(--teal);background:var(--teal-bg)}
 .hl-box.blue{border-color:var(--blue);background:var(--blue-bg)}
@@ -329,12 +355,9 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Sommaire Exécutif</span></div>
   <h1>Sommaire Exécutif</h1>
-  <div class="kpi-dash" style="margin-bottom:14px">
-    <div class="kpi-mini"><div class="kpi-mini-val" style="color:var(--purple)">90%</div><div class="kpi-mini-lbl">Taux de succès des startups accompagnées</div></div>
-    <div class="kpi-mini"><div class="kpi-mini-val" style="color:var(--coral)">1,2 Md</div><div class="kpi-mini-lbl">Chiffre d'affaires annuel cumulé (MAD)</div></div>
-    <div class="kpi-mini"><div class="kpi-mini-val" style="color:var(--teal)">35%</div><div class="kpi-mini-lbl">Taux d'export vers les marchés internationaux</div></div>
-    <div class="kpi-mini"><div class="kpi-mini-val" style="color:var(--blue)">1 700</div><div class="kpi-mini-lbl">Emplois qualifiés créés sur l'année 2025</div></div>
-  </div>
+  <div style="background:#F8F7F5;border-left:3px solid #D85A30;padding:12px 16px;margin:16px 0;font-size:10pt;line-height:1.8">
+<strong>Chiffres clés 2025 :</strong> Taux de succès des startups accompagnées : <strong>90%</strong> · Chiffre d'affaires annuel cumulé : <strong>1,2 milliard MAD</strong> · Taux d'export : <strong>35%</strong> · Emplois qualifiés créés : <strong>1 700</strong>
+</div>
   <p>L'année 2025 s'inscrit comme une étape de consolidation pour le Technopark, marquée par le renforcement et la structuration de parcours d'accompagnement de qualité, destinés à soutenir le développement de startups à fort potentiel sur l'ensemble du territoire national.</p>
   <p>Dans un environnement entrepreneurial en constante évolution, le Technopark a poursuivi en 2025 la structuration d'une offre d'accompagnement progressive et cohérente, couvrant les différentes phases du parcours entrepreneurial. L'accent a été mis sur la montée en qualité des dispositifs déployés, leur articulation autour de parcours clairs et leur adaptation aux besoins réels des startups, notamment en matière de structuration organisationnelle, de financement et de renforcement de la traction marché et du positionnement économique.</p>
   <p>Les actions menées au cours de l'année ont permis d'améliorer l'encadrement des startups à fort potentiel et de renforcer leur capacité à franchir des seuils clés de croissance. Cette approche a favorisé une meilleure préparation aux exigences du marché, tout en consolidant les modèles économiques, les capacités opérationnelles et l'aptitude à se projeter sur des marchés élargis, tant au niveau national qu'international.</p>
@@ -380,7 +403,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
   <p>Ces initiatives s'inscrivent dans une ambition plus large de renforcement des compétences numériques, avec l'objectif de former 100 000 talents par an d'ici 2030, et de création d'emplois dans les métiers du digital, la stratégie visant 240 000 emplois directs à l'horizon 2030. Parallèlement, les pouvoirs publics travaillent à la mise en place d'une Startup Policy nationale destinée à améliorer le cadre réglementaire, faciliter l'accès des startups aux marchés et promouvoir les solutions digitales « Made in Morocco ».</p>
   <div style="margin:18px 0 14px">
     <div class="chapter-tag">Classements internationaux</div>
-    <div class="chapter-title" style="font-size:14pt">Positionnement du Maroc dans les classements internationaux : crédibilité, progrès et confiance</div>
+    <div class="chapter-title">Positionnement du Maroc dans les classements internationaux : crédibilité, progrès et confiance</div>
   </div>
   <p>En 2025, les principaux classements internationaux offrent une lecture utile du positionnement du Maroc dans l'économie numérique mondiale. Ils mettent en évidence des avancées notables en matière d'innovation et de confiance numérique, tout en soulignant les efforts à poursuivre pour consolider la compétitivité et l'impact économique du digital. Ces indicateurs permettent ainsi d'apprécier la trajectoire du Royaume dans un contexte marqué par la mise en œuvre de la stratégie Maroc Digital 2030.</p>
   <div class="page-num">3</div>
@@ -480,7 +503,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
     <div class="fact-box navy"><div class="fact-title">Morocco Accelerator Program</div><p>Lancé par le Technopark et Plug and Play, avec le soutien du MTNRA, ce programme vise à accompagner des startups à fort potentiel dans leur phase d'accélération et de passage à l'échelle.</p></div>
     <div class="fact-box coral"><div class="fact-title">Startups Venture Building</div><p>Dans le cadre de l'initiative nationale portée par le MTNRA et Tamwilcom, le Technopark a été sélectionné comme structure de déploiement des dispositifs d'incubation à l'échelle nationale.</p></div>
   </div>
-  <h2 style="margin-top:16px">Morocco Accelerator : un programme d'accélération pour propulser les startups marocaines à l'échelle internationale</h2>
+  <h3 style="margin-top:16px">Morocco Accelerator : un programme d'accélération pour propulser les startups marocaines à l'échelle internationale</h3>
   <p>En juin 2025, le Technopark a lancé le Morocco Accelerator Program, un dispositif structurant dédié à l'accélération des startups à fort potentiel et à leur passage à l'échelle. Déployé en partenariat avec l'Accélérateur américain « Plug and Play » et avec le soutien du Ministère de la Transition Numérique et de la Réforme de l'Administration, ce programme s'inscrit dans la dynamique de renforcement des mécanismes d'accélération et d'internationalisation des startups marocaines.</p>
   <div class="page-num">8</div>
 </div>
@@ -527,7 +550,7 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Indicateurs globaux d'activité</span></div>
-  <div style="margin-bottom:14px"><div class="chapter-tag">Indicateurs globaux d'activité</div><div class="chapter-title" style="font-size:15pt">Cartographie des entreprises résidentes</div></div>
+  <div style="margin-bottom:14px"><div class="chapter-tag">Indicateurs globaux d'activité</div><div class="chapter-title">Cartographie des entreprises résidentes</div></div>
   <h3>Évolution des entreprises et start-ups au Technopark [2021–2025]</h3>
   <div class="chart-wrap" style="height:300px"><canvas id="chartEntreprises"></canvas></div>
   <div class="legend"><span><span class="lsq" style="background:#534AB7"></span>Nb entreprises</span><span><span class="lsq" style="background:#D85A30"></span>Start-ups (early stage)</span></div>
@@ -880,7 +903,7 @@ new Chart(document.getElementById('chartAccompNombres'),{
     <p>— Les levées de fonds réalisées</p>
   </div>
   <p>Le taux de pérennité des entreprises incubées progresse de manière significative, passant de 88 % à 94 %. Cette évolution reflète le virage stratégique opéré par le Technopark ces dernières années, avec un accompagnement désormais orienté vers la croissance et la consolidation des entreprises. Au-delà de l'incubation, le Technopark a renforcé ses dispositifs d'accès au marché, de mise en relation avec les grands comptes et d'accès au financement, tout en déployant des programmes structurants d'accélération. Cette approche plus intégrée contribue à mieux préparer les startups aux phases critiques de développement et à renforcer leur capacité à s'inscrire durablement sur le marché.</p>
-  <h2 style="margin-top:20px;border-bottom:2px solid var(--coral);padding-bottom:6px;">IV. Déploiement de la feuille de route stratégique du Technopark : bilan 2025</h2>
+  <h1 style="margin-top:20px;border-bottom:2px solid var(--coral);padding-bottom:6px;">IV. Déploiement de la feuille de route stratégique du Technopark : bilan 2025</h1>
   <p style="font-size:10pt;text-align:justify;line-height:1.7;">En 2025, le Technopark Morocco a consolidé son positionnement en tant que plateforme nationale de référence pour l'innovation et l'entrepreneuriat technologique, en déployant les axes clés de sa nouvelle feuille de route stratégique. L'année a été marquée par le lancement et le renforcement de plusieurs <strong>programmes d'accompagnement ciblés</strong>, couvrant l'idéation, l'incubation, l'accélération et l'internationalisation, et dont la mise en œuvre a été <strong>fortement soutenue par le Ministère de la Transition Numérique et de la Réforme de l'Administration (MTNRA)</strong>, partenaire institutionnel majeur dans le développement de ces dispositifs.</p>
   <p style="font-size:10pt;text-align:justify;line-height:1.7;">Cette dynamique a permis d'offrir aux startups un continuum de soutien adapté à chaque étape de leur croissance.</p>
   <p style="font-size:10pt;text-align:justify;line-height:1.7;">Le Technopark a également intensifié ses actions en matière d'<strong>accès au financement</strong>, en facilitant les connexions avec les investisseurs, les fonds de capital-risque et les dispositifs nationaux, tout en accompagnant les startups dans leur préparation aux levées de fonds. En parallèle, l'accent a été mis sur l'<strong>accès au marché</strong>, grâce à des missions internationales, des participations à des événements stratégiques et la conclusion de partenariats ouvrant de nouvelles opportunités commerciales.</p>
@@ -942,7 +965,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Morocco Accelerator</span></div>
-  <h2>Morocco Accelerator by Technopark &amp; Plug and Play</h2>
+  <h3>Morocco Accelerator by Technopark &amp; Plug and Play</h3>
   <p>Placé sous l'égide du Ministère de la Transition Numérique et de la Réforme de l'Administration, le Morocco Accelerator by Technopark &amp; Plug and Play s'impose comme l'un des programmes les plus structurants déployés par le Technopark en 2025. Ce partenariat stratégique avec Plug and Play, acteur mondial de référence dans l'accélération des startups, combine une méthodologie internationale éprouvée, un accès à des mentors de haut niveau et une connexion directe à un réseau d'investisseurs et de corporates de premier plan.</p>
   <p>À travers ce programme, le Technopark affirme son ambition de faire franchir un cap aux startups marocaines à fort potentiel, en les préparant à la scalabilité, à la levée de fonds et à l'internationalisation, tout en consolidant le positionnement du Maroc comme hub régional de l'innovation numérique. Quatre cohortes sont prévues selon une feuille de route structurée, permettant un déploiement progressif et un suivi continu des startups sélectionnées.</p>
   <h3>Architecture d'accompagnement</h3>
@@ -1030,7 +1053,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
     <div class="kpi-mini"><div class="kpi-mini-val">6</div><div class="kpi-mini-lbl">Startups en discussions actives de financement</div></div>
     <div class="kpi-mini"><div class="kpi-mini-val">3</div><div class="kpi-mini-lbl">Tours pré-série A sécurisés</div></div>
   </div>
-  <h2 style="margin-top:18px">DigitAgri : Accélérer la transformation numérique de l'agriculture marocaine</h2>
+  <h3 style="margin-top:18px">DigitAgri : Accélérer la transformation numérique de l'agriculture marocaine</h3>
   <p>Poursuivant l'élan initié en 2024, le Technopark a déployé en 2025 la deuxième phase du programme DigitAgri, une initiative d'open innovation majeure portée en partenariat avec le Pôle Digital de l'Agriculture, de la Forêt et de l'Observatoire de la Sécheresse, sous l'égide du Ministère de la Transition Numérique et de la Réforme de l'Administration. Ce dispositif connecte l'écosystème technologique aux acteurs agricoles pour catalyser le développement et l'adoption de solutions innovantes.</p>
   <div class="page-num">28</div>
 </div>
@@ -1039,7 +1062,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Programme DigitAgri</span></div>
-  <p>En favorisant une collaboration étroite entre startups, institutions et industriels, DigitAgri accélère la mise sur le marché de technologies de pointe répondant aux enjeux critiques de productivité, de gestion des ressources, de traçabilité et de durabilité. Le programme s'inscrit pleinement dans les orientations de la stratégie <strong>Maroc Digital 2030</strong>.</p>
+  <p>En favorisant une collaboration étroite entre startups, institutions et industriels, DigitAgri accélère la mise sur le marché de technologies de pointe répondant aux enjeux critiques de productivité, de gestion des ressources, de traçabilité et de durabilité. Le programme s'inscrit pleinement dans les orientations de la stratégie <strong>Maroc Digital 2030</strong> et confirme le positionnement du Technopark en tant que catalyseur de l'innovation sectorielle au service de la modernisation de l'agriculture marocaine, tout en jouant un rôle de <strong>fédérateur des acteurs régionaux de l'écosystème</strong> startups, institutions, partenaires publics et privés, afin de renforcer les dynamiques d'innovation au cœur des territoires.</p>
   <h3>Consortium de partenaires stratégiques</h3>
   <div class="rank-grid">
     <div class="rank-card blue"><div class="rank-name">GCAM</div><div class="rank-desc">Groupe Crédit Agricole du Maroc : facilite l'accès au financement et contribue à accélérer l'adoption des solutions innovantes par les acteurs du secteur agricole.</div></div>
@@ -1067,7 +1090,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Programmes régionaux</span></div>
-  <h2>Programme TIWIZI : Catalyseur d'Innovation au Souss Massa</h2>
+  <h3>Programme TIWIZI : Catalyseur d'Innovation au Souss Massa</h3>
   <p>Le programme TIWIZI, lancé par le Technopark Souss Massa avec le soutien de partenaires institutionnels majeurs de la région, s'inscrit dans une dynamique de stimulation de l'entrepreneuriat innovant à l'échelle territoriale. D'une durée de six mois, cette initiative offre aux porteurs de projets une opportunité exceptionnelle de développer des solutions innovantes répondant aux défis contemporains, tout en structurant leur trajectoire de croissance. En favorisant l'émergence de projets à fort potentiel d'impact, TIWIZI s'affirme comme un levier essentiel pour l'innovation et l'entrepreneuriat dans la région Souss Massa.</p>
   <p><strong>Partenaires stratégiques :</strong> Conseil Régional Souss Massa, Ministère de la Transition Numérique et de la Réforme de l'Administration, acteurs académiques et associatifs de la région. Cette collaboration multi-acteurs témoigne de la volonté partagée de créer un environnement favorable à l'innovation, à la création de startups et au développement économique local.</p>
   <p><strong>Déroulement du programme :</strong> Le programme TIWIZI s'est déployé sur une période de <strong>24 semaines</strong>, suivant un parcours progressif et structuré en sept étapes clés, de l'appel à candidatures jusqu'au Demo Day. Lancé en novembre 2024 avec <strong>314 candidatures</strong> reçues et <strong>70 projets présélectionnés</strong>, le programme a abouti à la sélection de <strong>3 lauréats</strong> lors du Demo Day organisé le 5 mai 2025, illustrant ainsi l'exigence et la sélectivité du dispositif au service de l'émergence de startups à fort potentiel.</p>
@@ -1094,7 +1117,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
     <span>Programmes régionaux</span>
   </div>
   <div class="accent-bar"></div>
-  <h2>Boost Up Lab Essaouira : Catalyser l'innovation territoriale</h2>
+  <h3>Boost Up Lab Essaouira : Catalyser l'innovation territoriale</h3>
   <p>Déployé en 2025 au Technopark Essaouira, le programme Boost Up Lab s'inscrit pleinement dans la stratégie de régionalisation du Technopark et dans sa volonté de faire émerger des dynamiques entrepreneuriales structurées au sein de territoires à fort potentiel, en valorisant les spécificités locales et en réduisant les disparités régionales en matière d'accès à l'innovation.</p>
   <p>Conçu pour accompagner des porteurs de projets en phase d'idéation ou de structuration initiale, Boost Up Lab leur offre un cadre méthodologique exigeant, un encadrement de proximité et un accès direct à un réseau d'experts et de partenaires institutionnels clés. Le programme s'est déployé sur une période de <strong>quatre mois</strong>, suivant un parcours d'accompagnement intensif structuré autour de bootcamps pratiques, de sessions de mentorat individualisé, d'ateliers thématiques et de formations ciblées. Cette première édition essaouirie témoigne de l'ancrage croissant du modèle Technopark dans les territoires et de sa capacité à adapter son offre d'accompagnement aux réalités économiques, sociales et culturelles de chaque région.</p>
   <div class="fact-grid">
@@ -1127,7 +1150,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
 <div class="page">
   <div class="accent-bar"></div>
   <div class="page-header"><span>Technopark — Rapport Annuel 2025</span><span>Programme Export ETAP 2 — SVB</span></div>
-  <h2>Programme Export ETAP 2 : Accélérer l'internationalisation des startups</h2>
+  <h3>Programme Export ETAP 2 : Accélérer l'internationalisation des startups</h3>
   <p>Avec plusieurs startups engagées à l'export, le Technopark confirme la dimension internationale croissante de son écosystème. Dans la continuité du programme pilote lancé en 2024 auprès d'une première cohorte de 12 startups, le Technopark a déployé une deuxième édition du programme ETAP.</p>
   <p>Le Export Technopark Accelerator Program (ETAP) constitue un dispositif dédié à la structuration et à l'accélération de l'internationalisation des startups du réseau Technopark. Le programme combine formations spécialisées, mentorat individuel avec des experts nationaux et internationaux, ainsi que des diagnostics approfondis visant à évaluer le potentiel de chaque startup à se positionner sur de nouveaux marchés.</p>
   <div class="kpi-dash">
@@ -1241,6 +1264,36 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
       <tr><td><strong>TOTAL</strong></td><td><strong>7,2</strong></td></tr>
     </tbody>
   </table>
+  <p>Plusieurs autres startups ont également bénéficié de subventions significatives :</p>
+  <table class="dtable" style="margin-bottom:10px">
+    <thead><tr><th>Startup</th><th>Site</th><th>Secteurs</th><th>CA (kDH)</th></tr></thead>
+    <tbody>
+      <tr><td>Trac-X</td><td>Casablanca</td><td>E-tourisme</td><td>300</td></tr>
+      <tr><td>OBENS TRACE SOLUTIONS</td><td>Cité Innovation Souss Massa</td><td>AgriTech</td><td>100</td></tr>
+      <tr><td>L'workshop</td><td>Cité Innovation Souss Massa</td><td>ICC EdTech</td><td>400</td></tr>
+      <tr><td>Green Souss Solutions</td><td>Cité Innovation Souss Massa</td><td>GreenTech</td><td>115</td></tr>
+      <tr><td>MOGIFY AGENCY</td><td>Essaouira</td><td>E-tourisme / PropTech</td><td>100</td></tr>
+      <tr><td>ARWA SOLUTIONS</td><td>Rabat</td><td>AgriTech</td><td>200</td></tr>
+      <tr><td>AISHORE MOROCCO</td><td>Casablanca</td><td>HR Tech</td><td>360</td></tr>
+      <tr><td>Growmax group</td><td>Casablanca</td><td>E-commerce</td><td>300</td></tr>
+      <tr><td>PCS AGRI</td><td>Cité Innovation Souss Massa</td><td>AgriTech</td><td>800</td></tr>
+      <tr><td>From Sand to Green - Maroc</td><td>Agadir</td><td>AgriTech / GreenTech</td><td>750</td></tr>
+      <tr><td>MEDIA TRIANGLE</td><td>Casablanca</td><td>Health Tech</td><td>420</td></tr>
+      <tr><td>DEALKHIR</td><td>Casablanca</td><td>Fintech</td><td>180</td></tr>
+      <tr><td>COMPUTATIONAL DESIGN SOLUTIONS</td><td>Cité Innovation Souss Massa</td><td>Industrie X.0</td><td>100</td></tr>
+      <tr><td>RADI ART AGENCY</td><td>Essaouira</td><td>Marketing Digital</td><td>100</td></tr>
+      <tr><td>GREENERTECH</td><td>Cité Innovation Souss Massa</td><td>GreenTech / AgriTech</td><td>7 215</td></tr>
+      <tr><td>VISIOPROCESS</td><td>Casablanca</td><td>GreenTech / PropTech</td><td>150</td></tr>
+      <tr><td>STRATÉGIE TRENTE-DEUX</td><td>Essaouira</td><td>Marketing Digital</td><td>100</td></tr>
+      <tr><td>SYGMA.AI</td><td>Casablanca</td><td>Fintech</td><td>200</td></tr>
+      <tr><td>CONTACT CENTER DEVELOPMENT SERVICES</td><td>Casablanca</td><td>ERP</td><td>300</td></tr>
+      <tr><td>CASHCLICK</td><td>Rabat</td><td>Fintech</td><td>200</td></tr>
+      <tr><td>MOGADOR IT</td><td>Essaouira</td><td>GreenTech</td><td>100</td></tr>
+      <tr><td>ECOBRIGEC</td><td>Cité Innovation Souss Massa</td><td>GreenTech</td><td>200</td></tr>
+      <tr><td>BOVICLOUDS</td><td>Cité Innovation Souss Massa</td><td>AgriTech</td><td>300</td></tr>
+      <tr><td>SITELI CW</td><td>Cité Innovation Souss Massa</td><td>AgriTech</td><td>30</td></tr>
+    </tbody>
+  </table>
   <h3>Prêts d'honneur : 2,2 millions de dirhams</h3>
   <table class="dtable">
     <thead><tr><th>Startup</th><th>Site</th><th>Secteur</th><th>Montant (kDH)</th></tr></thead>
@@ -1348,6 +1401,9 @@ new Chart(document.getElementById('chartMarcheSat'),{
 </script>
   <p>Le Technopark a consolidé, à l'échelle de son réseau, un dispositif structuré de <strong>mises en relation qualifiées</strong>, ayant permis de générer plus de 150 mises en relation entre startups et acteurs clés du marché. Ces interactions, ciblées et orientées business, ont permis aux startups de franchir des étapes commerciales déterminantes, notamment à travers l'obtention de bons de commande, la signature de premiers contrats, le lancement de collaborations opérationnelles et l'intégration dans des chaînes de valeur sectorielles.</p>
   <img src="public/images/04h_marche_cartographie-references.png" alt="Cartographie des références marché — clients des startups Technopark" loading="lazy" class="report-img">
+  <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">En 2025, le Technopark a engagé un travail structuré de cartographie et de qualification des références clients des startups accompagnées, dans une logique de valorisation des réalisations concrètes et de renforcement de leur visibilité auprès des donneurs d'ordre.</p>
+  <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">Cette cartographie met en évidence un constat stratégique majeur : les startups du Technopark démontrent une capacité avérée à déployer leurs solutions auprès de grands comptes et d'institutions, dans des secteurs variés tels que la finance, l'industrie, l'énergie, la santé, l'éducation ou encore le retail.</p>
+  <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">À travers cette démarche, le Technopark consolide son rôle de tiers de confiance et d'orchestrateur de l'écosystème, en connectant des startups crédibles et opérationnelles avec des acteurs économiques de premier plan, et en accélérant leur déploiement à plus grande échelle.</p>
   <h3>Partenariat stratégique Technopark-AUSIM : Club Startup-AUSMOSE</h3>
   <p>À travers le Club <strong>Startup-AUSMOSE</strong>, le Technopark et l'AUSIM ont mis en place des rencontres organisées chaque trimestre, articulées autour de secteurs et technologies précises (IA, Data, Cybersécurité, …). Cette approche thématique et orientée métiers mobilise décideurs IT, experts et startups autour de problématiques opérationnelles.</p>
   <table class="dtable">
@@ -1838,6 +1894,9 @@ new Chart(document.getElementById('chartExportTranches'),{
     </div>
   </div>
   <p>Le partenariat avec l'<strong>Université Mohammed VI Polytechnique (UM6P)</strong> a également permis l'organisation du Roadshow The Forge, mobilisant 36 participants autour des opportunités d'accompagnement et d'investissement. Enfin, le lancement du <strong>Morocco Fintech Accelerator</strong>, porté par Morocco Fintech Center et l'UM6P, a contribué à structurer un dispositif d'accompagnement dédié aux startups fintech, réunissant plus de 100 participants.</p>
+  <h3>Networking et intégration dans l'écosystème</h3>
+  <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">Plusieurs initiatives ont également permis de renforcer les interactions entre startups, entrepreneurs et acteurs économiques. Le programme « Entreprendre jeune : le pouvoir de créer demain », porté par <strong>EPIK Leaders</strong>, a mobilisé plus de <strong>110 participants</strong> autour de conférences dédiées à l'entrepreneuriat.</p>
+  <p style="font-size:9.5pt;text-align:justify;line-height:1.6;">D'autres événements de networking ont été organisés avec des organisations et institutions telles que <strong>APEBI</strong>, <strong>ANRT</strong>, <strong>CIMR</strong>, <strong>Cluster Logipole Souss-Massa</strong>, <strong>CIH Bank</strong> et <strong>Boosthub</strong>, contribuant à renforcer l'intégration des startups dans l'écosystème économique national.</p>
   <div class="page-num">53</div>
 </div>
 
@@ -1859,6 +1918,8 @@ new Chart(document.getElementById('chartExportTranches'),{
       <tr><td>Casablanca</td><td>Délégation malgache</td><td>Structuration d'écosystèmes d'innovation</td></tr>
       <tr><td>Casablanca</td><td>Délégation du Cap-Vert</td><td>Coopération en matière d'innovation</td></tr>
       <tr><td>Casablanca</td><td>Délégation IMU Medeniyet Teknopark Istanbul</td><td>R&D, innovation et internationalisation des startups</td></tr>
+      <tr><td>Casablanca</td><td>École inclusive Kout Que Kout by KEOS</td><td>Visite d'immersion d'étudiants en business et innovation pour découvrir l'écosystème entrepreneurial et les startups du Technopark</td></tr>
+      <tr><td>Casablanca</td><td>Cabinet de conseil Envestors (Londres)</td><td>Présentation des dispositifs d'accompagnement à l'internationalisation et des opportunités d'incorporation d'entreprises au Royaume-Uni</td></tr>
     </tbody>
   </table>
   <div class="img-gallery" style="margin-top:14px">
@@ -1887,6 +1948,12 @@ new Chart(document.getElementById('chartExportTranches'),{
       <tr><td>Tanger</td><td>Hong Kong Trade Development Council</td><td>Exportation vers l'Asie, programmes soft-landing</td></tr>
       <tr><td>Tanger</td><td>Tech Park Malaga</td><td>Collaboration entre écosystèmes</td></tr>
       <tr><td>Tanger</td><td>Aspen Institute</td><td>Dispositifs d'incubation au Maroc</td></tr>
+      <tr><td>Tanger</td><td>Valencia Park</td><td>Découverte de l'écosystème technologique marocain et exploration d'opportunités de partenariats en matière d'innovation</td></tr>
+      <tr><td>Casablanca</td><td>Action Allies United (UN Women)</td><td>Découverte de l'écosystème entrepreneurial technologique marocain avec focus sur l'engagement des femmes et des jeunes filles dans la tech</td></tr>
+      <tr><td>Casablanca</td><td>Délégation CCEF Nouvelle-Aquitaine</td><td>Renforcement des synergies entre les écosystèmes économiques marocain et français</td></tr>
+      <tr><td>Casablanca</td><td>Délégation La Mêlée (Occitanie) et AUSIM</td><td>Rapprochement des écosystèmes startup du Maroc et de la région Occitanie pour favoriser les collaborations technologiques</td></tr>
+      <tr><td>CI-SM</td><td>Cosmetic Valley</td><td>Découverte de l'écosystème d'innovation de la région Souss Massa et identification d'opportunités de collaboration</td></tr>
+      <tr><td>Agadir</td><td>Délégation étudiants Université de Lorraine</td><td>Découverte de l'écosystème entrepreneurial de la région Souss Massa et immersion dans l'environnement startup</td></tr>
     </tbody>
   </table>
   <div class="img-gallery" style="margin-top:14px">
