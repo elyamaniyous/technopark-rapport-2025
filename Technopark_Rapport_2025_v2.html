@@ -1212,12 +1212,12 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
   <h3>Cartographie des projets par secteur d'activité</h3>
   <p>Le programme TIWIZI a accompagné des projets couvrant une diversité de secteurs à fort potentiel d'innovation, en phase avec les dynamiques économiques et les besoins spécifiques de la région Souss Massa. Les projets sélectionnés se répartissent sur plusieurs verticales stratégiques, reflétant la richesse et la variété des initiatives entrepreneuriales portées par les jeunes talents de la région.</p>
   <!-- Donut secteurs TIWIZI -->
-  <div style="display:flex;gap:14px;align-items:flex-start;margin:8px 0">
-    <div style="width:45%;text-align:center">
-      <div style="height:180px"><canvas id="donutTiwizi"></canvas></div>
+  <div style="display:flex;gap:14px;align-items:center;margin:6px 0">
+    <div style="width:40%;text-align:center">
+      <div style="height:150px"><canvas id="donutTiwizi"></canvas></div>
     </div>
-    <div style="width:55%">
-      <div class="kpi-dash" style="margin-top:0">
+    <div style="width:60%">
+      <div class="kpi-dash" style="margin:0;justify-content:center">
         <div class="kpi-mini"><div class="kpi-mini-val">314</div><div class="kpi-mini-lbl">Candidatures reçues</div></div>
         <div class="kpi-mini"><div class="kpi-mini-val">70</div><div class="kpi-mini-lbl">Projets présélectionnés</div></div>
         <div class="kpi-mini"><div class="kpi-mini-val">28</div><div class="kpi-mini-lbl">Participants accompagnés</div></div>
@@ -1225,9 +1225,22 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
       </div>
     </div>
   </div>
+  <script>
+  new Chart(document.getElementById('donutTiwizi'),{
+    type:'doughnut',
+    data:{
+      labels:['AgriTech','E-santé','EdTech','GreenTech','Tourisme','IA / Data','Autre'],
+      datasets:[{data:[25,18,14,14,11,10,8],backgroundColor:['#0F6E56','#D85A30','#534AB7','#2E9E6E','#BA7517','#185FA5','#AFA9EC'],borderWidth:0,spacing:2}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'55%',
+      plugins:{legend:{display:true,position:'bottom',labels:{font:{size:7,family:"'Inter',sans-serif"},color:'#888780',boxWidth:8,padding:4}},
+        datalabels:{display:true,color:'#fff',font:{size:8,family:"'Inter',sans-serif",weight:'700'},formatter:v=>v+'%'},
+        tooltip:{cornerRadius:6,padding:8}}}
+  });
+  </script>
   <p>Le programme TIWIZI a mobilisé <strong>28 participants</strong> porteurs de projets innovants ancrés dans les réalités économiques et sociales de la région. Avec un <strong>taux de conversion de 4,54 %</strong>, le dispositif a démontré sa capacité à transformer des idées prometteuses en startups structurées. À l'issue du programme, deux projets ont été installés au Technopark Souss Massa, tandis que le projet finaliste Sintrocare a choisi de rejoindre la Cité de l'Innovation Souss Massa, illustrant l'attractivité de l'écosystème régional.</p>
   <p>Par ailleurs, plusieurs projets de la promotion ont pu bénéficier d'un accompagnement complémentaire à travers d'autres initiatives de l'écosystème régional et national, grâce aux mises en relation et à la préparation réalisées dans le cadre du programme. Cette dynamique illustre la complémentarité de TIWIZI avec les dispositifs d'appui à l'innovation existants, contribuant ainsi au renforcement de l'écosystème entrepreneurial du Souss Massa.</p>
-  <img src="public/images/04c_tiwizi_photo-programme.jpeg" alt="Photo du programme TIWIZI" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:6px;margin-top:8px">
+  <img src="public/images/04c_tiwizi_photo-programme.jpeg" alt="Photo du programme TIWIZI" loading="lazy" style="width:100%;height:180px;object-fit:contain;border-radius:6px;margin-top:8px">
   <div class="page-num">32</div>
 </div>
 
@@ -1314,7 +1327,7 @@ new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['20
   <h3 style="font-size:9pt;margin-top:10px">Impact territorial</h3>
   <p>Au-delà des résultats quantitatifs, le programme a renforcé les synergies entre entrepreneurs, institutions, acteurs académiques et professionnels du numérique, contribuant à structurer l'écosystème entrepreneurial d'Essaouira. Cette initiative consolide le rôle du Technopark comme catalyseur d'innovation territoriale.</p>
   <p>Le programme consolide ainsi le positionnement du Technopark comme acteur de proximité capable de détecter, structurer et faire émerger des talents au plus près des territoires. Fort des résultats encourageants de cette première édition, le Technopark Essaouira prévoit de reconduire et d'enrichir le programme dans ses prochaines éditions, en élargissant son périmètre d'accompagnement et en renforçant les collaborations avec les acteurs locaux et internationaux de l'innovation.</p>
-  <img src="public/images/04d_boost-up-lab_impact-territorial.png" alt="Impact territorial Boost Up Lab" loading="lazy" style="width:100%;height:160px;object-fit:contain;border-radius:4px;margin-top:6px">
+  <img src="public/images/04d_boost-up-lab_impact-territorial.png" alt="Impact territorial Boost Up Lab" loading="lazy" style="width:100%;height:260px;object-fit:contain;border-radius:4px;margin-top:6px">
   <div class="page-num">34</div>
 </div>
 
