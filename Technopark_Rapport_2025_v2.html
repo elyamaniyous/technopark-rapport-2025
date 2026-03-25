@@ -68,7 +68,7 @@ body{font-family:'Inter',sans-serif;background:#e0e0e0;color:var(--gray-900)}
     page-break-inside: avoid !important;
   }
   .page + .page { margin-top: 0 !important; }
-  canvas { max-width: 100% !important; }
+  canvas { max-width: 100% !important; page-break-inside: avoid !important; }
   .print-only { display: block !important; }
 }
 @media screen {
@@ -806,6 +806,44 @@ p{font-size:10pt;line-height:1.7;text-align:justify;margin-bottom:11px;color:var
       <tr><td>Impact sur le réseau</td><td>79%</td><td>76%</td><td>74%</td></tr>
     </tbody>
   </table>
+  <div style="position:relative;height:220px;margin:12px 0">
+<canvas id="chartSatAccompagnement"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('chartSatAccompagnement'),{
+  type:'bar',
+  data:{
+    labels:['Accès au financement'],
+    datasets:[
+      {label:'2025',data:[93],backgroundColor:'#534AB7'},
+      {label:'2024',data:[92],backgroundColor:'#AFA9EC'},
+      {label:'2023',data:[86],backgroundColor:'#D3D1C7'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,animation:false,
+    scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'%'}}},
+    plugins:{legend:{position:'bottom'}}}
+});
+</script>
+  <div style="position:relative;height:220px;margin:12px 0">
+<canvas id="chartAccompNombres"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('chartAccompNombres'),{
+  type:'bar',
+  data:{
+    labels:['Accès au financement'],
+    datasets:[
+      {label:'2025',data:[83],backgroundColor:'#534AB7'},
+      {label:'2024',data:[76],backgroundColor:'#AFA9EC'},
+      {label:'2023',data:[99],backgroundColor:'#D3D1C7'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,animation:false,
+    scales:{y:{beginAtZero:true}},
+    plugins:{legend:{position:'bottom'}}}
+});
+</script>
   <p>Depuis 2021, le Technopark a renforcé son dispositif de pilotage de l'accompagnement en mettant en place un système d'évaluation structuré, centré sur les principaux leviers de croissance des startups : l'accès au marché, l'accès au financement et la visibilité. Ce dispositif permet d'apprécier de manière régulière l'efficacité des actions déployées et leur impact concret sur le développement des entreprises accompagnées.</p>
   <p>Les indicateurs traduisent la solidité du modèle d'accompagnement du Technopark. Ils confirment notamment la pertinence des actions menées pour faciliter l'intégration des startups dans les réseaux d'affaires, leur connexion aux opportunités de marché et leur accès aux sources de financement.</p>
   <p>L'évolution des indicateurs entre 2023 et 2025 confirme la solidité et la progression des dispositifs d'accompagnement du Technopark. Les taux de satisfaction demeurent à un niveau élevé, notamment pour l'accès au marché (95 %) et l'accès au financement (93 %), témoignant de la pertinence des actions déployées.</p>
@@ -871,9 +909,9 @@ const dlNone={display:false};
 const dlDonut={display:true,color:'#fff',font:{size:8,family:ff,weight:'700'},formatter:(v)=>v+'%'};
 const base={responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},datalabels:dlBar,tooltip:{cornerRadius:6,padding:8,titleFont:{family:ff},bodyFont:{family:ff}}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:8,family:ff}}},y:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}}}};
 
-new Chart(document.getElementById('chartEntreprises'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Nb entreprises',data:[410,387,393,394,352],backgroundColor:P,borderRadius:5,barPercentage:.4},{label:'Start-ups',data:[141,145,135,128,138],backgroundColor:C,borderRadius:5,barPercentage:.4}]},options:{...base}});
+new Chart(document.getElementById('chartEntreprises'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Nb entreprises',data:[352,387,393,394,410],backgroundColor:P,borderRadius:5,barPercentage:.4},{label:'Start-ups',data:[141,145,135,128,138],backgroundColor:C,borderRadius:5,barPercentage:.4}]},options:{...base}});
 
-new Chart(document.getElementById('chartEntreesSorties'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Entrées',data:[172,143,147,145,156],backgroundColor:T,borderRadius:5,barPercentage:.4},{label:'Sorties',data:[134,122,125,128,127],backgroundColor:G2,borderRadius:5,barPercentage:.4}]},options:{...base}});
+new Chart(document.getElementById('chartEntreesSorties'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Entrées',data:[143,172,147,128,156],backgroundColor:T,borderRadius:5,barPercentage:.4},{label:'Sorties',data:[122,125,145,127,134],backgroundColor:G2,borderRadius:5,barPercentage:.4}]},options:{...base}});
 
 new Chart(document.getElementById('donutDigStartup'),{type:'doughnut',data:{labels:['Startups','Entreprises digitales'],datasets:[{data:[65,35],backgroundColor:[P,CL],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
@@ -883,7 +921,7 @@ new Chart(document.getElementById('chartSecteurs'),{type:'bar',data:{labels:['D�
 
 new Chart(document.getElementById('chartTech'),{type:'bar',data:{labels:['Techno Web/Mobile','Cloud','Data','IA','ERP/CRM','IoT','Réseau & Télécom','RA/RV','Robotique','Impression 3D','Drone'],datasets:[{label:'2024',data:[94,53,54,119,69,51,29,17,11,13,9],backgroundColor:PL,borderRadius:3,barPercentage:.4},{label:'2025',data:[308,232,226,203,117,74,41,43,17,14,12],backgroundColor:P,borderRadius:3,barPercentage:.4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:G5,font:{size:7,family:ff,weight:'600'},offset:2}},scales:{x:{grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff}},border:{display:false}},y:{grid:{display:false},ticks:{color:G5,font:{size:7.5,family:ff},autoSkip:false}}}}});
 
-new Chart(document.getElementById('chartCA'),{type:'doughnut',data:{labels:['<1M MAD','1M-3M MAD','3M-5M MAD','5M-10M MAD','>10M MAD'],datasets:[{data:[76,7,6,3,4],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'55%',plugins:{legend:{display:false},datalabels:dlDonut}}});
+new Chart(document.getElementById('chartCA'),{type:'doughnut',data:{labels:['<1 MMAD','1M-3M MAD','3M-5M MAD','5M-10M MAD','>10M MAD'],datasets:[{data:[76,13,4,3,4],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'55%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
 new Chart(document.getElementById('donutEffectif'),{type:'doughnut',data:{labels:['0-5','6-10','11-20','21-30','31+'],datasets:[{data:[62,22,7,6,3],backgroundColor:[P,C,T,A,B],borderWidth:0,spacing:2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,cutout:'60%',plugins:{legend:{display:false},datalabels:dlDonut}}});
 
@@ -893,7 +931,7 @@ new Chart(document.getElementById('chartEmploisEvol'),{type:'bar',data:{labels:[
 
 new Chart(document.getElementById('chartSat'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Satisfait',data:[64,53,54,54,54],backgroundColor:T,borderRadius:{topLeft:0,topRight:0,bottomLeft:4,bottomRight:4},barPercentage:.5},{label:'Tres satisfait',data:[33,44,41,43,41],backgroundColor:TL,borderRadius:{topLeft:4,topRight:4,bottomLeft:0,bottomRight:0},barPercentage:.5}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},datalabels:{display:true,color:'#fff',font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%'}},scales:{x:{stacked:true,grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{stacked:true,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
 
-new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Taux de reussite',data:[96,95,88,98,96],borderColor:P,pointBackgroundColor:P,pointRadius:5,borderWidth:2,tension:.3},{label:'Taux de perennite',data:[87,87,90,88,94],borderColor:T,pointBackgroundColor:T,pointRadius:5,borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'top',color:(ctx)=>ctx.datasetIndex===0?P:T,font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%',offset:2}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{min:75,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
+new Chart(document.getElementById('chartReussite'),{type:'bar',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Taux de reussite',data:[87,96,88,98,96],backgroundColor:P,borderRadius:5,barPercentage:.4},{label:'Taux de perennite',data:[87,90,95,88,94],backgroundColor:T,borderRadius:5,barPercentage:.4}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'top',color:(ctx)=>ctx.datasetIndex===0?P:T,font:{size:7.5,family:ff,weight:'600'},formatter:v=>v+'%',offset:2}},scales:{x:{grid:{display:false},ticks:{color:G5,font:{size:9,family:ff}}},y:{min:75,max:100,grid:{color:grd},ticks:{color:G5,font:{size:8,family:ff},callback:v=>v+'%'},border:{display:false}}}}});
 </script>
 
 <!-- ============================================================ -->
@@ -1268,6 +1306,46 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
     <div class="rank-card coral"><div class="rank-value">95%</div><div class="rank-name">Taux de satisfaction</div><div class="rank-desc">Exprimé par les startups sur la pertinence des mises en relation</div></div>
     <div class="rank-card blue"><div class="rank-value">170</div><div class="rank-name">Participants AUSIM</div><div class="rank-desc">Aux 4 sessions de matchmaking startups-DSI organisées en 2025</div></div>
   </div>
+  <div style="position:relative;height:220px;margin:12px 0">
+<canvas id="chartMarcheBenef"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('chartMarcheBenef'),{
+  type:'bar',
+  data:{
+    labels:['2023','2024','2025'],
+    datasets:[{
+      label:'Accès au marché – Nb bénéficiaires',
+      data:[92,78,94],
+      backgroundColor:['#D3D1C7','#AFA9EC','#534AB7'],
+      borderRadius:4
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,animation:false,
+    scales:{y:{beginAtZero:true}},
+    plugins:{legend:{display:false}}}
+});
+</script>
+  <div style="position:relative;height:220px;margin:12px 0">
+<canvas id="chartMarcheSat"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('chartMarcheSat'),{
+  type:'bar',
+  data:{
+    labels:['2023','2024','2025'],
+    datasets:[{
+      label:'Accès au marché – Taux satisfaction',
+      data:[91,97,95],
+      backgroundColor:['#D3D1C7','#AFA9EC','#534AB7'],
+      borderRadius:4
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,animation:false,
+    scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'%'}}},
+    plugins:{legend:{display:false}}}
+});
+</script>
   <p>Le Technopark a consolidé, à l'échelle de son réseau, un dispositif structuré de <strong>mises en relation qualifiées</strong>, ayant permis de générer plus de 150 mises en relation entre startups et acteurs clés du marché. Ces interactions, ciblées et orientées business, ont permis aux startups de franchir des étapes commerciales déterminantes, notamment à travers l'obtention de bons de commande, la signature de premiers contrats, le lancement de collaborations opérationnelles et l'intégration dans des chaînes de valeur sectorielles.</p>
   <img src="public/images/04h_marche_cartographie-references.png" alt="Cartographie des références marché — clients des startups Technopark" loading="lazy" class="report-img">
   <h3>Partenariat stratégique Technopark-AUSIM : Club Startup-AUSMOSE</h3>
@@ -1380,6 +1458,25 @@ new Chart(document.getElementById('chartReussite'),{type:'line',data:{labels:['2
   <p><strong>L'Europe demeure la principale zone d'exportation</strong>, avec une forte concentration en <strong>France</strong>, porte d'entrée historique, complétée par l'Allemagne, la Belgique, le Royaume-Uni et la Suisse. <strong>L'Afrique représente un axe stratégique majeur</strong>, notamment en Afrique de l'Ouest. La <strong>région MENA</strong> constitue un autre levier important, avec les Émirats arabes unis et l'Arabie saoudite. Enfin, des marchés plus éloignés en <strong>Amérique, Asie et Océanie</strong> témoignent d'une capacité croissante à intégrer des chaînes de valeur globales.</p>
   <div class="chart-wrap" style="height:180px"><canvas id="chartExport"></canvas></div>
   <div class="legend"><span><span class="ldot" style="background:#185FA5"></span>Europe</span><span><span class="ldot" style="background:#0F6E56"></span>Afrique</span><span><span class="ldot" style="background:#534AB7"></span>MENA</span><span><span class="ldot" style="background:#D85A30"></span>Amérique</span><span><span class="ldot" style="background:#BA7517"></span>Asie-Océanie</span></div>
+  <div style="position:relative;height:250px;margin:12px 0">
+<canvas id="chartExportTranches"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('chartExportTranches'),{
+  type:'doughnut',
+  data:{
+    labels:['Moins de 20%','20%-40%','40%-60%','60%-80%','Plus de 80%'],
+    datasets:[{
+      data:[31,23,13,13,48],
+      backgroundColor:['#534AB7','#D85A30','#0F6E56','#185FA5','#BA7517'],
+      borderWidth:0
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,animation:false,
+    cutout:'60%',
+    plugins:{legend:{position:'bottom'}}}
+});
+</script>
   <p>L'export au sein du réseau Technopark se distingue par sa <strong>forte orientation vers les services numériques à haute valeur ajoutée</strong>, notamment dans des domaines tels que la cybersécurité, l'intelligence artificielle, la healthtech et les solutions data-driven.</p>
   <div class="page-num">41</div>
 </div>
